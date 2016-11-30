@@ -1,0 +1,57 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-color: yellow;
+}
+header{
+    background-color: black;
+    width: 100%;
+}
+#primerdiv{
+      background-color: black;
+    width: 100%;
+}
+#logotipo{
+     height:150px;
+    width:80%;
+}
+
+#botondedesconxion:hover{
+       color:white;
+    background-color: grey;
+    box-shadow:1px 1px 20px yellow;
+    top:45px;
+    float:right;
+  
+  
+}
+#botonderegistro{
+    float:right;
+}
+.clear{
+    clear:both;   
+    
+}
+.barra{
+      display: inline-block;
+}
+#sinomevennoexisto{
+    display: inline-block;
+  width: 100%;
+   text-align: center;
+}
+.primario{
+      display: inline-block;
+
+    text-align: justify;
+  
+}
+header>div:first-child{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}

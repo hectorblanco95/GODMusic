@@ -1,0 +1,39 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-color: yellow;
+}
+.header1{
+    background-color: black;
+    width: 100%;
+}
+#logotipe{
+     height:150px;
+    width:80%;
+}
+
+#posicionar{
+  display: inline-block;
+  width: 100%;
+   text-align: center;
+}
+.number{
+    display: inline-block;
+    margin: 50px;
+    text-align: center;
+    top:5%;
+}
+h2{
+    
+    font-size: 70px;
+   border:solid;
+    
+}
+h1{
+   font-size: 120px;
+    
+}

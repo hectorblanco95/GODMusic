@@ -1,0 +1,74 @@
+/* TODAS */
+
+html,body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-color: yellow;
+}
+.complet{
+    width: 100%;
+}
+#logo{
+    height:150px;
+    width:100%;
+}
+.top{
+    float:left;
+    width:85%;
+}
+#cua{
+    text-align: center;
+}
+.sep{
+    display:block;
+    width:100%;
+}
+.barra{
+    display: inline-block;
+}
+.clear{
+    clear:both;
+}
+.top2{
+    float:right;
+    width:15%;
+    background-color: black;
+    height: 150px;
+    text-align: center;
+}
+
+/* TODAS */
+
+.local{
+    text-align:left;
+    padding-left: 20px;
+}
+.perfil{
+   display: inline-block; 
+}
+.blue{
+    color:blue;
+}
+#perfil{
+    font-size: 80px;
+}
+#maps{
+    width:45%;
+}
+.fotolocal{
+    width:15%;
+}
+.loka{
+    display: inline-block;
+}
+.nombre{
+    font-size: 50px;
+}
+.resto{
+    padding-top: 10px;
+    font-size: 30px;
+}
