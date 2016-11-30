@@ -65,11 +65,13 @@ footer{
     top:45px;
     border-color:white;
     border-width: 5px;
-    background-color: purple;
+    background-color: white;
     color: black;
     cursor: pointer;
     box-shadow: 2px 2px 2px grey;
     padding:0 0.3em 0 0.3em;
+    margin-bottom:5%;
+    width: 80%;
 }
 .top2{
     float:right;
@@ -151,13 +153,14 @@ head{
 }
 #botonderegistro{
     position:relative;
-     border-color:white;
+    border-color:white;
     border-width: 5px;
     top:45px;
-    background-color: purple;
+    background-color: white;
     border:5px white;
     color:black;
     box-shadow: 2px 2px 2px grey;
+    width:85%;
 }
   
     
