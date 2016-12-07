@@ -73,6 +73,9 @@ footer{
     margin-bottom:5%;
     width: 80%;
 }
+#submit{
+    margin-top: 5%;
+}
 .top2{
     float:right;
     width:15%;
@@ -130,16 +133,14 @@ head{
     display: none;
     width: 15%;
     hight:35%;
-  
     position: absolute;
     top:0%;
     bottom: 77%;
     right:0%;
     background-color: #33ffff;
     border:  solid black;
-   
     padding: 5px;
-    text-align: center;
+    text-align: justify;
     z-index: 25;
 }
 .cd:hover>.hd{
