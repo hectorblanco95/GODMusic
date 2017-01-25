@@ -1,0 +1,178 @@
+/* TODAS */
+
+html,body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-color: yellow;
+}
+.complet{
+    width: 100%;
+}
+#logo{
+    height:150px;
+    width:100%;
+}
+.top{
+    float:left;
+    width:85%;
+}
+#cua{
+    text-align: center;
+}
+.sep{
+    display:block;
+    width:100%;
+}
+.barra{
+    display: inline-block;
+    margin: 4px;
+    text-align: center;
+    vertical-align: top;
+}
+#cent{
+    height: 33px;
+}
+.clear{
+    clear:both;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+}
+footer{
+   background-color: white;
+   text-align: center;
+   width: 100%;
+   margin-top:2%;
+   border-top:solid;
+   padding-top:2%;
+   padding-bottom:2%;
+}
+.imgbarra{
+    
+}
+.genimg{
+    margin-bottom: 8%;
+}
+/* TODAS */
+
+
+.button{
+    position: relative;
+    top:45px;
+    border-color:white;
+    border-width: 5px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px grey;
+    padding:0 0.3em 0 0.3em;
+    margin-bottom:5%;
+    width: 80%;
+}
+#submit{
+    margin-top: 5%;
+}
+.top2{
+    float:right;
+    width:15%;
+    background-color: black;
+    height: 150px;
+    text-align: center;
+}
+.blanco{
+    color:white;
+}
+.protot{
+    display: inline-block;
+    vertical-align: top;
+    width:100%;
+    height:100%;
+    padding: 10px;
+}
+.prox{
+    display: inline-block;
+    padding-left: 10px;
+    vertical-align: top; 
+}
+.prox2{
+    display: inline-block;
+    width: 300px;
+    height: 110px;
+    margin-left: 20px;
+    margin-top: 8px;    
+    text-align: justify;
+    vertical-align: top; 
+}
+#proxc{
+    height: 110px;
+    width: 110px;
+}
+.gen{
+    display: inline-block;
+}
+.gen2{
+    display: inline-block;
+    margin:10px;
+}
+h1{
+   border: solid;
+   background-color: white;
+   text-align: center;
+}
+h2{
+   border: solid;
+   background-color: white;
+   text-align: center;
+}
+body>div:nth-child(2){
+   float:left;
+   width: 83%;
+   padding:20px;
+   text-align: center;
+}
+head{
+    background-color: black;
+}
+.cd form>*{
+    display: block;
+}
+.cd>.hd{
+    display: none;
+    width: 15%;
+    hight:35%;
+    position: absolute;
+    top:0%;
+    bottom: 77%;
+    right:0%;
+    background-color: #33ffff;
+    border:  solid black;
+    padding: 5px;
+    text-align: justify;
+    z-index: 25;
+}
+.cd:hover>.hd{
+    display: block;
+}
+#botonderegistro:hover{
+    color:white;
+    background-color: grey;
+    shadow-box:1px 1px 20px yellow;
+    
+}
+#botonderegistro{
+    position:relative;
+    border-color:white;
+    border-width: 5px;
+    top:45px;
+    background-color: white;
+    border:5px white;
+    color:black;
+    box-shadow: 2px 2px 2px grey;
+    width:85%;
+}
+  
+    

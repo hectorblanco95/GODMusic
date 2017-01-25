@@ -8,7 +8,7 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>GrupsHomePage</title>
-        <link href="estil.css" rel="stylesheet" type="text/css"/>
+        <link href="homepage.css" rel="stylesheet" type="text/css"/>
          <link href="basic1.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
