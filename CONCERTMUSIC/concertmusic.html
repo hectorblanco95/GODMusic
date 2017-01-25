@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    
+
         <title>Homepage</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
                          title="music"/>  
                 </div>
                 <div class="top2">    
-                  <div class="cd">
+                    <div class="cd">
                         <div class="button">Iniciar Sesión</div>
                         <form class="hd">
                             <label for="inputNombre">Nombre de usuario:</label>
@@ -27,11 +27,11 @@
                             <input id="submit" type="submit"  value="Iniciar Sesión">
                         </form>
                     </div>
-                
-                    
-                <div >
-                    <input id="botonderegistro" class="sep" type="button" value="Registrarse" onClick="location.href = 'registro.php'" />
-                </div>
+
+
+                    <div >
+                        <input id="botonderegistro" class="sep" type="button" value="Registrarse" onClick="location.href = 'registro.php'" />
+                    </div>
                 </div>    
             </header>
             <div class="clear">
@@ -42,41 +42,188 @@
                 <div class="barra"><img class="imgbarra" src="img/buscar.png" alt="buscar"/></div>  
             </div>
         </div>
-        
-        <div id="cuo">
-        <div>
-            <h1>Votación de conciertos</h1>
-            <div id="local">
-                <dl> local
-                    <dt>a</dt>
-                    <dt>s</dt>
-                    <dt>d</dt>
-                    <dt>e</dt>
-                    <dt>r</dt>
-                </dl>
+
+        <div class="cuo">
+            <h1>Conciertos que tienes asignados</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th width="17%">Local</th>
+                        <th width="17%">Ciutat</th>
+                        <th width="21%">Direcció</th>					   
+                        <th width="17%">Data concert</th>
+                        <th width="14%">Hora</th>
+                        <th width="12%">Valor econòmic</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="">Templo Musical</a></td>
+                        <td>Barcelona</td>
+                        <td>Urgen 23</td>
+                        <td>23-12-2016</td>
+                        <td>11:30 PM</td>
+                        <td>300€</td>
+                    </tr>
+                    <tr>
+                        <td><a href="">Music24h</a></td>
+                        <td>Sabadell</td>
+                        <td>Major 65</td>
+                        <td>24-12-2016</td>
+                        <td>09:00 PM</td>
+                        <td>200€</td>
+                    </tr>
+                    <tr>
+                        <td><a href="local.html">Nits De Sounds</a></td>
+                        <td>Barcelona</td>
+                        <td>Urgell 22</td>
+                        <td>25-12-2016</td>
+                        <td>10:30 PM</td>
+                        <td>300€</td>
+                    </tr>
+                    <tr>
+                        <td><a href="">Moon Soul</a></td>
+                        <td>Barcelona</td>
+                        <td>Port vell 23</td>
+                        <td>26-12-2016</td>
+                        <td>12:30 PM</td>
+                        <td>350€</td>
+                    </tr>
+                    <tr>
+                        <td><a href="">Andromeda</a></td>
+                        <td>Mataro</td>
+                        <td>Major 86</td>
+                        <td>28-12-2016</td>
+                        <td>12:30 PM</td>
+                        <td>350€</td>
+                    </tr>
+                    <tr>
+                        <td><a href="">Hot Music</a></td>
+                        <td>Cornella</td>
+                        <td>Josep Anselm 29</td>
+                        <td>29-12-2016</td>
+                        <td>11:30 PM</td>
+                        <td>150€</td>
+                    </tr>
+                    <tr>
+                        <td><a href="">Tom's nine</a></td>
+                        <td>Barcelona</td>
+                        <td>Diagonal 423</td>
+                        <td>30-12-2016</td>
+                        <td>11:30 PM</td>
+                        <td>250€</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="cuo">
+                <h1>Conciertos pendientes de assignación de músico/grupo</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="17%">Local</th>
+                            <th width="12%">Ciutat</th>
+                            <th width="18%">Direcció</th>
+                            <th width="10%">Data concert</th>
+                            <th width="13%">Hora</th>
+                            <th width="10%">Gènere</th>							
+                            <th width="10%">Valor econòmic</th>					
+                            <th colspan="2" width="10%">Accions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="">Dream's loom</a></td>
+                            <td>Barcelona</td>
+                            <td>Provenza 89</td>
+                            <td>23-12-2016</td>
+                            <td>11:30 PM</td>
+                            <td>Rock</td>							
+                            <td>350€</td>							
+                            <td><a href=""></a></td>
+                            <td><a href="">Baixa</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="">Sound beach</a></td>
+                            <td>Barcelona</td>
+                            <td>Numancia 230</td>	
+                            <td>24-12-2016</td>
+                            <td>09:00 PM</td>
+                            <td>Jazz</td>
+                            <td>150€</td>
+                            <td><a href="">Alta</a></td>
+                            <td><a href=""></a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="">Macco Kaffe</a></td>
+                            <td>Barcelona</td>
+                            <td>Villaroel 178</td>							
+                            <td>25-12-2016</td>
+                            <td>10:30 PM</td>
+                            <td>Pop</td>							
+                            <td>250€</td>							
+                            <td><a href=""></a></td>
+                            <td><a href="">Baixa</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="">Arena Sound</a></td>
+                            <td>Barcelona</td>
+                            <td>Madrazo 252</td>	
+                            <td>26-12-2016</td>
+                            <td>12:30 PM</td>
+                            <td>Pop</td>
+                            <td>250€</td>							
+                            <td><a href="">Alta</a></td>
+                            <td><a href=""></a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="">Silence 2000</a></td>
+                            <td>Sabadell</td>
+                            <td>Juan d'avila 23</td>
+                            <td>27-12-2016</td>
+                            <td>11:00 PM</td>
+                            <td>Blues</td>
+                            <td>150€</td>
+                            <td><a href="">Alta</a></td>
+                            <td><a href=""></a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="">Romantic Soul</a></td>
+                            <td>Barcelona</td>
+                            <td>Pedralbes 22</td>
+                            <td>28-12-2016</td>
+                            <td>11:00 PM</td>
+                            <td>Jazz</td>
+                            <td>350€</td>							
+                            <td><a href=""></a></td>
+                            <td><a href="">Baixa</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="">Draks White</a></td>
+                            <td>Terrassa</td>
+                            <td>Oliver 56</td>						
+                            <td>28-12-2016</td>
+                            <td>12:30 PM</td>
+                            <td>Bachata</td>
+                            <td>250€</td>
+                            <td><a href="">Alta</a></td>
+                            <td><a href=""></a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div id="musico"></div>
-            <div id="ciudad"></div>
-            <div id="fecha"></div>
-            <div id="votos"></div>
-            <div id="votar"></div>
         </div>
-            
-        <div>
-            <h1>Votación de musicos/grupos</h1>
-                
-        </div>
-            
         <footer class="clear">
             <div> 
-            IDIOMA: <select name="idioma">
-            <option value="idioma">SELECCIONA EL IDIOMA QUE DESEAS</option>
-            <option value="english">INGLES</option>
-            <option value="spanish">ESPAÑOL</option>
-            <option value="catalan">CATALAN</option>
-            </select>
+                IDIOMA: <select name="idioma">
+                    <option value="idioma">SELECCIONA EL IDIOMA QUE DESEAS</option>
+                    <option value="english">INGLES</option>
+                    <option value="spanish">ESPAÑOL</option>
+                    <option value="catalan">CATALAN</option>
+                </select>
             </div>
         </footer>
     </body>
-        
+
 </html>

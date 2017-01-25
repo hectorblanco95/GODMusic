@@ -23,6 +23,24 @@ body{
 #cua{
     text-align: center;
 }
+.cuo{
+    width: 100%;
+    background-image: none;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto auto;
+    box-sizing: border-box;
+    padding: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
 .sep{
     display:block;
     width:100%;
@@ -43,16 +61,16 @@ body{
     vertical-align: top;
 }
 footer{
-   background-color: white;
-   text-align: center;
-   width: 100%;
-   margin-top:2%;
-   border-top:solid;
-   padding-top:2%;
-   padding-bottom:2%;
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    margin-top:2%;
+    border-top:solid;
+    padding-top:2%;
+    padding-bottom:2%;
 }
 .imgbarra{
-    
+
 }
 .genimg{
     margin-bottom: 8%;
@@ -119,20 +137,20 @@ footer{
     margin:10px;
 }
 h1{
-   border: solid;
-   background-color: white;
-   text-align: center;
+    border: solid;
+    background-color: white;
+    text-align: center;
 }
 h2{
-   border: solid;
-   background-color: white;
-   text-align: center;
+    border: solid;
+    background-color: white;
+    text-align: center;
 }
 body>div:nth-child(2){
-   float:left;
-   width: 83%;
-   padding:20px;
-   text-align: center;
+    float:left;
+    width: 83%;
+    padding:20px;
+    text-align: center;
 }
 head{
     background-color: black;
@@ -161,7 +179,7 @@ head{
     color:white;
     background-color: grey;
     shadow-box:1px 1px 20px yellow;
-    
+
 }
 #botonderegistro{
     position:relative;
@@ -174,5 +192,4 @@ head{
     box-shadow: 2px 2px 2px grey;
     width:85%;
 }
-  
-    
+
