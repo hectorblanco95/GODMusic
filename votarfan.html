@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+        <title>Homepage</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="estil.css" rel="stylesheet" type="text/css"/>
+
+    </head>
+    <body>
+        <div id="cua">
+            <header class="complet">
+                <div class="top">
+                    <img id="logo" src="logo.PNG"
+                         alt="music"
+                         title="music"/>  
+                </div>
+                <div class="top2">    
+                  <div class="cd">
+                        <div class="button">Iniciar Sesión</div>
+                        <form class="hd">
+                            <label for="inputNombre">Nombre de usuario:</label>
+                            <input name="nombre" id="inputNombre" type="text">
+                            <label for="inputPass">Contraseña:</label>
+                            <input name="pass" id="pass" type="password">
+                            <input id="submit" type="submit"  value="Iniciar Sesión">
+                        </form>
+                    </div>
+                
+                    
+                <div >
+                    <input id="botonderegistro" class="sep" type="button" value="Registrarse" onClick="location.href = 'registro.php'" />
+                </div>
+                </div>    
+            </header>
+            <div class="clear">
+                <div class="barra"><img class="imgbarra" src="img/inicio.png" alt="inicio"/></div>               
+                <div class="barra"><img class="imgbarra" src="img/perfil.png" alt="perfil"/></div>   
+                <div class="barra"><img class="imgbarra" src="img/contacto.png" alt="contacto"/></div>   
+                <div class="barra"> <input id="cent" type="text" placeholder="Buscar..."/></div>
+                <div class="barra"><img class="imgbarra" src="img/buscar.png" alt="buscar"/></div>  
+            </div>
+        </div>
+        
+        <div id="cuo">
+        <div>
+            <h1>Votación de conciertos</h1>
+            <div id="local">
+                <dl> local
+                    <dt>a</dt>
+                    <dt>s</dt>
+                    <dt>d</dt>
+                    <dt>e</dt>
+                    <dt>r</dt>
+                </dl>
+            </div>
+            <div id="musico"></div>
+            <div id="ciudad"></div>
+            <div id="fecha"></div>
+            <div id="votos"></div>
+            <div id="votar"></div>
+        </div>
+            
+        <div>
+            <h1>Votación de musicos/grupos</h1>
+                
+        </div>
+            
+        <footer class="clear">
+            <div> 
+            IDIOMA: <select name="idioma">
+            <option value="idioma">SELECCIONA EL IDIOMA QUE DESEAS</option>
+            <option value="english">INGLES</option>
+            <option value="spanish">ESPAÑOL</option>
+            <option value="catalan">CATALAN</option>
+            </select>
+            </div>
+        </footer>
+    </body>
+        
+</html>
