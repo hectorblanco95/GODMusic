@@ -2,17 +2,18 @@
 <html>
     <head>
     
-        <title>Homepage</title>
+        <title>Votar Fan</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="votarfan.css" rel="stylesheet" type="text/css"/>
 
     </head>
+   
     <body>
         <div id="cua">
             <header class="complet">
                 <div class="top">
-                    <img id="logo" src="logo.PNG"
+                    <img id="logo" src="../img/logo.PNG"
                          alt="music"
                          title="music"/>  
                 </div>
@@ -35,19 +36,75 @@
                 </div>    
             </header>
             <div class="clear">
-                <div class="barra"><img class="imgbarra" src="img/inicio.png" alt="inicio"/></div>               
-                <div class="barra"><img class="imgbarra" src="img/perfil.png" alt="perfil"/></div>   
-                <div class="barra"><img class="imgbarra" src="img/contacto.png" alt="contacto"/></div>   
-                <div class="barra"> <input id="cent" type="text" placeholder="Buscar..."/></div>
-                <div class="barra"><img class="imgbarra" src="img/buscar.png" alt="buscar"/></div>  
+                <div class="barra"><img class="imgbarra" src="../img/inicio.png" alt="inicio"/></div>               
+                <div class="barra"><img class="imgbarra" src="../img/perfil.png" alt="perfil"/></div>   
+                <div class="barra"><img class="imgbarra" src="../img/contacto.png" alt="contacto"/></div>   
+                <div class="barra"><input id="cent" type="text" placeholder="Buscar..."/></div>
+                <div class="barra"><img class="imgbarra" src="../img/buscar.png" alt="buscar"/></div>  
             </div>
         </div>
         
         <div id="cuo">
-        <div>
-            
+        <div><h1>Votar locales</h1>
+            <table id="table">
+                <tr class="celdas">
+                    <td class="local">LOCAL</td>
+                    <td class="musico">MUSICO/GRUPO</td>
+                    <td class="lugar">CIUDAD</td>
+                    <td class="fecha">FECHA</td>
+                    <td class="hora">HORA</td>
+                    <td class="votos">VOTOS</td>
+                    <td class="votar">VOTAR</td>
+                </tr>
+                <tr class="celdas">
+                    <td class="local">Los frisoles</td>
+                    <td class="musico">Canto del loco</td>
+                    <td class="lugar">Barcelona</td>
+                    <td class="fecha">28/05/2015</td>
+                    <td class="hora">12:00h</td>
+                    <td class="votos">13</td>
+                    <td class="votar">+1 / -1</td>
+                </tr>
+                <tr class="celdas">
+                    <td class="local">Cafe de jou</td>
+                    <td class="musico">La Raiz</td>
+                    <td class="lugar">Tarragona</td>
+                    <td class="fecha">29/05/2015</td>
+                    <td class="hora">22:00h</td>
+                    <td class="votos">40</td>
+                    <td class="votar">+1 / -1</td>
+                </tr>
+                <tr class="celdas">
+                    <td class="local">La miranda</td>
+                    <td class="musico">Aspencat</td>
+                    <td class="lugar">Manresa</td>
+                    <td class="fecha">30/05/2015</td>
+                    <td class="hora">20:00h</td>
+                    <td class="votos">00</td>
+                    <td class="votar">+1 / -1</td>
+                </tr>
+                <tr class="celdas">
+                    <td class="local">Lokos</td>
+                    <td class="musico">Lendakaris muertos</td>
+                    <td class="lugar">Barcelona</td>
+                    <td class="fecha">02/06/2015</td>
+                    <td class="hora">12:40h</td>
+                    <td class="votos">20</td>
+                    <td class="votar">+1 / -1</td>
+                </tr>
+                <tr class="celdas">
+                    <td class="local">Satva club</td>
+                    <td class="musico">Green Valley</td>
+                    <td class="lugar">Lleida</td>
+                    <td class="fecha">10/06/2015</td>
+                    <td class="hora">13:00h</td>
+                    <td class="votos">10</td>
+                    <td class="votar">+1 / -1</td>
+                </tr>
+            </table>
+        </div>                  
         </div>
-   
+        
         <footer class="clear">
             <div> 
             IDIOMA: <select name="idioma">
