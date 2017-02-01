@@ -5,27 +5,41 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="perfilfan.css" rel="stylesheet" type="text/css"/>
     </head>
-    <header>
-        <div>
-        <div id="primerdiv">
-          <img id="logotipo" src="logo.PNG"
-                     alt="music"
-                     title="music"/>  
-          </div>
-                    <input id="botondedesconxion" type="button" value="desconectar" onClick="location.href = 'registro.php'" />
-              
-         
-    </header>
-     
-    
-            <div class="clear">
-                <div class="barra"> <input type="button" value="INICIO" onClick="location.href = 'index.html'" /></div>
-                <div class="barra"> <input type="button" value="PERFIL" onClick="location.href = 'perfil.html'" /></div>
-                <div class="barra"> <input type="button" value="CONTACTO" onClick="location.href = 'contacto.html'" /></div>
-                <div class="barra"> <input type="button" value="BUSCADOR" onClick="location.href = 'dirección'" /></div>
-            </div>
-     
     <body>
+        <div id="cua">
+            <header class="complet">
+                <div class="top">
+                    <img id="logo" src="../img/logo.PNG"
+                         alt="music"
+                         title="music"/>  
+                </div>
+                <div class="top2">    
+                  <div class="cd">
+                        <div class="button">Iniciar Sesión</div>
+                        <form class="hd">
+                            <label for="inputNombre">Nombre de usuario:</label>
+                            <input name="nombre" id="inputNombre" type="text">
+                            <label for="inputPass">Contraseña:</label>
+                            <input name="pass" id="pass" type="password">
+                            <input id="submit" type="submit"  value="Iniciar Sesión">
+                        </form>
+                    </div>
+                
+                    
+                <div >
+                    <input id="botonderegistro" class="sep" type="button" value="Registrarse" onClick="location.href = 'registro.php'" />
+                </div>
+                </div>    
+            </header>
+            <div class="clear">
+                <div class="barra"><img class="imgbarra" src="../img/inicio.png" alt="inicio"/></div>               
+                <div class="barra"><img class="imgbarra" src="../img/perfil.png" alt="perfil"/></div>   
+                <div class="barra"><img class="imgbarra" src="../img/contacto.png" alt="contacto"/></div>   
+                <div class="barra"><input id="cent" type="text" placeholder="Buscar..."/></div>
+                <div class="barra"><img class="imgbarra" src="../img/buscar.png" alt="buscar"/></div>  
+            </div>
+        </div>
+        
         <div id="sinomevennoexisto">
             <u> <h1>Modificar perfil<h1></u>
         <div class="primario">
