@@ -6,6 +6,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="homepage.css" rel="stylesheet" type="text/css"/>
+        <script src="../jquery-3.1.1.min.js" type="text/javascript"></script>
+        <script src="../iniciosesion.js" type="text/javascript"></script>
 
     </head>
    
@@ -18,22 +20,12 @@
                          title="music"/>  
                 </div>
                 <div class="top2">    
-                  <div class="cd">
-                        <div class="button">Iniciar Sesión</div>
-                        <form class="hd">
-                            <label for="inputNombre">Nombre de usuario:</label>
-                            <input name="nombre" id="inputNombre" type="text">
-                            <label for="inputPass">Contraseña:</label>
-                            <input name="pass" id="pass" type="password">
-                            <input id="submit" type="submit"  value="Iniciar Sesión">
-                        </form>
-                    </div>
-                
-                    
-                <div >
-                    <input id="botonderegistro" class="sep" type="button" value="Registrarse" onClick="location.href = 'registro.php'" />
+                <div>
+                    <div id="botoninicio">Iniciar Sesión</div>
+                    <div id="botonregistro">Registrarse</div>         
                 </div>
-                </div>    
+                </div>   
+                
             </header>
             <div class="clear">
                 <div class="barra"><img class="imgbarra" src="../img/inicio.png" alt="inicio"/></div>               

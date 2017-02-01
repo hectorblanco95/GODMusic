@@ -102,13 +102,7 @@ head{
 .cd:hover>.hd{
     display: block;
 }
-#botonderegistro:hover{
-    color:white;
-    background-color: grey;
-    shadow-box:1px 1px 20px yellow;
-    
-}
-#botonderegistro{
+#botonregistro{
     position:relative;
     border-color:white;
     border-width: 5px;
@@ -117,7 +111,19 @@ head{
     border:5px white;
     color:black;
     box-shadow: 2px 2px 2px grey;
-    width:85%;
+    width:180px;
+}
+#botoninicio{
+    position:relative;
+    border-color:white;
+    border-width: 5px;
+    top:45px;
+    background-color: white;
+    border:5px white;
+    color:black;
+    box-shadow: 2px 2px 2px grey;
+    width:180px;
+    margin-bottom: 5px;
 }
 h1{
    border: solid;
