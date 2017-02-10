@@ -1,239 +1,232 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Homepage</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="homepage.css" rel="stylesheet" type="text/css"/>
+    <title>Homepage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+    <link href="homepage.css" rel="stylesheet" type="text/css" />
+    <link href="/HOMEPAGE/new-age.css" rel="stylesheet">
 </head>
 
-    <body>
-        <div id="cua">
-            <header class="complet">
-                <div class="top">
-                    <img id="logo" src="../img/logo.PNG"
-                         alt="music"
-                         title="music"/>  
-                </div>
-                <div class="top2">    
-                <div>
-                    <button type="button" id="botoninicio" data-toggle="modal" data-target="#inicio">Iniciar Sesión</button>
-                    <button type="button" id="botonregistro" data-toggle="modal" data-target="#registro">Registrarse</button>         
-                </div>
-                </div>   
-                
-            </header>
+<body id="page-top">
+    <div id="cua">
+        <header class="complet">
+            <div class="top">
+                <img id="logo" src="../img/logo.PNG" alt="music" title="music" />
+            </div>
+        </header>
 
-            <div id="registro" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Registrarse</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                Nombre de usuario: <input name="perfil" placeholder="Nombre de usuario" type="text" required/><br>
-                                Contraseña: <input name="pass" placeholder="Contraseña" type="password" required/><br>
-                                Confirmar contraseña: <input name="pass" placeholder="Confirmar contaseña" type="password" required/><br>
-                                Email: <input name="mail" placeholder="Correo electronico" type="email" required/><br>
-                                Confirmar Email: <input name="mail" placeholder="Correo electronico" type="email" required/><br>
-                                Fan <input id='fan' type='radio'/>
-                                Musico <input id='musico' type='radio'/>
-                                Local <input id='local' type='radio'/><br>
-                                <input value="Registrarse" type="submit" id="registro"/>
-                            </p>
-                        </div>                       
+        <div id="registro" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Registrarse</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Nombre de usuario: <input name="perfil" placeholder="Nombre de usuario" type="text" required/><br> Contraseña: <input name="pass" placeholder="Contraseña" type="password" required/><br> Confirmar contraseña: <input name="pass"
+                                placeholder="Confirmar contaseña" type="password" required/><br> Email: <input name="mail" placeholder="Correo electronico" type="email" required/><br> Confirmar Email: <input name="mail" placeholder="Correo electronico" type="email"
+                                required/><br> Fan <input id='fan' type='radio' /> Musico <input id='musico' type='radio' /> Local <input id='local' type='radio' /><br>
+                            <input value="Registrarse" type="submit" id="registro" />
+                        </p>
                     </div>
                 </div>
             </div>
-            
-            <div id="inicio" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Iniciar Sesión</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                <label for='inputNombre'>Nombre de usuario:</label>
-                                <input name='nombre' id='inputNombre' type='text'><br>
-                                <label for='inputPass'>Contraseña:</label>
-                                <input name='pass' id='pass' type='password'><br>
-                                <input id='submitinicio' type='submit' value='Iniciar Sesión'>
-                            </p>
-                        </div>                       
+        </div>
+
+        <div id="inicio" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Iniciar Sesión</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <label for='inputNombre'>Nombre de usuario:</label>
+                            <input name='nombre' id='inputNombre' type='text'><br>
+                            <label for='inputPass'>Contraseña:</label>
+                            <input name='pass' id='pass' type='password'><br>
+                            <input id='submitinicio' type='submit' value='Iniciar Sesión'>
+                        </p>
                     </div>
                 </div>
             </div>
-            
-            <div class="clear">
-            <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">GODMusic</a>
+        </div>
+
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Pagina Principal</a></li>
-      <li><a href="#">Perfil</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
-    <form class="navbar-form navbar-left">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Buscar">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit">
-            <i class="glyphicon glyphicon-search"></i>
-          </button>
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">GODMusic</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a class="page-scroll" href="#download">Pagina Principal</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#features">Perfil</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">
+                            <button<span type="button" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#registro"></span>
+                                </button> Sign Up</a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <button<span type="button" class="glyphicon glyphicon-log-in" data-toggle="modal" data-target="#inicio"></span>
+                                </button> Login</a>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
-    </form>
-  </div>
-</nav>
-</div>
-        </div>
-        
-        <div id="cuo">
+    </nav>
+
+
+
+    <div id="cuo">
         <div>
             <h1>Próximos conciertos</h1>
             <div class="protot">
-                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc"/>
+                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
                     <div class="prox2">
-                        
-                        Lendakaris Muertos <br>
-                        Genero: Punk Rock <br>
-                        Fecha: 12/02/2017 <br>
-                        Sitio: La Taberna de Moe <br>
+
+                        Lendakaris Muertos <br> Genero: Punk Rock <br> Fecha: 12/02/2017 <br> Sitio: La Taberna de Moe <br>
                         <a href=""> Mas información</a>
-                        
+
                     </div>
                 </div>
-                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc"/>
+                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
                     <div class="prox2">
-                        
-                        Peter Anguila <br>
-                        Genero: Algo <br>
-                        Fecha: 32/08/2005 <br>
-                        Sitio: La Playa <br>
+
+                        Peter Anguila <br> Genero: Algo <br> Fecha: 32/08/2005 <br> Sitio: La Playa <br>
                         <a href=""> Mas información</a>
-                        
+
                     </div>
                 </div>
             </div>
             <div class="protot">
-                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc"/>
+                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
                     <div class="prox2">
-                        
-                        Metallika <br>
-                        Genero: Black Death Metalcore  <br>
-                        Fecha: 01/08/2111 <br>
-                        Sitio: Tropicus <br>
+
+                        Metallika <br> Genero: Black Death Metalcore <br> Fecha: 01/08/2111 <br> Sitio: Tropicus <br>
                         <a href=""> Mas información</a>
-                        
+
                     </div>
                 </div>
-                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc"/>
+                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
                     <div class="prox2">
-                        
-                        Malign OS <br>
-                        Genero: Trap <br>
-                        Fecha: 22/10/2016 <br>
-                        Sitio: iPeer Bar <br>
+
+                        Malign OS <br> Genero: Trap <br> Fecha: 22/10/2016 <br> Sitio: iPeer Bar <br>
                         <a href=""> Mas información</a>
-                        
+
                     </div>
                 </div>
             </div>
             <div class="protot">
-                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc"/>
+                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
                     <div class="prox2">
-                        
-                        Jon Bovi <br>
-                        Genero: Rock <br>
-                        Fecha: 02/12/2025 <br>
-                        Sitio: La Cabra Negre <br>
+
+                        Jon Bovi <br> Genero: Rock <br> Fecha: 02/12/2025 <br> Sitio: La Cabra Negre <br>
                         <a href=""> Mas información</a>
-                        
+
                     </div>
                 </div>
-                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc"/>
+                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
                     <div class="prox2">
-                        
-                        Gawn Pang <br>
-                        Genero: Rap Tropical <br>
-                        Fecha: 12/08/2017 <br>
-                        Sitio: Circo Polar Artico <br>
+
+                        Gawn Pang <br> Genero: Rap Tropical <br> Fecha: 12/08/2017 <br> Sitio: Circo Polar Artico <br>
                         <a href=""> Mas información</a>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
         <div>
-            <h2>Musicos por genero</h2>
+            <h1>Musicos por genero</h1>
             <div>
                 <div class="gen">
                     <div>
-                        <div><img class="genimg" src="../img/house.png" alt="house"/></div> 
+                        <div><img class="genimg" src="../img/house.png" alt="house" /></div>
                     </div>
-                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc"/>
+                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
                         <div>Nombre</div>
                     </div>
-                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc"/>
+                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
                         <div>Nombre</div>
-                    </div>                     
+                    </div>
                 </div>
                 <div class="gen">
                     <div>
-                        <div><img class="genimg" src="../img/rap.png" alt="house"/></div>
+                        <div><img class="genimg" src="../img/rap.png" alt="house" /></div>
                     </div>
-                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc"/>
+                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
                         <div>Nombre</div>
                     </div>
-                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc"/>
+                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
                         <div>Nombre</div>
-                    </div>                   
+                    </div>
                 </div>
                 <div class="gen">
                     <div>
-                        <div><img class="genimg" src="../img/reggae.png" alt="house"/></div>
+                        <div><img class="genimg" src="../img/reggae.png" alt="house" /></div>
                     </div>
-                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc"/>
+                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
                         <div>Nombre</div>
                     </div>
-                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc"/>
+                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
                         <div>Nombre</div>
-                    </div>                
+                    </div>
                 </div>
                 <div class="gen">
                     <div>
-                        <div><img class="genimg" src="../img/rock.png" alt="house"/></div>
+                        <div><img class="genimg" src="../img/rock.png" alt="house" /></div>
                     </div>
-                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc"/>
+                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
                         <div>Nombre</div>
                     </div>
-                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc"/>
+                    <div class="gen2"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
                         <div>Nombre</div>
-                    </div>                   
+                    </div>
                 </div>
-            </div><br>  
+            </div><br>
             <input type="button" value="Todos los generos" onClick="location.href = 'dirección'" />
-        </div>            
         </div>
-        <footer class="clear">
-            <div> 
+    </div>
+    <footer class="clear">
+        <div>
             IDIOMA: <select name="idioma">
             <option value="idioma">SELECCIONA EL IDIOMA QUE DESEAS</option>
             <option value="english">INGLES</option>
             <option value="spanish">ESPAÑOL</option>
             <option value="catalan">CATALAN</option>
             </select>
-            </div>
-        </footer>
-    </body>
-        
+        </div>
+    </footer>
+</body>
+
 </html>
