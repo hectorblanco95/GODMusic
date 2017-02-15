@@ -2,12 +2,12 @@
 <html>
 
 <head>
-    <title>Perfillocal</title>
+    <title>Perfilfan</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/vendor!!!/bootstrap/css/bootstrap.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link href="/PERFILLOCAL/perfillocal.css" rel="stylesheet" type="text/css" />
+    <link href="/PERFILFAN/perfilfan.css" rel="stylesheet" type="text/css" />
     <link href="/CSS.css" rel="stylesheet" type="text/css" />
     <link href="/HOMEPAGE/new-age.css" rel="stylesheet">
 </head>
@@ -119,56 +119,32 @@
         </div>
     </nav>
 
-    <div class="local">
-
-        <div class="nombre">NOMBRE DEL LOCAL</div>
-        <div class="blue">
-            <input type="button" value="Modificar nombre" onClick="location.href = 'index.html'" />
+    <div id="sinomevennoexisto">
+        <u> <h1>Modificar perfil<h1></u>
+        <div class="primario">
+            <div>Telefono:<input name="telefono" placeholder="Numero de telefono" type="text" /></div>
+            <div>Contraseña:<input name="pass" placeholder="Contraseña" type="password" /></div>
+            <div> Confirmar contraseña:<input name="pass2" placeholder="Confirmar contaseña" type="password" /></div>
+            <div> Email:<input name="mail" placeholder="Dirección de correo electronico" type="email" /></div>
+            <div> Estilos de musica que te interesan:</div>
+            <div> Rap<input name="mail" type="radio" /></div>
+            <div> Trap<input name="mail" type="radio" /></div>
+            <div> house<input name="mail" type="radio" /></div>
+            <div> Rock<input name="mail" type="radio" /></div>
+            <div> Reggae<input name="mail" type="radio" /></div>
+            <div><input id="cuarentaysientecomados" value="Modificar" type="submit" /></div>
         </div>
+        <div id="primario">
 
-        <div class="resto">Descripción</div>
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla neque turpis, facilisis vel lorem vitae, elementum scelerisque risus. Etiam sit amet rhoncus erat, quis ultricies nulla. Suspendisse a turpis et dui laoreet sagittis eget varius nisi.
-            Phasellus fringilla, lorem posuere faucibus tempus, nulla arcu pretium turpis, quis semper arcu odio vel felis. Aenean sed ultricies lacus, id tincidunt nulla. Curabitur suscipit vel neque sed gravida. Etiam vestibulum, justo ut pulvinar vestibulum,
-            ante orci facilisis nulla, non congue nunc mi non nunc. Phasellus blandit porttitor nulla, sodales finibus diam hendrerit ac. Ut felis nisi, elementum lacinia purus iaculis, consectetur gravida lorem. Sed iaculis dui elit, rhoncus pulvinar
-            lacus tincidunt vel. Cras semper mauris non maximus molestie. Integer rhoncus magna at tempor aliquet.
-        </div>
-        <div class="blue">
-            <input type="button" value="Modificar descripción" onClick="location.href = 'index.html'" />
-        </div>
-
-        <div>
-            <div class="loka">
-                <div class="resto">Localización</div>
-                <img id="maps" src="img/maps.PNG" alt="maps" />
-                <div class="blue">
-                    <input type="button" value="Modificar localización" onClick="location.href = 'index.html'" />
-                </div>
-            </div>
-            <div class="loka">
-                <div class="resto">Imagenes del local</div>
-                <img class="fotolocal" src="img/local.PNG" alt="local" />
-                <img class="fotolocal" src="img/local.PNG" alt="local" />
-                <img class="fotolocal" src="img/local.PNG" alt="local" />
-                <img class="fotolocal" src="img/local.PNG" alt="local" />
-                <img class="fotolocal" src="img/local.PNG" alt="local" />
-                <img class="fotolocal" src="img/local.PNG" alt="local" />
-                <div class="blue">
-                    <input type="button" value="Modificar fotos" onClick="location.href = 'index.html'" />
-                </div>
+            <div>Foto de perfil:
+                <form action="demo_form.asp">
+                    <input type="file" name="pic" accept="image/*">
+                    <input type="submit">
+                </form>
             </div>
         </div>
-
-        <div class="resto">Ajustes de cuenta</div>
-        <div>Modificar email: <input name="email" placeholder="email" type="email" /></div>
-        <div>Modificar contraseña: <input name="pass1" placeholder="contraseña" type="password" /></div>
-        <div>Repetir contraseña: <input name="pass2" placeholder="repetir contraseña" type="password" /></div>
-        <div>Modificar horario: <input name="horario" placeholder="horario" type="text" /></div>
-        <div class="blue">
-            <input type="button" value="Guardar" onClick="location.href = 'index.html'" />
-        </div>
-
     </div>
-
+    </div>
 
     <footer class="clear">
         <div>

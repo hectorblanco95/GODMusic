@@ -5,10 +5,9 @@
     <title>Homepage</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link href="/vendor!!!/bootstrap/css/bootstrap.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="/bootstrap/js/bootstrap.js"></script>
-    <link href="homepage.css" rel="stylesheet" type="text/css" />
+    <link href="/CSS.css" rel="stylesheet" type="text/css" />
     <link href="/HOMEPAGE/new-age.css" rel="stylesheet">
 </head>
 
@@ -31,7 +30,20 @@
                         <p>
                             Nombre de usuario: <input name="perfil" placeholder="Nombre de usuario" type="text" required/><br> Contraseña: <input name="pass" placeholder="Contraseña" type="password" required/><br> Confirmar contraseña: <input name="pass"
                                 placeholder="Confirmar contaseña" type="password" required/><br> Email: <input name="mail" placeholder="Correo electronico" type="email" required/><br> Confirmar Email: <input name="mail" placeholder="Correo electronico" type="email"
-                                required/><br> Fan <input id='fan' type='radio' /> Musico <input id='musico' type='radio' /> Local <input id='local' type='radio' /><br>
+                                required/></br>
+
+
+                            <label class="radio-inline">
+                                  <input type="radio" name="optradio">Fan
+                                </label>
+                            <label class="radio-inline">
+                                  <input type="radio" name="optradio">Musico
+                                </label>
+                            <label class="radio-inline">
+                                  <input type="radio" name="optradio">Local
+                                </label>
+
+                            </br>
                             <input value="Registrarse" type="submit" id="registro" />
                         </p>
                     </div>
@@ -71,10 +83,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-left">
                     <li>
-                        <a class="page-scroll" href="#download">Pagina Principal</a>
+                        <a class="page-scroll" href="#homepage">Pagina Principal</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#features">Perfil</a>
+                        <a class="page-scroll" href="#profile">Perfil</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contacto</a>
@@ -109,7 +121,7 @@
 
 
     <div id="cuo">
-        <div>
+        <div class=cent>
             <h1>Próximos conciertos</h1>
             <div class="protot">
                 <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
@@ -124,6 +136,14 @@
                     <div class="prox2">
 
                         Peter Anguila <br> Genero: Algo <br> Fecha: 32/08/2005 <br> Sitio: La Playa <br>
+                        <a href=""> Mas información</a>
+
+                    </div>
+                </div>
+                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
+                    <div class="prox2">
+
+                        Gawn Pang <br> Genero: Rap Tropical <br> Fecha: 12/08/2017 <br> Sitio: Circo Polar Artico <br>
                         <a href=""> Mas información</a>
 
                     </div>
@@ -146,6 +166,14 @@
 
                     </div>
                 </div>
+                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
+                    <div class="prox2">
+
+                        Gawn Pang <br> Genero: Rap Tropical <br> Fecha: 12/08/2017 <br> Sitio: Circo Polar Artico <br>
+                        <a href=""> Mas información</a>
+
+                    </div>
+                </div>
             </div>
             <div class="protot">
                 <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
@@ -164,9 +192,17 @@
 
                     </div>
                 </div>
+                <div class="prox"><img id="proxc" src="../img/proxc.PNG" alt="proxc" />
+                    <div class="prox2">
+
+                        Gawn Pang <br> Genero: Rap Tropical <br> Fecha: 12/08/2017 <br> Sitio: Circo Polar Artico <br>
+                        <a href=""> Mas información</a>
+
+                    </div>
+                </div>
             </div>
         </div>
-        <div>
+        <div class=cent>
             <h1>Musicos por genero</h1>
             <div>
                 <div class="gen">
@@ -219,7 +255,7 @@
     </div>
     <footer class="clear">
         <div>
-            IDIOMA: <select name="idioma">
+            IDIOMA: <select id=select name="idioma">
             <option value="idioma">SELECCIONA EL IDIOMA QUE DESEAS</option>
             <option value="english">INGLES</option>
             <option value="spanish">ESPAÑOL</option>
@@ -227,6 +263,19 @@
             </select>
         </div>
     </footer>
+
+    <!-- jQuery -->
+    <script src="/vendor!!!/jquery/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/vendor!!!/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="/vendor!!!/js/new-age.js"></script>
+
 </body>
 
 </html>

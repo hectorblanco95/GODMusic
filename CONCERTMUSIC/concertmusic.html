@@ -1,100 +1,125 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Concert Music</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link href="homepage.css" rel="stylesheet" type="text/css"/>
+    <title>Concertmusic</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/vendor!!!/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="/CSS.css" rel="stylesheet" type="text/css" />
+    <link href="/HOMEPAGE/new-age.css" rel="stylesheet">
 </head>
 
-    <body>
-        <div id="cua">
-            <header class="complet">
-                <div class="top">
-                    <img id="logo" src="../img/logo.PNG"
-                         alt="music"
-                         title="music"/>  
-                </div>
-            </header>
+<body id="page-top">
+    <div id="cua">
+        <header class="complet">
+            <div class="top">
+                <img id="logo" src="../img/logo.PNG" alt="music" title="music" />
+            </div>
+        </header>
 
-            <div id="registro" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Registrarse</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                Nombre de usuario: <input name="perfil" placeholder="Nombre de usuario" type="text" required/><br>
-                                Contraseña: <input name="pass" placeholder="Contraseña" type="password" required/><br>
-                                Confirmar contraseña: <input name="pass" placeholder="Confirmar contaseña" type="password" required/><br>
-                                Email: <input name="mail" placeholder="Correo electronico" type="email" required/><br>
-                                Confirmar Email: <input name="mail" placeholder="Correo electronico" type="email" required/><br>
-                                Fan <input id='fan' type='radio'/>
-                                Musico <input id='musico' type='radio'/>
-                                Local <input id='local' type='radio'/><br>
-                                <input value="Registrarse" type="submit" id="registro"/>
-                            </p>
-                        </div>                       
+        <div id="registro" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Registrarse</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Nombre de usuario: <input name="perfil" placeholder="Nombre de usuario" type="text" required/><br> Contraseña: <input name="pass" placeholder="Contraseña" type="password" required/><br> Confirmar contraseña: <input name="pass"
+                                placeholder="Confirmar contaseña" type="password" required/><br> Email: <input name="mail" placeholder="Correo electronico" type="email" required/><br> Confirmar Email: <input name="mail" placeholder="Correo electronico" type="email"
+                                required/></br>
+
+
+                            <label class="radio-inline">
+                                  <input type="radio" name="optradio">Fan
+                                </label>
+                            <label class="radio-inline">
+                                  <input type="radio" name="optradio">Musico
+                                </label>
+                            <label class="radio-inline">
+                                  <input type="radio" name="optradio">Local
+                                </label>
+
+                            </br>
+                            <input value="Registrarse" type="submit" id="registro" />
+                        </p>
                     </div>
                 </div>
             </div>
-            
-            <div id="inicio" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Iniciar Sesión</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                <label for='inputNombre'>Nombre de usuario:</label>
-                                <input name='nombre' id='inputNombre' type='text'><br>
-                                <label for='inputPass'>Contraseña:</label>
-                                <input name='pass' id='pass' type='password'><br>
-                                <input id='submitinicio' type='submit' value='Iniciar Sesión'>
-                            </p>
-                        </div>                       
+        </div>
+
+        <div id="inicio" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Iniciar Sesión</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <label for='inputNombre'>Nombre de usuario:</label>
+                            <input name='nombre' id='inputNombre' type='text'><br>
+                            <label for='inputPass'>Contraseña:</label>
+                            <input name='pass' id='pass' type='password'><br>
+                            <input id='submitinicio' type='submit' value='Iniciar Sesión'>
+                        </p>
                     </div>
                 </div>
             </div>
-            
-            <div class="clear">
-            <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">GODMusic</a>
+        </div>
+
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Pagina Principal</a></li>
-      <li><a href="#">Perfil</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
-     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><button<span type="button" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#registro"></span></button> Sign Up</a></li>
-      <li><a href="#"><button<span type="button" class="glyphicon glyphicon-log-in" data-toggle="modal" data-target="#inicio"></span></button> Login</a></li>
-    </ul>
-    <form class="navbar-form navbar-left">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Buscar">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit">
-            <i class="glyphicon glyphicon-search"></i>
-          </button>
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">GODMusic</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a class="page-scroll" href="#homepage">Pagina Principal</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#profile">Perfil</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contacto</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#">
+                            <button<span type="button" class="glyphicon glyphicon-user" data-toggle="modal" data-target="#registro"></span>
+                                </button> Sign Up</a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <button<span type="button" class="glyphicon glyphicon-log-in" data-toggle="modal" data-target="#inicio"></span>
+                                </button> Login</a>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-      </div>
-    </form>
-  </div>
-</nav>
-</div>
-        </div>
+    </nav>
 
-        <div class="cuo">
+    <div class="cuo">
+        <div class=cent>
             <h1>Conciertos que tienes asignados</h1>
 
             <table>
@@ -102,7 +127,7 @@
                     <tr>
                         <th width="17%">Local</th>
                         <th width="17%">Ciutat</th>
-                        <th width="21%">Direcció</th>					   
+                        <th width="21%">Direcció</th>
                         <th width="17%">Data concert</th>
                         <th width="14%">Hora</th>
                         <th width="12%">Valor econòmic</th>
@@ -167,114 +192,144 @@
                     </tr>
                 </tbody>
             </table>
-            
+
             <div class="cuo">
-                <h1>Conciertos pendientes de assignación de músico/grupo</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th width="17%">Local</th>
-                            <th width="12%">Ciutat</th>
-                            <th width="18%">Direcció</th>
-                            <th width="10%">Data concert</th>
-                            <th width="13%">Hora</th>
-                            <th width="10%">Gènere</th>							
-                            <th width="10%">Valor econòmic</th>					
-                            <th colspan="2" width="10%">Accions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><a href="">Dream's loom</a></td>
-                            <td>Barcelona</td>
-                            <td>Provenza 89</td>
-                            <td>23-12-2016</td>
-                            <td>11:30 PM</td>
-                            <td>Rock</td>							
-                            <td>350€</td>							
-                            <td><a href=""></a></td>
-                            <td><a href="">Baixa</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Sound beach</a></td>
-                            <td>Barcelona</td>
-                            <td>Numancia 230</td>	
-                            <td>24-12-2016</td>
-                            <td>09:00 PM</td>
-                            <td>Jazz</td>
-                            <td>150€</td>
-                            <td><a href="">Alta</a></td>
-                            <td><a href=""></a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Macco Kaffe</a></td>
-                            <td>Barcelona</td>
-                            <td>Villaroel 178</td>							
-                            <td>25-12-2016</td>
-                            <td>10:30 PM</td>
-                            <td>Pop</td>							
-                            <td>250€</td>							
-                            <td><a href=""></a></td>
-                            <td><a href="">Baixa</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Arena Sound</a></td>
-                            <td>Barcelona</td>
-                            <td>Madrazo 252</td>	
-                            <td>26-12-2016</td>
-                            <td>12:30 PM</td>
-                            <td>Pop</td>
-                            <td>250€</td>							
-                            <td><a href="">Alta</a></td>
-                            <td><a href=""></a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Silence 2000</a></td>
-                            <td>Sabadell</td>
-                            <td>Juan d'avila 23</td>
-                            <td>27-12-2016</td>
-                            <td>11:00 PM</td>
-                            <td>Blues</td>
-                            <td>150€</td>
-                            <td><a href="">Alta</a></td>
-                            <td><a href=""></a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Romantic Soul</a></td>
-                            <td>Barcelona</td>
-                            <td>Pedralbes 22</td>
-                            <td>28-12-2016</td>
-                            <td>11:00 PM</td>
-                            <td>Jazz</td>
-                            <td>350€</td>							
-                            <td><a href=""></a></td>
-                            <td><a href="">Baixa</a></td>
-                        </tr>
-                        <tr>
-                            <td><a href="">Draks White</a></td>
-                            <td>Terrassa</td>
-                            <td>Oliver 56</td>						
-                            <td>28-12-2016</td>
-                            <td>12:30 PM</td>
-                            <td>Bachata</td>
-                            <td>250€</td>
-                            <td><a href="">Alta</a></td>
-                            <td><a href=""></a></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="cent">
+                    <h1>Conciertos pendientes de assignación de músico/grupo</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="17%">Local</th>
+                                <th width="12%">Ciutat</th>
+                                <th width="18%">Direcció</th>
+                                <th width="10%">Data concert</th>
+                                <th width="13%">Hora</th>
+                                <th width="10%">Gènere</th>
+                                <th width="10%">Valor econòmic</th>
+                                <th colspan="2" width="10%">Accions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="">Dream's loom</a></td>
+                                <td>Barcelona</td>
+                                <td>Provenza 89</td>
+                                <td>23-12-2016</td>
+                                <td>11:30 PM</td>
+                                <td>Rock</td>
+                                <td>350€</td>
+                                <td>
+                                    <a href=""></a>
+                                </td>
+                                <td><a href="">Baixa</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="">Sound beach</a></td>
+                                <td>Barcelona</td>
+                                <td>Numancia 230</td>
+                                <td>24-12-2016</td>
+                                <td>09:00 PM</td>
+                                <td>Jazz</td>
+                                <td>150€</td>
+                                <td><a href="">Alta</a></td>
+                                <td>
+                                    <a href=""></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="">Macco Kaffe</a></td>
+                                <td>Barcelona</td>
+                                <td>Villaroel 178</td>
+                                <td>25-12-2016</td>
+                                <td>10:30 PM</td>
+                                <td>Pop</td>
+                                <td>250€</td>
+                                <td>
+                                    <a href=""></a>
+                                </td>
+                                <td><a href="">Baixa</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="">Arena Sound</a></td>
+                                <td>Barcelona</td>
+                                <td>Madrazo 252</td>
+                                <td>26-12-2016</td>
+                                <td>12:30 PM</td>
+                                <td>Pop</td>
+                                <td>250€</td>
+                                <td><a href="">Alta</a></td>
+                                <td>
+                                    <a href=""></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="">Silence 2000</a></td>
+                                <td>Sabadell</td>
+                                <td>Juan d'avila 23</td>
+                                <td>27-12-2016</td>
+                                <td>11:00 PM</td>
+                                <td>Blues</td>
+                                <td>150€</td>
+                                <td><a href="">Alta</a></td>
+                                <td>
+                                    <a href=""></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><a href="">Romantic Soul</a></td>
+                                <td>Barcelona</td>
+                                <td>Pedralbes 22</td>
+                                <td>28-12-2016</td>
+                                <td>11:00 PM</td>
+                                <td>Jazz</td>
+                                <td>350€</td>
+                                <td>
+                                    <a href=""></a>
+                                </td>
+                                <td><a href="">Baixa</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="">Draks White</a></td>
+                                <td>Terrassa</td>
+                                <td>Oliver 56</td>
+                                <td>28-12-2016</td>
+                                <td>12:30 PM</td>
+                                <td>Bachata</td>
+                                <td>250€</td>
+                                <td><a href="">Alta</a></td>
+                                <td>
+                                    <a href=""></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        <footer class="clear">
-            <div> 
-                IDIOMA: <select name="idioma">
-                    <option value="idioma">SELECCIONA EL IDIOMA QUE DESEAS</option>
-                    <option value="english">INGLES</option>
-                    <option value="spanish">ESPAÑOL</option>
-                    <option value="catalan">CATALAN</option>
-                </select>
-            </div>
-        </footer>
-    </body>
+    </div>
+    <footer class="clear">
+        <div>
+            IDIOMA: <select id=select name="idioma">
+            <option value="idioma">SELECCIONA EL IDIOMA QUE DESEAS</option>
+            <option value="english">INGLES</option>
+            <option value="spanish">ESPAÑOL</option>
+            <option value="catalan">CATALAN</option>
+            </select>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="/vendor!!!/jquery/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/vendor!!!/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="/vendor!!!/js/new-age.js"></script>
+
+</body>
 
 </html>
