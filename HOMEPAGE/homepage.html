@@ -28,23 +28,47 @@
                     </div>
                     <div class="modal-body">
                         <p>
-                            Nombre de usuario: <input name="perfil" placeholder="Nombre de usuario" type="text" required/><br> Contraseña: <input name="pass" placeholder="Contraseña" type="password" required/><br> Confirmar contraseña: <input name="pass"
-                                placeholder="Confirmar contaseña" type="password" required/><br> Email: <input name="mail" placeholder="Correo electronico" type="email" required/><br> Confirmar Email: <input name="mail" placeholder="Correo electronico" type="email"
-                                required/></br>
+                            <form action="" method="SESSION">
+                                <?php
+                                        if(isset($_SESSION['enviar'])){
+                                        require_once 'bbdd.php';
+                                        session_start();
+                                        $_SESSION['nom'] = $nom;
+                                        $_SESSION['pass'] = $pass;
+                                        $_SESSION['pass2'] = $pass2;
+                                        if( $pass != $pass2){
+                                        ?>
+                                    <script>
+                                    </script>
+                                    <?php
+                                        }
+                                        $_SESSION['mail'] = $mail;
+                                        $_SESSION['mail2'] = $mail2;
+                                        $_SESSION['usu'] = $usu;
+                                        insertarUsu($nom, $pass, $mail, $usu);
+                                        }else{
+                                        ?>
+                                        Nombre de usuario: <input name="nom" placeholder="Nombre de usuario" type="text" required/><br> Contraseña: <input name="pass" placeholder="Contraseña" type="password" required/><br> Confirmar contraseña: <input
+                                            name="pass2" placeholder="Confirmar contaseña" type="password" required/><br> Email: <input name="mail" placeholder="Correo electronico" type="email" required/><br> Confirmar Email: <input name="mail2" placeholder="Correo electronico"
+                                            type="email" required/></br>
 
 
-                            <label class="radio-inline">
-                                  <input type="radio" name="optradio">Fan
-                                </label>
-                            <label class="radio-inline">
-                                  <input type="radio" name="optradio">Musico
-                                </label>
-                            <label class="radio-inline">
-                                  <input type="radio" name="optradio">Local
-                                </label>
+                                        <label class="radio-inline">
+                                          <input type="radio" name="usu" value="f">Fan
+                                        </label>
+                                        <label class="radio-inline">
+                                          <input type="radio" name="usu" value="m">Musico
+                                        </label>
+                                        <label class="radio-inline">
+                                          <input type="radio" name="usu" value="l">Local
+                                        </label>
 
-                            </br>
-                            <input value="Registrarse" type="submit" id="registro" />
+                                        </br>
+                                        <input value="Registrarse" type="submit" id="registro" name="enviar" />
+                                        <?php 
+                                        }?>
+                            </form>
+
                         </p>
                     </div>
                 </div>

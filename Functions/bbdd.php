@@ -1,4 +1,17 @@
 <?php
+function insertarUsu($username, $pass, $mail, $usu){
+	$con = conectar("ohhhmusic3");
+	$query = "insert into usuario values('', '$username', '$pass', '', '', '$mail', '', '', '', '', '', '', '', '', '', '', '$usu')";
+	// Ejecutamos la consulta
+    if (mysqli_query($con, $query)) {
+        // Si ha ido bien
+        echo "Usuario dado de alta.";
+    } else {
+        // Sino mostramos el error
+        echo mysqli_error($con);
+    }
+    desconectar($con);
+}
 function ultimcosConciertos() {
     $con = conectar("bbddProjecte");
     $query = "select concierto.dia,u.nombre_artistico, us.nombre_artistico from usuario as u inner join concierto on idusuario=idlocal
