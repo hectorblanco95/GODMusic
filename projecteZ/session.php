@@ -1,4 +1,5 @@
 <?php
+
 require_once 'bbdd.php';
 session_start();
 $_SESSION["nom"] = $nom;

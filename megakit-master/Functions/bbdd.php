@@ -1,11 +1,11 @@
 <?php
 function insertarUsu($username, $pass, $mail, $usu){
 	$con = conectar("ohhhmusic3");
-	$query = "insert into usuario values('', '$username', '$pass', '', '', '$mail', '', '', '', '', '', '', '', '', '', '', '$usu')";
+	$query = "insert into usuario(`nombre_usuario`, `password`, `email`, `perfil`) values('$username', '$pass', '$mail', '$usu');";
 	// Ejecutamos la consulta
     if (mysqli_query($con, $query)) {
         // Si ha ido bien
-        echo "Usuario dado de alta.";
+       
     } else {
         // Sino mostramos el error
         echo mysqli_error($con);
@@ -45,7 +45,7 @@ inner join usuario as us on us.idusuario!=u.idusuario inner join ciudad on idciu
     return $resultado;
 }
 function conectar($database) {
-    $conexion = mysqli_connect("localhost", "root", "", $database)
+    $conexion = mysqli_connect("127.0.0.1", "root", "", $database)
             or die("No se ha podido conectar a la BBDD");
     return $conexion;
 }

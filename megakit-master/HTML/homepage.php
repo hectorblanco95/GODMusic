@@ -29,7 +29,6 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="/megakit-master/HTML/img/IconGodMusic.ico" type="image/x-icon">
-    <link rel="icon" href="/megakit-master/HTML/img/IconGodMusic.ico" type="image/x-icon">
 </head>
 <!-- End Head -->
 
@@ -43,10 +42,10 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-6">
-                            <a href="" class="active" id="login-form-link">Login</a>
+                            <a href="#" class="active" id="login-form-link">Login</a>
                         </div>
                         <div class="col-xs-6">
-                            <a href="" id="register-form-link">Register</a>
+                            <a href="#" id="register-form-link">Register</a>
                         </div>
                     </div>
                     <hr>
@@ -112,7 +111,23 @@
                                         <div class="col-sm-6 col-sm-offset-3">
 
                                             <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                       <?php
 
+require_once "Functions/bbdd.php";
+    if (isset($_POST['register-submit'])) {
+        // Recogemos las variables del POST
+        $username = $_POST['username'];
+        $mail = $_POST['email'];
+        $pass = $_POST['password'];
+        $pass2 = $_POST['confirm-password'];
+        $usu = $_POST['usu'];
+        if($pass!=$pass2){
+            echo 'las contraseñas no coiciden';
+        }else {
+        insertarUsu($username, $pass, $mail, $usu);
+        }
+    }
+    ?>
                                         </div>
                                     </div>
                                 </div>
@@ -140,7 +155,7 @@
                     <div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
                         <!-- Logo -->
                         <div class="s-header-v2__logo">
-                            <a href="/megakit-master/HTML/index_home2.html" class="s-header-v2__logo-link">
+                            <a href="index.html" class="s-header-v2__logo-link">
                                 <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/megakit-master/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
                                 <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/megakit-master/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
                             </a>
@@ -154,7 +169,7 @@
                             <ul class="s-header-v2__nav">
                                 <!-- Home -->
                                 <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                    <a href="/megakit-master/HTML/index_home2.html" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                    <a href="index.html" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                     <ul class="dropdown-menu s-header-v2__dropdown-menu">
                                         <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
                                         <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
@@ -175,7 +190,7 @@
                                 <!-- End Profile -->
 
                                 <li class="s-header-v2__nav-item"><a href="#" class="s-header-v2__nav-link">About</a></li>
-                                <li class="s-header-v2__nav-item"><a href="" class="s-header-v2__nav-link" data-toggle="modal" data-target="#inicio">Login</a></li>
+                                <li class="s-header-v2__nav-item"><a href="#" class="s-header-v2__nav-link" data-toggle="modal" data-target="#inicio">Login</a></li>
 
                                 <!-- Search -->
                                 <li class="s-header-v2__nav-item">
