@@ -54,7 +54,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form id="login-form" action="" method="post" role="form" style="display: block;">
+                            <form href="/megakit-master/HTML/profile.html" id="login-form" action="/megakit-master/login.php" method="post" role="form" style="display: block;">
                                 <div class="form-group">
                                     <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" required>
                                 </div>
@@ -148,35 +148,10 @@
                         <!-- End Logo -->
                     </div>
 
-                    <div class="s-header-v2__navbar-col s-header-v2__navbar-col--right">
+                    <div class="s-header-v2__navbar-col s-header-v2__navbar-col--left">
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse s-header-v2__navbar-collapse" id="nav-collapse">
                             <ul class="s-header-v2__nav">
-                                <!-- Home -->
-                                <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                    <a href="/megakit-master/HTML/index_home2.html" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
-                                    <ul class="dropdown-menu s-header-v2__dropdown-menu">
-                                        <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
-                                        <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
-                                        <li><a href="#js__scroll-to-section2" class="s-header-v2__dropdown-menu-link">Votar Conciertos</a></li>
-                                        <li><a href="#js__scroll-to-section3" class="s-header-v2__dropdown-menu-link">Votar Locales</a></li>
-                                    </ul>
-                                </li>
-                                <!-- End Home -->
-
-                                <!-- Profile -->
-                                <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                    <a href="javascript:void(0);" class="dropdown-toggle s-header-v2__nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
-                                    <ul class="dropdown-menu s-header-v2__dropdown-menu">
-                                        <li><a href="team.html" class="s-header-v2__dropdown-menu-link">Mi Perfil</a></li>
-                                        <li><a href="faq.html" class="s-header-v2__dropdown-menu-link">Modificar Perfil</a></li>
-                                    </ul>
-                                </li>
-                                <!-- End Profile -->
-
-                                <li class="s-header-v2__nav-item"><a href="#" class="s-header-v2__nav-link">About</a></li>
-                                <li class="s-header-v2__nav-item"><a href="" class="s-header-v2__nav-link" data-toggle="modal" data-target="#inicio">Login</a></li>
-
                                 <!-- Search -->
                                 <li class="s-header-v2__nav-item">
                                     <div class="input-group">
@@ -201,6 +176,30 @@
                                     </div>
                                 </li>
                                 <!-- End Search -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="s-header-v2__navbar-col s-header-v2__navbar-col--right">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse s-header-v2__navbar-collapse" id="nav-collapse">
+                            <ul class="s-header-v2__nav">
+                                <!-- Home -->
+                                <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
+                                    <a href="/megakit-master/HTML/index_home2.html" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                    <ul class="dropdown-menu s-header-v2__dropdown-menu">
+                                        <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
+                                        <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
+                                        <li><a href="#js__scroll-to-section2" class="s-header-v2__dropdown-menu-link">Votar Conciertos</a></li>
+                                        <li><a href="#js__scroll-to-section3" class="s-header-v2__dropdown-menu-link">Votar Locales</a></li>
+                                        <li><a href="#js__scroll-to-section4" class="s-header-v2__dropdown-menu-link">Contact Us</a></li>
+                                        <li><a href="#js__scroll-to-section5" class="s-header-v2__dropdown-menu-link">About</a></li>
+                                    </ul>
+                                </li>
+                                <!-- End Home -->
+
+                                <li class="s-header-v2__nav-item"><a href="" class="s-header-v2__nav-link" data-toggle="modal" data-target="#inicio">Login</a></li>
+
                             </ul>
                         </div>
                         <!-- End Nav Menu -->
@@ -324,7 +323,7 @@
                 <!-- End Form -->
 
                 <!-- Contacts -->
-                <div class="col-md-4 g-bg-color--primary-ltr js__form-eqaul-height-v1">
+                <div id="js__scroll-to-section4" class="col-md-4 g-bg-color--primary-ltr js__form-eqaul-height-v1">
                     <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
                         <h2 class="g-font-size-24--xs g-color--white g-margin-b-50--xs">Contact Us</h2>
                         <ul class="list-unstyled g-margin-b-70--xs">
@@ -369,7 +368,7 @@
     <!--========== END PAGE CONTENT ==========-->
 
     <!--========== FOOTER ==========-->
-    <footer class="g-bg-color--dark">
+    <footer id="js__scroll-to-section5" class="g-bg-color--dark">
         <!-- Links -->
         <div class="g-hor-divider__dashed--white-opacity-lightest">
             <div class="container g-padding-y-80--xs">

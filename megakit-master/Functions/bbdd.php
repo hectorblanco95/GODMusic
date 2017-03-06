@@ -1,11 +1,29 @@
 <?php
+function loginUsu($username, $pass){
+	$con = conectar("ohhhmusic3");
+	$query = "select nombre_usuario, password from usuario where nombre_usuario='$username' and password='$pass';";
+	// Ejecutamos la consulta
+    if ($res = mysqli_query($con, $query)) {
+        // Si ha ido bien
+        if(mysqli_num_rows($res))
+        {
+            desconectar($con);
+            return 1;
+        }
+    } else {
+        // Sino mostramos el error
+        echo mysqli_error($con);
+    }
+    desconectar($con);
+    return 0;
+}
 function insertarUsu($username, $pass, $mail, $usu){
 	$con = conectar("ohhhmusic3");
 	$query = "insert into usuario(`nombre_usuario`, `password`, `email`, `perfil`) values('$username', '$pass', '$mail', '$usu');";
 	// Ejecutamos la consulta
     if (mysqli_query($con, $query)) {
         // Si ha ido bien
-       
+
     } else {
         // Sino mostramos el error
         echo mysqli_error($con);
