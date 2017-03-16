@@ -2,6 +2,11 @@
   Font Size
 ------------------------------------*/
 
+#votaButton {
+  height: 200px;
+  width: 100px;
+}
+
 .g-font-size-10--xs {
   font-size: 0.625rem !important;
 }
@@ -1042,7 +1047,7 @@
 ------------------------------------*/
 
 .g-bg-position--center {
-  background-position: center 62.1% !important;
+  background-position: center 88px !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
 }

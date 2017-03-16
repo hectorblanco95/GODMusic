@@ -1,4 +1,23 @@
 <?php
+function repe ($username){
+    $con =conectar("ohhhmusic3");
+    $select = "select nombre_usuario from usuario";
+    $resultado = mysqli_query($con, $select);
+    if($username == $resultado){
+        echo "Nombre de usuario ya existente";
+    }
+    desconectar($con);
+}
+function sessionUsu($username){
+	$con = conectar("ohhhmusic3");
+	$select = "select nombre_usuario, email, perfil from usuario where nombre_usuario='$username';";
+    // Ejecutamos la consulta y recogemos el resultado
+    $resultado = mysqli_query($con, $select);
+    $fila = mysqli_fetch_assoc($resultado);
+    desconectar($con);
+    // devolvemos el resultado
+    return $fila;
+} 
 function loginUsu($username, $pass){
 	$con = conectar("ohhhmusic3");
 	$query = "select nombre_usuario, password from usuario where nombre_usuario='$username' and password='$pass';";
@@ -62,6 +81,16 @@ inner join usuario as us on us.idusuario!=u.idusuario inner join ciudad on idciu
     desconectar($con);
     return $resultado;
 }
+
+//function tablavotoconcierto(){
+//        $con = conectar("bbddProjecte");
+//    $query = "select concierto.dia,concierto.hora,u.nombre_artistico, us.nombre_artistico, ciudad.nomciudad, count(voto_concierto.idconcierto) as 'votos' from usuario as u inner join concierto on idusuario=idlocal
+//inner join usuario as us on us.idusuario!=u.idusuario inner join ciudad  inner join voto_concierto on voto_concierto.idconcierto=concierto.idconcierto where us.perfil=("m") group by voto_concierto.idconcierto;";
+//    $resultado = mysqli_query($con, $query);
+//    desconectar($con);
+//    return $resultado;
+//}
+
 function conectar($database) {
     $conexion = mysqli_connect("127.0.0.1", "root", "", $database)
             or die("No se ha podido conectar a la BBDD");
