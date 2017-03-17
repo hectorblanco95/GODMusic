@@ -1,15 +1,6 @@
 <?php
-function repe ($username){
-    $con =conectar("ohhhmusic3");
-    $select = "select nombre_usuario from usuario";
-    $resultado = mysqli_query($con, $select);
-    if($username == $resultado){
-        echo "Nombre de usuario ya existente";
-    }
-    desconectar($con);
-}
 function sessionUsu($username){
-	$con = conectar("ohhhmusic3");
+	$con = conectar("godmusic");
 	$select = "select nombre_usuario, email, perfil from usuario where nombre_usuario='$username';";
     // Ejecutamos la consulta y recogemos el resultado
     $resultado = mysqli_query($con, $select);
@@ -19,7 +10,7 @@ function sessionUsu($username){
     return $fila;
 } 
 function loginUsu($username, $pass){
-	$con = conectar("ohhhmusic3");
+	$con = conectar("godmusic");
 	$query = "select nombre_usuario, password from usuario where nombre_usuario='$username' and password='$pass';";
 	// Ejecutamos la consulta
     if ($res = mysqli_query($con, $query)) {
@@ -37,7 +28,7 @@ function loginUsu($username, $pass){
     return 0;
 }
 function insertarUsu($username, $pass, $mail, $usu){
-	$con = conectar("ohhhmusic3");
+	$con = conectar("godmusic");
 	$query = "insert into usuario(`nombre_usuario`, `password`, `email`, `perfil`) values('$username', '$pass', '$mail', '$usu');";
 	// Ejecutamos la consulta
     if (mysqli_query($con, $query)) {
@@ -50,7 +41,7 @@ function insertarUsu($username, $pass, $mail, $usu){
     desconectar($con);
 }
 function ultimcosConciertos() {
-    $con = conectar("bbddProjecte");
+    $con = conectar("godmusic");
     $query = "select concierto.dia,u.nombre_artistico, us.nombre_artistico from usuario as u inner join concierto on idusuario=idlocal
 inner join usuario as us on us.idusuario!=u.idusuario where us.perfil=('m') order by dia asc;";
     $resultado = mysqli_query($con, $query);
@@ -58,7 +49,7 @@ inner join usuario as us on us.idusuario!=u.idusuario where us.perfil=('m') orde
     return $resultado;
 }
 function rankingHomepage() {
-    $con = conectar("bbddProjecte");
+    $con = conectar("godmusic");
     $query = "select usuario.nombre_artistico, genero.nomestilo,sum(idmusico) as 'sumaVotos' from usuario inner join voto_musico as votos on idmusico=idusuario 
 inner join genero on genero=idgenero where perfil='m' group by idmusico;";
     $resultado = mysqli_query($con, $query);
@@ -66,7 +57,7 @@ inner join genero on genero=idgenero where perfil='m' group by idmusico;";
     return $resultado;
 }
 function votarFan() {
-    $con = conectar("bbddProjecte");
+    $con = conectar("godmusic");
     $query = "select usuario.nombre_artistico,count(idmusico) as 'sumaVotos' from usuario inner join voto_musico as votos on idmusico=idusuario 
 where perfil='m' group by idmusico;";
     $resultado = mysqli_query($con, $query);
@@ -74,7 +65,7 @@ where perfil='m' group by idmusico;";
     return $resultado;
 }
 function gruopsAssignadosLocal() {
-    $con = conectar("bbddProjecte");
+    $con = conectar("godmusic");
     $query = "select concierto.dia,concierto.hora,u.nombre_artistico, us.nombre_artistico, ciudad.nomciudad, concierto.pago as 'valor economico' from usuario as u inner join concierto on idusuario=idlocal
 inner join usuario as us on us.idusuario!=u.idusuario inner join ciudad on idciudad=idlocal  where us.perfil=('m');";
     $resultado = mysqli_query($con, $query);
@@ -83,7 +74,7 @@ inner join usuario as us on us.idusuario!=u.idusuario inner join ciudad on idciu
 }
 
 //function tablavotoconcierto(){
-//        $con = conectar("bbddProjecte");
+//        $con = conectar("godmusic");
 //    $query = "select concierto.dia,concierto.hora,u.nombre_artistico, us.nombre_artistico, ciudad.nomciudad, count(voto_concierto.idconcierto) as 'votos' from usuario as u inner join concierto on idusuario=idlocal
 //inner join usuario as us on us.idusuario!=u.idusuario inner join ciudad  inner join voto_concierto on voto_concierto.idconcierto=concierto.idconcierto where us.perfil=("m") group by voto_concierto.idconcierto;";
 //    $resultado = mysqli_query($con, $query);

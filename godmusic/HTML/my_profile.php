@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+if (isset($_SESSION['username'])) {?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
 <!-- Begin Head -->
@@ -11,8 +13,8 @@
     <title>GOD Music</title>
     <link rel="canonical" href="http://godmusic.com/" data-ajax-meta="binded">
     <meta name="keywords" content="HTML5 Theme" />
-    <meta name="description" content="Megakit - HTML5 Theme">
-    <meta name="author" content="keenthemes.com">
+    <meta name="description" content="GODMusic - HTML5 Theme">
+    <meta name="author" content="godmusic.com">
 
     <!-- Web Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
@@ -30,8 +32,8 @@
     <link href="css/global/global.css" rel="stylesheet" type="text/css" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/megakit-master/HTML/img/IconGodMusic.ico" type="image/x-icon">
-    <link rel="icon" href="/megakit-master/HTML/img/IconGodMusic.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/godmusic/HTML/img/IconGodMusic.ico" type="image/x-icon">
+    <link rel="icon" href="/godmusic/HTML/img/IconGodMusic.ico" type="image/x-icon">
 </head>
 <!-- End Head -->
 
@@ -56,9 +58,9 @@
                         <div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
                             <!-- Logo -->
                             <div class="s-header-v2__logo">
-                                <a href="/megakit-master/HTML/profile.html" class="s-header-v2__logo-link">
-                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/megakit-master/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
-                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/megakit-master/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
+                                <a href="/godmusic/HTML/profile.php" class="s-header-v2__logo-link">
+                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
+                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
                                 </a>
                             </div>
                             <!-- End Logo -->
@@ -102,7 +104,7 @@
                                 <ul class="s-header-v2__nav">
                                     <!-- Home -->
                                     <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                        <a href="/megakit-master/HTML/profile.html" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                        <a href="/godmusic/HTML/profile.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                         <ul class="dropdown-menu s-header-v2__dropdown-menu">
                                             <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
                                             <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
@@ -118,9 +120,9 @@
                                     <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
                                         <a href="javascript:void(0);" class="dropdown-toggle s-header-v2__nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                         <ul class="dropdown-menu s-header-v2__dropdown-menu">
-                                            <li><a href="/megakit-master/HTML/my_profile.html" class="s-header-v2__dropdown-menu-link">Mi Perfil</a></li>
+                                            <li><a href="/godmusic/HTML/my_profile.php" class="s-header-v2__dropdown-menu-link">Mi Perfil</a></li>
                                             <li><a href="#" class="s-header-v2__dropdown-menu-link">Modificar Perfil</a></li>
-                                            <li><a href="/megakit-master/logout.php" name="logout" class="s-header-v2__dropdown-menu-link">LOG OUT</a></li>
+                                            <li><a href="/godmusic/logout.php" name="logout" class="s-header-v2__dropdown-menu-link">LOG OUT</a></li>
                                         </ul>
                                     </li>
                                     <!-- End Profile -->
@@ -134,6 +136,8 @@
             </nav>
             <!-- End Navbar -->
     </header>
+    
+<!--========== PAGE CONTENT ==========-->
 
     <div style="padding-top:80px;"> </div>
     <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
@@ -552,3 +556,7 @@
 <!-- End Body -->
 
 </html>
+<?php
+} else{
+    header("Location: index_home.php");
+}?>

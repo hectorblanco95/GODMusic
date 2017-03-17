@@ -1,3 +1,6 @@
+<?php 
+session_start(); 
+if (isset($_SESSION['username'])) {?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
 <!-- Begin Head -->
@@ -10,8 +13,8 @@
     <title>GOD Music</title>
     <link rel="canonical" href="http://godmusic.com/" data-ajax-meta="binded">
     <meta name="keywords" content="HTML5 Theme" />
-    <meta name="description" content="Megakit - HTML5 Theme">
-    <meta name="author" content="keenthemes.com">
+    <meta name="description" content="GODMusic - HTML5 Theme">
+    <meta name="author" content="godmusic.com">
 
     <!-- Web Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
@@ -28,8 +31,8 @@
     <link href="css/global/global.css" rel="stylesheet" type="text/css" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/megakit-master/HTML/img/IconGodMusic.ico" type="image/x-icon">
-    <link rel="icon" href="/megakit-master/HTML/img/IconGodMusic.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/godmusic/HTML/img/IconGodMusic.ico" type="image/x-icon">
+    <link rel="icon" href="/godmusic/HTML/img/IconGodMusic.ico" type="image/x-icon">
 </head>
 <!-- End Head -->
 
@@ -53,9 +56,9 @@
                     <div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
                         <!-- Logo -->
                         <div class="s-header-v2__logo">
-                            <a href="/megakit-master/HTML/profile.html" class="s-header-v2__logo-link">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/megakit-master/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/megakit-master/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
+                            <a href="/godmusic/HTML/profile.php" class="s-header-v2__logo-link">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
                             </a>
                         </div>
                         <!-- End Logo -->
@@ -99,7 +102,7 @@
                             <ul class="s-header-v2__nav">
                                 <!-- Home -->
                                 <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                    <a href="/megakit-master/HTML/index_home2.html" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                    <a href="/godmusic/HTML/index_home.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                     <ul class="dropdown-menu s-header-v2__dropdown-menu">
                                         <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
                                         <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
@@ -115,9 +118,9 @@
                                 <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
                                     <a href="javascript:void(0);" class="dropdown-toggle s-header-v2__nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                     <ul class="dropdown-menu s-header-v2__dropdown-menu">
-                                        <li><a href="/megakit-master/HTML/my_profile.php" class="s-header-v2__dropdown-menu-link">Mi Perfil</a></li>
+                                        <li><a href="/godmusic/HTML/my_profile.php" class="s-header-v2__dropdown-menu-link">Mi Perfil</a></li>
                                         <li><a href="#" class="s-header-v2__dropdown-menu-link">Modificar Perfil</a></li>
-                                        <li><a href="/megakit-master/logout.php" name="logout" class="s-header-v2__dropdown-menu-link">LOG OUT</a></li>
+                                        <li><a href="/godmusic/logout.php" name="logout" class="s-header-v2__dropdown-menu-link">LOG OUT</a></li>
                                     </ul>
                                 </li>
                                 <!-- End Profile -->
@@ -137,39 +140,39 @@
     <div id="js__scroll-to-section" class="s-swiper js__swiper-slider">
         <!-- Swiper Wrapper -->
         <div class="swiper-wrapper">
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide swip" style="background: url('/megakit-master/HTML/img/1.png');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide swip" style="background: url('/godmusic/HTML/img/1.png');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/2.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/2.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/3.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/3.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/4.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/4.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/5.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/5.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/6.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/6.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/7.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/7.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/8.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/8.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/9.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/9.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/10.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/10.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/12.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/12.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/13.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/13.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/14.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/14.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/15.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/15.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/16.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/16.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/17.png');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/17.png');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/megakit-master/HTML/img/19.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/19.jpg');">
             </div>
         </div>
         <!-- End Swiper Wrapper -->
@@ -181,229 +184,116 @@
 
     <!--========== PAGE CONTENT ==========-->
 
-    <!-- Testimonials -->
-    <div id="js__scroll-to-section1" class="js__parallax-window" style="background: url(/megakit-master/HTML/img/Forvm/1.png) 50% 0 no-repeat fixed;">
-        <div class="container g-text-center--xs g-padding-y-80--xs g-padding-y-125--sm">
-            <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2 g-margin-b-50--xs">Inscribir conciertos</p>
+    <!-- Events -->
+    <div id="js__scroll-to-section2">
 
-        </div>
-    </div>
-    <!-- End Testimonials -->
+        <!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> 
+<figure class="snip1237">
 
-    <!-- Tables -->
-    <div id="js__scroll-to-section2" class="widget2 stacked widget-table2 action-table2">
 
-        <div class="widget-header2">
-            <i class="icon-th-list"></i>
-            <h3>Table</h3>
-        </div>
-        <!-- /widget-header -->
+<div class="image" id="truck"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1223" alt="Touch-A-Truck" height="100%" width="100%"><em></em>
+ </div>
+<figcaption>
+<h3 style="text-align:center;">Touch-A-Truck</h3><br> 
+<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1223" class="read-more">Read More</a> </figcaption> </figure> 
 
-        <div class="widget-content2">
 
-            <table class="table2 table-striped2 table-bordered2">
-                <thead>
-                    <tr>
-                        <th>Engine</th>
-                        <th>Browser</th>
-                        <th class="td-actions"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet Explorer 4.0</td>
-                        <td class="td-actions">
-                            <a href="javascript:;" class="btn btn-small btn-primary">
-                                <i class="btn-icon-only icon-ok"></i>
-                            </a>
+<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ -->
+<figure class="snip1237">
+<div class="image" id="yardsale"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1234" alt="Yard Sale" height="100%" width="100%"><em></em>
+ </div>
+<figcaption>
+<h3 style="text-align:center;">Community Yard Sale</h3><br> 
+<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1234" class="read-more">Read More</a> </figcaption> </figure> 
 
-                            <a href="javascript:;" class="btn btn-small">
-                                <i class="btn-icon-only icon-remove"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet Explorer 5.0</td>
-                        <td class="td-actions">
-                            <a href="javascript:;" class="btn btn-small btn-primary">
-                                <i class="btn-icon-only icon-ok"></i>
-                            </a>
+<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> 
+<figure class="snip1237">
+<div class="image" id="shredding"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1226" alt="Shredding Day" height="100%" width="100%"><em></em>
+ </div>
+<figcaption>
+<h3 style="text-align:center;">Shredding day</h3><br> 
+<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1226" class="read-more">Read More</a> </figcaption> </figure>
 
-                            <a href="javascript:;" class="btn btn-small">
-                                <i class="btn-icon-only icon-remove"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet Explorer 5.5</td>
-                        <td class="td-actions">
-                            <a href="javascript:;" class="btn btn-small btn-primary">
-                                <i class="btn-icon-only icon-ok"></i>
-                            </a>
+<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> 
+<figure class="snip1237">
+<div class="image" id="haunt"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1221" alt="Haunted Barn" height="100%" width="100%"><em></em>
+ </div>
+<figcaption>
+<h3 style="text-align:center;">Haunted Barn</h3><br> 
+<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1221" class="read-more">Read More</a> </figcaption> </figure>
 
-                            <a href="javascript:;" class="btn btn-small">
-                                <i class="btn-icon-only icon-remove"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet Explorer 5.5</td>
-                        <td class="td-actions">
-                            <a href="javascript:;" class="btn btn-small btn-primary">
-                                <i class="btn-icon-only icon-ok"></i>
-                            </a>
+<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> <figure class="snip1237">
+<div class="image" id="teenie"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1222" alt="Teenie Halloweenie" height="100%" width="100%"><em></em>
+ </div>
+<figcaption>
+<h3 style="text-align:center;">Teenie Halloweenie</h3><br> 
+<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1222" class="read-more">Read More</a> </figcaption> </figure> 
 
-                            <a href="javascript:;" class="btn btn-small">
-                                <i class="btn-icon-only icon-remove"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet Explorer 5.5</td>
-                        <td class="td-actions">
-                            <a href="javascript:;" class="btn btn-small btn-primary">
-                                <i class="btn-icon-only icon-ok"></i>
-                            </a>
+<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> <figure class="snip1237">
+<div class="image" id="gingerbread"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1220" alt="Gingerbread" height="100%" width="100%"><em></em>
+ </div>
+<figcaption>
+<h3 style="text-align:center;">Gingerbread House Decorating Contest</h3>  
+<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1220" class="read-more">Read More</a> </figcaption> </figure> 
 
-                            <a href="javascript:;" class="btn btn-small">
-                                <i class="btn-icon-only icon-remove"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet Explorer 5.5</td>
-                        <td class="td-actions">
-                            <a href="javascript:;" class="btn btn-small btn-primary">
-                                <i class="btn-icon-only icon-ok"></i>
-                            </a>
-
-                            <a href="javascript:;" class="btn btn-small">
-                                <i class="btn-icon-only icon-remove"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
-        <!-- /widget-content -->
 
     </div>
-    <!-- /widget -->
+    <!-- /Events -->
 
-    <div id="js__scroll-to-section3" class="widget2 stacked widget-table2 action-table2">
+    <div id="js__scroll-to-section3">
 
-        <div class="widget-header2">
-            <i class="icon-th-list"></i>
-            <h3>Table</h3>
-        </div>
-        <!-- /widget-header -->
+        <!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> 
+<figure class="snip1237">
 
-        <div class="widget-content2">
 
-            <table class="table2 table-striped2 table-bordered2">
-                <thead>
-                    <tr>
-                        <th>Engine</th>
-                        <th>Browser</th>
-                        <th class="td-actions"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet Explorer 4.0</td>
-                        <td class="td-actions">
-                            <a href="javascript:;" class="btn btn-small btn-primary">
-                                <i class="btn-icon-only icon-ok"></i>
-                            </a>
+<div class="image" id="truck"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1223" alt="Touch-A-Truck" height="100%" width="100%"><em></em>
+ </div>
+<figcaption>
+<h3 style="text-align:center;">Touch-A-Truck</h3><br> 
+<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1223" class="read-more">Read More</a> </figcaption> </figure> 
 
-                            <a href="javascript:;" class="btn btn-small">
-                                <i class="btn-icon-only icon-remove"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet Explorer 5.0</td>
-                        <td class="td-actions">
-                            <a href="javascript:;" class="btn btn-small btn-primary">
-                                <i class="btn-icon-only icon-ok"></i>
-                            </a>
 
-                            <a href="javascript:;" class="btn btn-small">
-                                <i class="btn-icon-only icon-remove"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet Explorer 5.5</td>
-                        <td class="td-actions">
-                            <a href="javascript:;" class="btn btn-small btn-primary">
-                                <i class="btn-icon-only icon-ok"></i>
-                            </a>
+<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ -->
+<figure class="snip1237">
+<div class="image" id="yardsale"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1234" alt="Yard Sale" height="100%" width="100%"><em></em>
+ </div>
+<figcaption>
+<h3 style="text-align:center;">Community Yard Sale</h3><br> 
+<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1234" class="read-more">Read More</a> </figcaption> </figure> 
 
-                            <a href="javascript:;" class="btn btn-small">
-                                <i class="btn-icon-only icon-remove"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet Explorer 5.5</td>
-                        <td class="td-actions">
-                            <a href="javascript:;" class="btn btn-small btn-primary">
-                                <i class="btn-icon-only icon-ok"></i>
-                            </a>
+<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> 
+<figure class="snip1237">
+<div class="image" id="shredding"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1226" alt="Shredding Day" height="100%" width="100%"><em></em>
+ </div>
+<figcaption>
+<h3 style="text-align:center;">Shredding day</h3><br> 
+<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1226" class="read-more">Read More</a> </figcaption> </figure>
 
-                            <a href="javascript:;" class="btn btn-small">
-                                <i class="btn-icon-only icon-remove"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet Explorer 5.5</td>
-                        <td class="td-actions">
-                            <a href="javascript:;" class="btn btn-small btn-primary">
-                                <i class="btn-icon-only icon-ok"></i>
-                            </a>
+<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> 
+<figure class="snip1237">
+<div class="image" id="haunt"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1221" alt="Haunted Barn" height="100%" width="100%"><em></em>
+ </div>
+<figcaption>
+<h3 style="text-align:center;">Haunted Barn</h3><br> 
+<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1221" class="read-more">Read More</a> </figcaption> </figure>
 
-                            <a href="javascript:;" class="btn btn-small">
-                                <i class="btn-icon-only icon-remove"></i>
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Trident</td>
-                        <td>Internet Explorer 5.5</td>
-                        <td class="td-actions">
-                            <a href="javascript:;" class="btn btn-small btn-primary">
-                                <i class="btn-icon-only icon-ok"></i>
-                            </a>
+<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> <figure class="snip1237">
+<div class="image" id="teenie"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1222" alt="Teenie Halloweenie" height="100%" width="100%"><em></em>
+ </div>
+<figcaption>
+<h3 style="text-align:center;">Teenie Halloweenie</h3><br> 
+<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1222" class="read-more">Read More</a> </figcaption> </figure> 
 
-                            <a href="javascript:;" class="btn btn-small">
-                                <i class="btn-icon-only icon-remove"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> <figure class="snip1237">
+<div class="image" id="gingerbread"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1220" alt="Gingerbread" height="100%" width="100%"><em></em>
+ </div>
+<figcaption>
+<h3 style="text-align:center;">Gingerbread House Decorating Contest</h3>  
+<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1220" class="read-more">Read More</a> </figcaption> </figure> 
 
-        </div>
-        <!-- /widget-content -->
 
     </div>
-    <!-- /widget -->
-
-    <!-- Tables -->
+    <!-- /Events -->
 
     <!-- Form -->
     <div id="js__scroll-to-appointment" class="g-bg-color--sky-light g-padding-y-80--xs g-padding-y-125--sm">
@@ -470,7 +360,7 @@
                                     <i class="g-font-size-20--xs g-color--white-opacity-light ti-email"></i>
                                 </div>
                                 <div class="g-media__body">
-                                    support@keenthemes.com
+                                    support@godmusic.com
                                 </div>
                             </li>
                         </ul>
@@ -497,29 +387,29 @@
                 <div class="row">
                     <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
                         <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes">Home</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes">About</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes">Work</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes">Contact</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Home</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">About</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Work</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
                         <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes">Twitter</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes">Facebook</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes">Instagram</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes">YouTube</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Twitter</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Facebook</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Instagram</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">YouTube</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-2 g-margin-b-40--xs g-margin-b-0--md">
                         <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes">Subscribe to Our Newsletter</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes">Privacy Policy</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes">Terms &amp; Conditions</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Subscribe to Our Newsletter</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Privacy Policy</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Terms &amp; Conditions</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1 s-footer__logo g-padding-y-50--xs g-padding-y-0--md">
-                        <h3 class="g-font-size-18--xs g-color--white">Megakit</h3>
+                        <h3 class="g-font-size-18--xs g-color--white">GODMusic</h3>
                         <p class="g-color--white-opacity">We are a creative studio focusing on culture, luxury, editorial &amp; art. Somewhere between sophistication and simplicity.</p>
                     </div>
                 </div>
@@ -532,11 +422,11 @@
             <div class="row">
                 <div class="col-xs-6">
                     <a href="index.html">
-                        <img class="g-width-100--xs g-height-auto--xs" src="img/logo.png" alt="Megakit Logo">
+                        <img class="g-width-100--xs g-height-auto--xs" src="img/logo.png" alt="GODMusic Logo">
                     </a>
                 </div>
                 <div class="col-xs-6 g-text-right--xs">
-                    <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light"><a href="http://keenthemes.com/preview/Megakit/">Megakit</a> Theme Powered by: <a href="http://www.keenthemes.com/">KeenThemes.com</a></p>
+                    <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light"><a href="http://godmusic.com/preview/GODMusic/">GODMusic</a> Theme Powered by: <a href="http://www.godmusic.com/">godmusic.com</a></p>
                 </div>
             </div>
         </div>
@@ -577,3 +467,7 @@
 <!-- End Body -->
 
 </html>
+<?php
+} else{
+    header("Location: index_home.php");
+}?>

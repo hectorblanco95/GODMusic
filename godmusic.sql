@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `ohhhmusic3` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `ohhhmusic3`;
+CREATE DATABASE  IF NOT EXISTS `godmusic` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `godmusic`;
 -- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --
--- Host: kato.epsevg.upc.es    Database: ohhhmusic3
+-- Host: kato.epsevg.upc.es    Database: godmusic
 -- ------------------------------------------------------
 -- Server version	5.5.52-0+deb7u1-log
 
@@ -41,6 +41,23 @@ LOCK TABLES `ciudad` WRITE;
 INSERT INTO `ciudad` VALUES (1,'Barcelona','Barcelona'),(2,'Badalona','Barcelona'),(3,'Cornella','Barcelona'),(4,'Tarragona','Tarragona'),(5,'LLeida','LLeida'),(6,'Tortosa','Tarragona'),(7,'Girona','Girona'),(8,'Castelldefels','Barcelona'),(9,'Salou','Tarragona'),(10,'Figueres','Girona');
 /*!40000 ALTER TABLE `ciudad` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `comentaris`
+--
+
+DROP TABLE IF EXISTS `comentaris`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comentaris` (
+  `idcomentari` int(11) NOT NULL AUTO_INCREMENT,
+  `idusuario` int(11) NOT NULL,
+  `comentari` text NOT NULL,
+  `data` date NOT NULL,
+  PRIMARY KEY (`idcomentari`),
+  CONSTRAINT fk_comentaris_usuario FOREIGN KEY(`idusuario`) REFERENCES `usuario` (`idusuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `concierto`
@@ -137,21 +154,21 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `usuario` (
   `idusuario` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre_usuario` varchar(15) NOT NULL,
+  `nombre_usuario` varchar(15) NOT NULL UNIQUE,
   `password` varchar(10) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `apellidos` varchar(45) DEFAULT NULL,
-  `email` varchar(80) NOT NULL,
-  `telefono` varchar(9) NOT NULL,
+  `email` varchar(80) NOT NULL UNIQUE,
+  `telefono` varchar(9) NOT NULL UNIQUE,
   `ciudad` int(11) DEFAULT NULL,
   `sexo` varchar(1) DEFAULT NULL,
   `nacimiento` date DEFAULT NULL,
-  `nombre_artistico` varchar(60) DEFAULT NULL,
+  `nombre_artistico` varchar(60) DEFAULT NULL UNIQUE,
   `genero` int(11) DEFAULT NULL,
   `componentes` int(11) DEFAULT NULL,
   `direccion` varchar(60) DEFAULT NULL,
   `aforo` int(11) DEFAULT NULL,
-  `imagen` varchar(200) DEFAULT NULL,
+  `imagen` varchar(200) DEFAULT NULL UNIQUE,
   `perfil` char(1) NOT NULL,
   PRIMARY KEY (`idusuario`),
   UNIQUE KEY `nombre_usuario_UNIQUE` (`nombre_usuario`),
@@ -168,7 +185,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (2,'andres.perez','123456','Andrés','Pérez','andres.perez@gmail.com','600100200',1,'H','1995-12-30',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(3,'lola.casals','123456','Lola','Casals','lola.casals@gmail.com','600100200',1,'D','1996-10-20',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(4,'heliogabal','123456','Juan','Salon','heliogabal@gmail.com','620300300',1,'H','1990-07-05','HELIOGÀBAL',NULL,NULL,'Ramón y Cajal, 80',300,NULL,'l'),(5,'freedonia','123456','Carles','Mendez','freedonia@gmail.com','620301010',1,'H','1980-03-04','Freedonia',NULL,NULL,'Lleialtat 6',240,NULL,'l'),(6,'hijauhusb','123456','Ana','Sanchez','hijauhusb@hotmail.com','660100200',1,'D','1985-04-10','hijauhusb',NULL,NULL,'Passatge Caminal número 13',190,NULL,'l'),(7,'larouge','123456','Oscar','Armengol','larouge-barcleona@gmail.com','610203040',1,'H','1983-08-03','La Rouge',NULL,NULL,'Rambla del Raval, 10',330,NULL,'l'),(8,'robadors','123456','Ivan','Aragones','robadors23@gmail.com','678200100',1,'H','1984-05-03','Robadors 23',NULL,NULL,'Robadors 23',175,NULL,'l'),(9,'jazzsi','123456','Olga','Saez','jazzsi@gmail.com','650200670',1,'D','1988-10-10','Jazz SI',NULL,NULL,'Requesens, 2',200,NULL,'l'),(10,'marulacafe','123456','Sonia','Merlin','marulacafe@gmail.com','640378956',1,'D','1986-09-08','Marula Café',NULL,NULL,'Escudellers, 49',230,NULL,'l'),(11,'barts','123456','Xavier','Alavedra','barts-barcelona@gmail.com','645900700',1,'H','1975-08-02','Barts Club',NULL,NULL,'Paral·lel, 62',290,NULL,'l'),(12,'KoittonClub','123456','Sandra','Lopez','KoittonClub@gmail.com','672100200',1,'D','1978-11-20','Koitton Club',NULL,NULL,'Rossend Arús, 9',190,NULL,'l'),(13,'SARAU08911','123456','Toni','Clape','Sarau08911@gmail.com','645340800',2,'H','1981-10-10','SARAU 08911',NULL,NULL,'Ramon Martí i Alsina, 32',220,NULL,'l'),(14,'SalaMontigala','123456','Enric','Munne','salamontigala@gmail.com','680702010',2,'H','1984-11-03','Sala Montigala',NULL,NULL,'Rambla frança,  21-27',50,NULL,'l'),(15,'CafeCantonada','123456','Sonia','Roca','cafecantonada@gmail.com','679700200',4,'D','1987-12-06','Cafe Cantonada',NULL,NULL,'Fortuny, 23',125,NULL,'l'),(16,'Cucut','123456','Pere','Raya','cucut@gmail.com','680908765',7,'H','1991-10-05','Cu-cut',NULL,NULL,'Plaza Independència, 10',150,NULL,'l'),(17,'Cafefar','123456','Silvia','Villar','cafedelfar@gmail.com','689099006',9,'D','1993-03-06','Café del Far',NULL,NULL,'Cala Crancs, 2',100,NULL,'l'),(18,'coyote','123456','Jaume','Ras','coyotelive@gmail.com','678909654',10,'H','1985-08-08','Coyote Live',NULL,NULL,'Alemanya 16',150,NULL,'l'),(19,'Federalwest ','123456','Carlota','Ruiz','Federalwest@hotmail.com','650700200',10,'D','1980-02-20','Federal west ',NULL,NULL,'Plaza del sol n 10',130,NULL,'l'),(21,'koppers','123456','Sergio','Rodriguez','info@koppers.com','100100200',NULL,'H','1981-10-03','KOPPRES',2,5,NULL,NULL,NULL,'m'),(22,'Mediterranium','123456','Alicia','Bello','mediterranium@gmail.com','100200300',NULL,'D','1986-04-02','Mediterranium',1,2,NULL,NULL,NULL,'m'),(23,'Sackers','123456','Juan','Ortega','sackers@gmail.com','100200301',NULL,'H','1989-01-02','SACKERS',6,3,NULL,NULL,NULL,'m'),(24,'Mans','123456','Teo','Sarroca','mans@gmail.com','100200303',NULL,'H','1977-02-10','MANS',11,1,NULL,NULL,NULL,'m'),(25,'Leiazul','123456','Sheila','Saez','leiasheila@gmail.com','100200304',NULL,'D','1979-05-09','LeiAzul',1,2,NULL,NULL,NULL,'m'),(26,'MalaVida','123456','David','Canos','davidcanos@gmail.com','100200305',NULL,'H','1971-10-02','Mala Vida',12,3,NULL,NULL,NULL,'m'),(27,'SuperGes','123456','Daniel','Marin','danielmarin@gmail.com','100200306',NULL,'H','1972-12-10','Super Ges',10,2,NULL,NULL,NULL,'m'),(28,'Jazz3','123456','Jose','Rodriguez','jazz3@gmail.com','100200307',NULL,'H','1978-09-10','Jazz3',6,2,NULL,NULL,NULL,'m'),(29,'BandPunk','123456','Gustavo','Serra','bandpunk@gmail.com','100200308',NULL,'H','1977-03-02','Band Punk',2,5,NULL,NULL,NULL,'m'),(30,'SeisGirls','123456','Ana','Rostit','seisgirls@gmail.com','100200309',NULL,'D','1981-09-10','Seis Girls',1,6,NULL,NULL,NULL,'m'),(31,'Trencats','123456','Jan','Salvado','jansalvado@gmail.com','100200310',NULL,'H','1980-01-16','Trencats',5,2,NULL,NULL,NULL,'m'),(32,'Ecos','123456','Adrian','Segura','adriansegura@gmail.com','100200311',NULL,'H','1979-12-01','ECOS',4,2,NULL,NULL,NULL,'m'),(33,'DoubleRock','123456','Sebastian','Garcia','sebastiangarcia@gmail.com','100200312',NULL,'H','1974-06-27','Double ROCK',9,4,NULL,NULL,NULL,'m'),(34,'Sentidos','123456','Andrea','Marti','andreamarti@gmail.com','100200313',NULL,'D','1980-10-14','Sentidos',8,2,NULL,NULL,NULL,'m'),(35,'Sheila.adell','123456','Sheila','Adell','sheila.adell@gmail.com','600200111',1,'D','1990-11-12',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(36,'JordiMas','123456','Jordi','Mas','jordi.mas@gmail.com','600200222',1,'H','1997-06-11',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(38,'SandroGomez','123456','Sandro','Gomez','Sandro.gomez@gmail.com','600300303',2,'H','1998-10-01',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(39,'SantiRamirez','123456','Santi','Ramirez','santi.ramirez@gmail.com','600203088',2,'H','1997-01-06',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(40,'SaraBeltran','123456','Sara','Beltran','sara.beltran@gmail.com','600303044',3,'D','1996-08-01',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(41,'LaraCostal','123456','Lara','Costal','lara.costal@gmail.com','600200111',4,'D','1995-03-30',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(42,'InesSoriano','123456','Ines','Soriano','ines.soriano@gmail.com','600800200',5,'D','1994-05-20',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(43,'PolMenendez','123456','Pol','Menendez','pol.menendez@gmail.com','600900444',7,'H','1993-10-05',NULL,NULL,NULL,NULL,NULL,NULL,'f');
+INSERT INTO `usuario` VALUES (2,'andres.perez','123456','Andrés','Pérez','andres.perez@gmail.com','610100200',1,'H','1995-12-30',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(3,'lola.casals','123456','Lola','Casals','lola.casals@gmail.com','600100200',1,'D','1996-10-20',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(4,'heliogabal','123456','Juan','Salon','heliogabal@gmail.com','620300300',1,'H','1990-07-05','HELIOGÀBAL',NULL,NULL,'Ramón y Cajal, 80',300,NULL,'l'),(5,'freedonia','123456','Carles','Mendez','freedonia@gmail.com','620301010',1,'H','1980-03-04','Freedonia',NULL,NULL,'Lleialtat 6',240,NULL,'l'),(6,'hijauhusb','123456','Ana','Sanchez','hijauhusb@hotmail.com','660100200',1,'D','1985-04-10','hijauhusb',NULL,NULL,'Passatge Caminal número 13',190,NULL,'l'),(7,'larouge','123456','Oscar','Armengol','larouge-barcleona@gmail.com','610203040',1,'H','1983-08-03','La Rouge',NULL,NULL,'Rambla del Raval, 10',330,NULL,'l'),(8,'robadors','123456','Ivan','Aragones','robadors23@gmail.com','678200100',1,'H','1984-05-03','Robadors 23',NULL,NULL,'Robadors 23',175,NULL,'l'),(9,'jazzsi','123456','Olga','Saez','jazzsi@gmail.com','650200670',1,'D','1988-10-10','Jazz SI',NULL,NULL,'Requesens, 2',200,NULL,'l'),(10,'marulacafe','123456','Sonia','Merlin','marulacafe@gmail.com','640378956',1,'D','1986-09-08','Marula Café',NULL,NULL,'Escudellers, 49',230,NULL,'l'),(11,'barts','123456','Xavier','Alavedra','barts-barcelona@gmail.com','645900700',1,'H','1975-08-02','Barts Club',NULL,NULL,'Paral·lel, 62',290,NULL,'l'),(12,'KoittonClub','123456','Sandra','Lopez','KoittonClub@gmail.com','672100200',1,'D','1978-11-20','Koitton Club',NULL,NULL,'Rossend Arús, 9',190,NULL,'l'),(13,'SARAU08911','123456','Toni','Clape','Sarau08911@gmail.com','645340800',2,'H','1981-10-10','SARAU 08911',NULL,NULL,'Ramon Martí i Alsina, 32',220,NULL,'l'),(14,'SalaMontigala','123456','Enric','Munne','salamontigala@gmail.com','680702010',2,'H','1984-11-03','Sala Montigala',NULL,NULL,'Rambla frança,  21-27',50,NULL,'l'),(15,'CafeCantonada','123456','Sonia','Roca','cafecantonada@gmail.com','679700200',4,'D','1987-12-06','Cafe Cantonada',NULL,NULL,'Fortuny, 23',125,NULL,'l'),(16,'Cucut','123456','Pere','Raya','cucut@gmail.com','680908765',7,'H','1991-10-05','Cu-cut',NULL,NULL,'Plaza Independència, 10',150,NULL,'l'),(17,'Cafefar','123456','Silvia','Villar','cafedelfar@gmail.com','689099006',9,'D','1993-03-06','Café del Far',NULL,NULL,'Cala Crancs, 2',100,NULL,'l'),(18,'coyote','123456','Jaume','Ras','coyotelive@gmail.com','678909654',10,'H','1985-08-08','Coyote Live',NULL,NULL,'Alemanya 16',150,NULL,'l'),(19,'Federalwest ','123456','Carlota','Ruiz','Federalwest@hotmail.com','650700200',10,'D','1980-02-20','Federal west ',NULL,NULL,'Plaza del sol n 10',130,NULL,'l'),(21,'koppers','123456','Sergio','Rodriguez','info@koppers.com','100100200',NULL,'H','1981-10-03','KOPPRES',2,5,NULL,NULL,NULL,'m'),(22,'Mediterranium','123456','Alicia','Bello','mediterranium@gmail.com','100200300',NULL,'D','1986-04-02','Mediterranium',1,2,NULL,NULL,NULL,'m'),(23,'Sackers','123456','Juan','Ortega','sackers@gmail.com','100200301',NULL,'H','1989-01-02','SACKERS',6,3,NULL,NULL,NULL,'m'),(24,'Mans','123456','Teo','Sarroca','mans@gmail.com','100200303',NULL,'H','1977-02-10','MANS',11,1,NULL,NULL,NULL,'m'),(25,'Leiazul','123456','Sheila','Saez','leiasheila@gmail.com','100200304',NULL,'D','1979-05-09','LeiAzul',1,2,NULL,NULL,NULL,'m'),(26,'MalaVida','123456','David','Canos','davidcanos@gmail.com','100200305',NULL,'H','1971-10-02','Mala Vida',12,3,NULL,NULL,NULL,'m'),(27,'SuperGes','123456','Daniel','Marin','danielmarin@gmail.com','100200306',NULL,'H','1972-12-10','Super Ges',10,2,NULL,NULL,NULL,'m'),(28,'Jazz3','123456','Jose','Rodriguez','jazz3@gmail.com','100200307',NULL,'H','1978-09-10','Jazz3',6,2,NULL,NULL,NULL,'m'),(29,'BandPunk','123456','Gustavo','Serra','bandpunk@gmail.com','100200308',NULL,'H','1977-03-02','Band Punk',2,5,NULL,NULL,NULL,'m'),(30,'SeisGirls','123456','Ana','Rostit','seisgirls@gmail.com','100200309',NULL,'D','1981-09-10','Seis Girls',1,6,NULL,NULL,NULL,'m'),(31,'Trencats','123456','Jan','Salvado','jansalvado@gmail.com','100200310',NULL,'H','1980-01-16','Trencats',5,2,NULL,NULL,NULL,'m'),(32,'Ecos','123456','Adrian','Segura','adriansegura@gmail.com','100200311',NULL,'H','1979-12-01','ECOS',4,2,NULL,NULL,NULL,'m'),(33,'DoubleRock','123456','Sebastian','Garcia','sebastiangarcia@gmail.com','100200312',NULL,'H','1974-06-27','Double ROCK',9,4,NULL,NULL,NULL,'m'),(34,'Sentidos','123456','Andrea','Marti','andreamarti@gmail.com','100200313',NULL,'D','1980-10-14','Sentidos',8,2,NULL,NULL,NULL,'m'),(35,'Sheila.adell','123456','Sheila','Adell','sheila.adell@gmail.com','600200111',1,'D','1990-11-12',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(36,'JordiMas','123456','Jordi','Mas','jordi.mas@gmail.com','600200222',1,'H','1997-06-11',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(38,'SandroGomez','123456','Sandro','Gomez','Sandro.gomez@gmail.com','600300303',2,'H','1998-10-01',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(39,'SantiRamirez','123456','Santi','Ramirez','santi.ramirez@gmail.com','600203088',2,'H','1997-01-06',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(40,'SaraBeltran','123456','Sara','Beltran','sara.beltran@gmail.com','600303044',3,'D','1996-08-01',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(41,'LaraCostal','123456','Lara','Costal','lara.costal@gmail.com','601110111',4,'D','1995-03-30',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(42,'InesSoriano','123456','Ines','Soriano','ines.soriano@gmail.com','600800200',5,'D','1994-05-20',NULL,NULL,NULL,NULL,NULL,NULL,'f'),(43,'PolMenendez','123456','Pol','Menendez','pol.menendez@gmail.com','600900444',7,'H','1993-10-05',NULL,NULL,NULL,NULL,NULL,NULL,'f');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,7 +244,7 @@ INSERT INTO `voto_musico` VALUES (2,21),(3,21),(35,21),(36,21),(38,21),(39,21),(
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'ohhhmusic3'
+-- Dumping routines for database 'godmusic'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
