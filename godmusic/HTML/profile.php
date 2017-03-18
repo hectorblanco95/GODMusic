@@ -116,12 +116,53 @@ if (isset($_SESSION['username'])) {?>
 
                                 <!-- Profile -->
                                 <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                    <a href="javascript:void(0);" class="dropdown-toggle s-header-v2__nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
-                                    <ul class="dropdown-menu s-header-v2__dropdown-menu">
-                                        <li><a href="/godmusic/HTML/my_profile.php" class="s-header-v2__dropdown-menu-link">Mi Perfil</a></li>
-                                        <li><a href="#" class="s-header-v2__dropdown-menu-link">Modificar Perfil</a></li>
-                                        <li><a href="/godmusic/logout.php" name="logout" class="s-header-v2__dropdown-menu-link">LOG OUT</a></li>
+                                    <ul class="navbar-right">
+                                <li class="dropdown"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span class="user-avatar pull-left" style="margin-right:8px; margin-top:28px;">
+                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="John Doe" alt="John Doe" width="30px" height="30px">
+                                    </span>
+                                    <span class="user-name">
+                                        <?php echo $_SESSION['username'];?>
+                                    </span>
+                                    <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="navbar-content">
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" alt="Alternate Text" class="img-responsive" width="120px" height="120px" />
+                                                        <p class="text-center small">
+                                                            <a href="/godmusic/HTML/change_profile.php">Change Photo</a></p>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span><?php echo $_SESSION['username'];?></span>
+                                                        <p class="text-muted small">
+                                                            <?php echo $_SESSION['email'];?></p>
+                                                        <div class="divider">
+                                                        </div>
+                                                        <a href="/godmusic/HTML/my_profile.php" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="fa fa-address-card-o" aria-hidden="true"></i> Contacts</a>
+                                                        <a href="/godmusic/HTML/change_profile.php" class="btn btn-default btn-xs"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Help!</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="navbar-footer">
+                                                <div class="navbar-footer-content">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <a href="/godmusic/HTML/change_profile.php" class="btn btn-default btn-sm"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Change Passowrd</a>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <a href="/godmusic/logout.php" class="btn btn-default btn-sm pull-right"><i class="fa fa-power-off" aria-hidden="true"></i> Sign Out</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
                                     </ul>
+                                </li>
+                            </ul>
                                 </li>
                                 <!-- End Profile -->
                             </ul>
@@ -376,7 +417,7 @@ if (isset($_SESSION['username'])) {?>
             </div>
         </div>
     </div>
-    <!-- End Form -->
+    
     <!--========== END PAGE CONTENT ==========-->
 
     <!--========== FOOTER ==========-->

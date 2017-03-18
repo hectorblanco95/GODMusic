@@ -22,7 +22,17 @@ require_once "Functions/bbdd.php";
         if(loginUsu($username, $pass)){// funcion que comprueba si existe el usuario i la contra en la bbdd.
            $fila = sessionUsu($username);
            $_SESSION['username'] = $fila['nombre_usuario'];
+           $_SESSION['nombre'] = $fila['nombre'];
+           $_SESSION['apellidos'] = $fila['apellidos'];
            $_SESSION['email'] = $fila['email'];
+           $_SESSION['telefono'] = $fila['telefono'];
+           $_SESSION['ciudad'] = $fila['ciudad'];
+           $_SESSION['sexo'] = $fila['sexo'];
+           $_SESSION['nacimiento'] = $fila['nacimiento'];
+           $_SESSION['nombre_artistico'] = $fila['nombre_artistico'];
+           $_SESSION['genero'] = $fila['genero'];
+           $_SESSION['componentes'] = $fila['componentes'];
+           $_SESSION['direccion'] = $fila['direccion'];
            $_SESSION['perfil'] = $fila['perfil'];
             header("Location: HTML/profile.php");
 

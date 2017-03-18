@@ -1,7 +1,20 @@
 <?php
+function insertarText($text){
+	$con = conectar("godmusic");
+	$query = "insert into comentaris(`comentari`) values('$text');";
+	// Ejecutamos la consulta
+    if (mysqli_query($con, $query)) {
+        // Si ha ido bien
+
+    } else {
+        // Sino mostramos el error
+        echo mysqli_error($con);
+    }
+    desconectar($con);
+}
 function sessionUsu($username){
 	$con = conectar("godmusic");
-	$select = "select nombre_usuario, email, perfil from usuario where nombre_usuario='$username';";
+	$select = "select nombre_usuario, nombre, apellidos, email, telefono, ciudad, sexo, nacimiento, nombre_artistico, genero, componentes, direccion, perfil from usuario where nombre_usuario='$username';";
     // Ejecutamos la consulta y recogemos el resultado
     $resultado = mysqli_query($con, $select);
     $fila = mysqli_fetch_assoc($resultado);

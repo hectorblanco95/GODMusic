@@ -104,7 +104,7 @@ if (isset($_SESSION['username'])) {?>
                                 <ul class="s-header-v2__nav">
                                     <!-- Home -->
                                     <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                        <a href="/godmusic/HTML/profile.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                        <a href="/godmusic/HTML/profile.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right:-31px;">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                         <ul class="dropdown-menu s-header-v2__dropdown-menu">
                                             <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
                                             <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
@@ -118,12 +118,53 @@ if (isset($_SESSION['username'])) {?>
 
                                     <!-- Profile -->
                                     <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                        <a href="javascript:void(0);" class="dropdown-toggle s-header-v2__nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
-                                        <ul class="dropdown-menu s-header-v2__dropdown-menu">
-                                            <li><a href="/godmusic/HTML/my_profile.php" class="s-header-v2__dropdown-menu-link">Mi Perfil</a></li>
-                                            <li><a href="#" class="s-header-v2__dropdown-menu-link">Modificar Perfil</a></li>
-                                            <li><a href="/godmusic/logout.php" name="logout" class="s-header-v2__dropdown-menu-link">LOG OUT</a></li>
-                                        </ul>
+                                        <ul class="navbar-right">
+                                <li class="dropdown"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span class="user-avatar pull-left" style="margin-right:8px; margin-top:28px;">
+                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="John Doe" alt="John Doe" width="30px" height="30px">
+                                    </span>
+                                    <span class="user-name">
+                                        <?php echo $_SESSION['username'];?>
+                                    </span>
+                                    <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="navbar-content">
+                                                <div class="row">
+                                                    <div class="col-md-5">
+                                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" alt="Alternate Text" class="img-responsive" width="120px" height="120px" />
+                                                        <p class="text-center small">
+                                                            <a href="/godmusic/HTML/change_profile.php">Change Photo</a></p>
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <span><?php echo $_SESSION['username'];?></span>
+                                                        <p class="text-muted small">
+                                                            <?php echo $_SESSION['email'];?></p>
+                                                        <div class="divider">
+                                                        </div>
+                                                        <a href="/godmusic/HTML/my_profile.php" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="fa fa-address-card-o" aria-hidden="true"></i> Contacts</a>
+                                                        <a href="/godmusic/HTML/change_profile.php" class="btn btn-default btn-xs"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
+                                                        <a href="#" class="btn btn-default btn-xs"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Help!</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="navbar-footer">
+                                                <div class="navbar-footer-content">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <a href="/godmusic/HTML/change_profile.php" class="btn btn-default btn-sm"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Change Passowrd</a>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <a href="/godmusic/logout.php" class="btn btn-default btn-sm pull-right"><i class="fa fa-power-off" aria-hidden="true"></i> Sign Out</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                                     </li>
                                     <!-- End Profile -->
                                 </ul>
@@ -139,7 +180,7 @@ if (isset($_SESSION['username'])) {?>
     
 <!--========== PAGE CONTENT ==========-->
 
-    <div style="padding-top:80px;"> </div>
+    <div style="padding-top:90px;"> </div>
     <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
         <div class="panel panel-default">
             <div class="panel-body">
@@ -153,13 +194,13 @@ if (isset($_SESSION['username'])) {?>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet.</p>
                         <hr>
                         <h3><strong>Location</strong></h3>
-                        <p>Earth</p>
+                        <p><?php echo $_SESSION['direccion'];?></p>
                         <hr>
                         <h3><strong>Gender</strong></h3>
-                        <p>Unknown</p>
+                        <p><?php echo $_SESSION['sexo'];?></p>
                         <hr>
                         <h3><strong>Birthday</strong></h3>
-                        <p>January 01 1901</p>
+                        <p><?php echo $_SESSION['nacimiento'];?></p>
                     </div>
                 </div>
             </div>
@@ -169,7 +210,7 @@ if (isset($_SESSION['username'])) {?>
         <div class="panel panel-default">
             <div class="panel-body">
                 <span>
-                        <h1 class="panel-title pull-left" style="font-size:30px;"><?php echo $_SESSION['username'];?><small><?php echo $_SESSION['email'];?></small> <i class="fa fa-check text-success" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="John Doe is sharing with you"></i></h1>
+                        <h1 class="panel-title pull-left" style="font-size:30px;"><?php echo $_SESSION['username'];?> <small> <?php echo $_SESSION['email'];?></small> <i class="fa fa-check text-success" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="John Doe is sharing with you"></i></h1>
                         <div class="dropdown pull-right">
                             <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 Friends
@@ -201,6 +242,22 @@ if (isset($_SESSION['username'])) {?>
         </div>
     </div>
     <hr>
+    <form href="" id="conversation" action="/godmusic/conversation.php" method="post" role="form">
+    <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="pull-left">
+                            <a href="#">
+                                <img class="media-object img-circle" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="50px" height="50px">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <input type="submit" name="submit-text"><textarea class="form-control" name="text" rows="2" placeholder="Start a conversation..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     <!-- Simple post content example. -->
     <div class="panel panel-default">
         <div class="panel-body">
@@ -519,8 +576,6 @@ if (isset($_SESSION['username'])) {?>
     </div>
     </div>
     </div>
-
-
     <!--========== END PAGE CONTENT ==========-->
 
     <!-- Back To Top -->
