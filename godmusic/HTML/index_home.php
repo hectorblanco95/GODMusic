@@ -190,8 +190,8 @@
                                     <ul class="dropdown-menu s-header-v2__dropdown-menu">
                                         <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
                                         <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
-                                        <li><a href="#js__scroll-to-section2" class="s-header-v2__dropdown-menu-link">Votar Conciertos</a></li>
-                                        <li><a href="#js__scroll-to-section3" class="s-header-v2__dropdown-menu-link">Votar Locales</a></li>
+                                        <li><a href="#js__scroll-to-section2" class="s-header-v2__dropdown-menu-link">Artistas recomendados</a></li>
+                                        <li><a href="#js__scroll-to-section3" class="s-header-v2__dropdown-menu-link">Conciertos recomendados</a></li>
                                         <li><a href="#js__scroll-to-section4" class="s-header-v2__dropdown-menu-link">Contact Us</a></li>
                                         <li><a href="#js__scroll-to-section5" class="s-header-v2__dropdown-menu-link">About</a></li>
                                     </ul>
@@ -259,6 +259,217 @@
     <!--========== END SWIPER SLIDER ==========-->
 
     <!--========== PAGE CONTENT ==========-->
+    
+    <div id="js__scroll-to-section2">
+                   <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
+                       
+                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">Artistas recomendados</h2>
+                       
+                        <div class="container3">
+    <div>
+        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
+            <div class="artist-title col-md-12">
+                <a href="">Chris Brown</a><br/>
+            </div>
+            <div class="artist-collage col-md-12">
+                <div class="col-md-6"><img src="http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg" alt="artist-image" width="150" height="150"></div>
+                <div class="col-md-6 collage-rhs">
+                    <div class="col-md-12"><img src="http://i.ytimg.com/vi/8gyLR4NfMiI/mqdefault.jpg" alt="artist-image" width="150" height="84"></div>
+                    <div class="col-md-12"><img src="http://i.ytimg.com/vi/zKCrSN9oXgQ/mqdefault.jpg" alt="artist-image" width="150" height="84"></div>        
+                </div>
+            </div>
+            <div class="listing-tab col-md-12">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Mejores Canciones</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="track">
+                        <ul>
+                            <li><a href="#">Loyal</a>    <span>4:31</span></li>
+                            <li><a href="#">Ayo</a> <span>6:01</span></li>
+                            <li><a href="#">Look at Me Now</a>  <span>4:09</span></li>
+                            <li><a href="#">Liquor</a>  <span>3:51</span></li>
+                            <li><a href="#">View all</a></li>
+                        </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
+            <div class="artist-title col-md-12">
+                <a href="">Chris Brown</a><br/>
+            </div>
+            <div class="artist-collage col-md-12">
+                <div class="col-md-6"><img src="http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg" alt="artist-image" width="150" height="150"></div>
+                <div class="col-md-6 collage-rhs">
+                    <div class="col-md-12"><img src="http://i.ytimg.com/vi/8gyLR4NfMiI/mqdefault.jpg" alt="artist-image" width="150" height="84"></div>
+                    <div class="col-md-12"><img src="http://i.ytimg.com/vi/zKCrSN9oXgQ/mqdefault.jpg" alt="artist-image" width="150" height="84"></div>        
+                </div>
+            </div>
+            <div class="listing-tab col-md-12">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Mejores Canciones</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="track">
+                        <ul>
+                            <li><a href="#">Loyal</a>    <span>4:31</span></li>
+                            <li><a href="#">Ayo</a> <span>6:01</span></li>
+                            <li><a href="#">Look at Me Now</a>  <span>4:09</span></li>
+                            <li><a href="#">Liquor</a>  <span>3:51</span></li>
+                            <li><a href="#">View all</a></li>
+                        </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
+            <div class="artist-title col-md-12">
+                <a href="">Chris Brown</a><br/>
+            </div>
+            <div class="artist-collage col-md-12">
+                <div class="col-md-6"><img src="http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg" alt="artist-image" width="150" height="150"></div>
+                <div class="col-md-6 collage-rhs">
+                    <div class="col-md-12"><img src="http://i.ytimg.com/vi/8gyLR4NfMiI/mqdefault.jpg" alt="artist-image" width="150" height="84"></div>
+                    <div class="col-md-12"><img src="http://i.ytimg.com/vi/zKCrSN9oXgQ/mqdefault.jpg" alt="artist-image" width="150" height="84"></div>        
+                </div>
+            </div>
+            <div class="listing-tab col-md-12">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Mejores Canciones</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="track">
+                        <ul>
+                            <li><a href="#">Loyal</a>    <span>4:31</span></li>
+                            <li><a href="#">Ayo</a> <span>6:01</span></li>
+                            <li><a href="#">Look at Me Now</a>  <span>4:09</span></li>
+                            <li><a href="#">Liquor</a>  <span>3:51</span></li>
+                            <li><a href="#">View all</a></li>
+                        </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+                
+    <div id="js__scroll-to-section3">
+                   <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
+                       
+                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">Conciertos recomendados</h2>
+                       
+                        <div class="container3">
+    <div>
+        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
+            <div class="artist-title col-md-12">
+                <a href=""><?php$fila = selectConciertos();?></a><br/>
+            </div>
+            <div class="artist-collage col-md-12">
+                <div><img src="/godmusic/HTML/img/2.jpg" alt="artist-image" width="300" height="150"></div>
+            </div>
+            <div class="listing-tab col-md-12">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Información</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="track">
+                        <ul>
+                            <li><p class="calendar">20<em>Abril</em></p></li>
+                            <li>Hora:</a> <span><?php$fila['hora'];?></span></li>
+                            <li><a href="#">Local:</a>  <span>4:09</span></li>
+                            <li><a href="#">Genero:</a>  <span>3:51</span></li>
+                        </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
+            <div class="artist-title col-md-12">
+                <a href="">Party Raiser</a><br/>
+            </div>
+            <div class="artist-collage col-md-12">
+               <div class="artist-collage col-md-12">
+                <div><img src="/godmusic/HTML/img/6.jpg" alt="artist-image" width="300" height="150"></div>
+            </div>
+            </div>
+            <div class="listing-tab col-md-12">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Información</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="track">
+                        <ul>
+                            <li><a href="#">Loyal</a>    <span>4:31</span></li>
+                            <li><a href="#">Ayo</a> <span>6:01</span></li>
+                            <li><a href="#">Look at Me Now</a>  <span>4:09</span></li>
+                            <li><a href="#">Liquor</a>  <span>3:51</span></li>
+                            <li><a href="#">View all</a></li>
+                        </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
+            <div class="artist-title col-md-12">
+                <a href="">Spring Festival</a><br/>
+            </div>
+            <div class="artist-collage col-md-12">
+                <div class="artist-collage col-md-12">
+                <div><img src="/godmusic/HTML/img/9.jpg" alt="artist-image" width="300" height="150"></div>
+            </div>
+            </div>
+            <div class="listing-tab col-md-12">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Información</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="track">
+                        <ul>
+                            <li><a href="#">Loyal</a>    <span>4:31</span></li>
+                            <li><a href="#">Ayo</a> <span>6:01</span></li>
+                            <li><a href="#">Look at Me Now</a>  <span>4:09</span></li>
+                            <li><a href="#">Liquor</a>  <span>3:51</span></li>
+                            <li><a href="#">View all</a></li>
+                        </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+                    </div>
+                </div>            
 
     <!-- Form -->
     <div id="js__scroll-to-appointment" class="g-bg-color--sky-light g-padding-y-80--xs g-padding-y-125--sm">
@@ -338,6 +549,7 @@
                     </div>
                 </div>
                 <!-- End Contacts -->
+                
             </div>
         </div>
     </div>

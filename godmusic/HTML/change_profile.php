@@ -1,5 +1,30 @@
 <?php 
-session_start(); 
+session_start();
+require_once "/home/ubuntu/workspace/godmusic/Functions/bbdd.php";
+
+// Comprobamos si se ha pulsado botón "modificar"
+ if (isset($_POST['modificar'])) {
+    $username = $_POST['username'];
+    $newPass = $_POST['newPass'];
+    $newPass2 = $_POST['newPass2'];
+    $nombre = $_POST['nombre'];
+    $apellidos = $_POST['apellidos'];
+    $email = $_POST['email'];
+    $telef = $_POST['telef'];
+    $ciudad = $_POST['ciudad'];
+    $genero = $_POST['genero'];
+    $descripcion = $_POST['descripcion'];
+    $localizacion = $_POST['localizacion'];
+    if($newPass!=$newPass2){
+        echo 'las contraseñas no coiciden';
+    } else{
+    // Llamamos a la función que guarda los datos en la bbdd
+    setDatosSession($username, $newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $descripcion, $localizacion);
+    header("Location: my_profile.php");
+    }
+    
+} else{
+    
 if (isset($_SESSION['username'])) {?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
@@ -106,12 +131,12 @@ if (isset($_SESSION['username'])) {?>
                                     <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
                                         <a href="/godmusic/HTML/profile.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right:-31px;">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                         <ul class="dropdown-menu s-header-v2__dropdown-menu">
-                                            <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
-                                            <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
-                                            <li><a href="#js__scroll-to-section2" class="s-header-v2__dropdown-menu-link">Votar Conciertos</a></li>
-                                            <li><a href="#js__scroll-to-section3" class="s-header-v2__dropdown-menu-link">Votar Locales</a></li>
-                                            <li><a href="#js__scroll-to-section4" class="s-header-v2__dropdown-menu-link">Contact Us</a></li>
-                                            <li><a href="#js__scroll-to-section5" class="s-header-v2__dropdown-menu-link">About</a></li>
+                                            <li><a href="profile.php#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
+                                            <li><a href="profile.php#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
+                                            <li><a href="profile.php#js__scroll-to-section2" class="s-header-v2__dropdown-menu-link">Votar Conciertos</a></li>
+                                            <li><a href="profile.php#js__scroll-to-section3" class="s-header-v2__dropdown-menu-link">Votar Locales</a></li>
+                                            <li><a href="profile.php#js__scroll-to-section4" class="s-header-v2__dropdown-menu-link">Contact Us</a></li>
+                                            <li><a href="profile.php#js__scroll-to-section5" class="s-header-v2__dropdown-menu-link">About</a></li>
                                         </ul>
                                     </li>
                                     <!-- End Home -->
@@ -196,14 +221,62 @@ if (isset($_SESSION['username'])) {?>
             </div>
             <div class="panel panel-default">
                 <div class="panel-body">
+                    <h3 class="panel-title pull-left">Your Username</h3>
+                    <br><br>
+                    <form class="form-horizontal">
+                        <label for="Username">Username</label>
+                        <input type="text" class="form-control" id="Username" name="username" value="<?php echo $_SESSION['username'];?>">
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 class="panel-title pull-left">Your Password</h3>
+                    <br><br>
+                    <form class="form-horizontal">
+                        <label for="New_pass">New Password</label>
+                        <input type="text" class="form-control" id="New_pass" name="newPass">
+                        <label for="Repeat_pass">Repeat New Password</label>
+                        <input type="text" class="form-control" id="Repeat_pass" name="newPass2">
+                    </form>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
                     <h3 class="panel-title pull-left">Your Name</h3>
                     <br><br>
                     <form class="form-horizontal">
                         <label for="First_name">First name</label>
-                        <input type="text" class="form-control" id="First_name" value="<?php echo $_SESSION['nombre'];?>">
+                        <input type="text" class="form-control" id="First_name" name="nombre" value="<?php echo $_SESSION['nombre'];?>">
                         <label for="Last_name">Last name</label>
-                        <input type="text" class="form-control" id="Last_name" value="<?php echo $_SESSION['apellidos'];?>">
+                        <input type="text" class="form-control" id="Last_name" name="apellidos" value="<?php echo $_SESSION['apellidos'];?>">
                     </form>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 class="panel-title pull-left">Your Email</h3>
+                    <br><br>
+                    <form class="form-horizontal">
+                        <label for="Email">Email</label>
+                        <input type="text" class="form-control" id="Email" name="email" value="<?php echo $_SESSION['email'];?>">
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 class="panel-title pull-left">Your Phone Number</h3>
+                    <br><br>
+                    <form class="form-horizontal">
+                        <label for="PhoneNumber">Phone Number</label>
+                        <input type="text" class="form-control" id="PhoneNumber" name="telef" value="<?php echo $_SESSION['telefono'];?>">
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 class="panel-title pull-left">Your City</h3>
+                    <br><br>
+                    <form class="form-horizontal">
+                        <label for="City">City</label>
+                        <input type="text" class="form-control" id="City" name="ciudad" value="<?php echo $_SESSION['ciudad'];?>">
                 </div>
             </div>
             <div class="panel panel-default">
@@ -211,7 +284,7 @@ if (isset($_SESSION['username'])) {?>
                     <h3 class="panel-title pull-left">Describe yourself in 5 words</h3>
                     <br><br>
                     <form class="form-horizontal">
-                        <input type="text" class="form-control" id="keywords" placeholder="Like #movies #kittens #travel #teacher #newyork">
+                        <input type="text" class="form-control" id="keywords" placeholder="Like #movies #kittens #travel #teacher #newyork" name="descripcion">
                     </form>
                 </div>
             </div>
@@ -243,10 +316,10 @@ if (isset($_SESSION['username'])) {?>
                     <br><br>
                     <form class="form-horizontal">
                         <label for="Your_location">Your location</label>
-                        <input type="text" class="form-control" id="Your_location" placeholder="Fill me out" value="<?php echo $_SESSION['direccion'];?>">
+                        <input type="text" class="form-control" id="Your_location" placeholder="Fill me out" name="localizacion" value="<?php echo $_SESSION['direccion'];?>">
                         <br>
                         <label for="Your_gender">Your gender</label>
-                        <input type="text" class="form-control" id="Your_gender" placeholder="Fill me out" value="<?php echo $_SESSION['sexo'];?>">
+                        <input type="text" class="form-control" id="Your_gender" placeholder="Fill me out" name="genero" value="<?php echo $_SESSION['sexo'];?>">
                         <br>
                         <label>Your Birthday</label>
                         <div class="form-inline" id="birth-date">
@@ -422,25 +495,8 @@ if (isset($_SESSION['username'])) {?>
             <hr>
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3 class="panel-title pull-left">Profile settings</h3>
-                    <br><br>
-                    <h4>Search</h4>
-                    <div class="well checkbox">
-                        <label class="checkbox-inline" for="profile_searchable"><input type="checkbox" name="profile[searchable]" id="profile_searchable" value="true" checked="checked">
-                            Allow for people to search for you within diaspora*
-                        </label>
-                    </div>
-                    <br>
-                    <h4>NSFW</h4>
-                    <p>NSFW (“not safe for work”) is diaspora*’s self-governing community standard for content which may not be suitable to view while at work. If you plan to share such material frequently, please check this option so that everything you share will be hidden from people’s streams unless they choose to view them.</p>
-                    <div class="well checkbox">
-                        <label class="checkbox-inline" for="profile_nsfw"><input type="checkbox" name="profile[nsfw]" id="profile_nsfw" value="true">
-                            Mark everything I share as NSFW
-                        </label>
-                    </div>
-                    <p class="text-danger"><strong><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> If you choose not to select this option, please add the #nsfw tag each time you share such material.</strong></p>
                     <button class="btn btn-default"><i class="fa fa-fw fa-times" aria-hidden="true"></i> Cancel</button>
-                    <button class="btn btn-primary"><i class="fa fa-fw fa-check" aria-hidden="true"></i> Update Profile</button>
+                    <button type="submit" name="modificar" class="btn btn-primary"><i class="fa fa-fw fa-check" aria-hidden="true"></i> Update Profile</button>
                 </div>
             </div>
         </div>
@@ -484,4 +540,5 @@ if (isset($_SESSION['username'])) {?>
 <?php
 } else{
     header("Location: index_home.php");
+}
 }?>

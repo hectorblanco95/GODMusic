@@ -106,12 +106,12 @@ if (isset($_SESSION['username'])) {?>
                                     <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
                                         <a href="/godmusic/HTML/profile.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right:-31px;">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                         <ul class="dropdown-menu s-header-v2__dropdown-menu">
-                                            <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
-                                            <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
-                                            <li><a href="#js__scroll-to-section2" class="s-header-v2__dropdown-menu-link">Votar Conciertos</a></li>
-                                            <li><a href="#js__scroll-to-section3" class="s-header-v2__dropdown-menu-link">Votar Locales</a></li>
-                                            <li><a href="#js__scroll-to-section4" class="s-header-v2__dropdown-menu-link">Contact Us</a></li>
-                                            <li><a href="#js__scroll-to-section5" class="s-header-v2__dropdown-menu-link">About</a></li>
+                                            <li><a href="profile.php#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
+                                            <li><a href="profile.php#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
+                                            <li><a href="profile.php#js__scroll-to-section2" class="s-header-v2__dropdown-menu-link">Votar Conciertos</a></li>
+                                            <li><a href="profile.php#js__scroll-to-section3" class="s-header-v2__dropdown-menu-link">Votar Locales</a></li>
+                                            <li><a href="profile.php#js__scroll-to-section4" class="s-header-v2__dropdown-menu-link">Contact Us</a></li>
+                                            <li><a href="profile.php#js__scroll-to-section5" class="s-header-v2__dropdown-menu-link">About</a></li>
                                         </ul>
                                     </li>
                                     <!-- End Home -->
@@ -127,7 +127,7 @@ if (isset($_SESSION['username'])) {?>
                                         <?php echo $_SESSION['username'];?>
                                     </span>
                                     <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu" style="list-style:none;">
                                         <li>
                                             <div class="navbar-content">
                                                 <div class="row">
@@ -252,6 +252,10 @@ if (isset($_SESSION['username'])) {?>
                             </a>
                         </div>
                         <div class="media-body">
+                            <?php
+                            $value=$_SESSION['idusuario'];
+                            ?>
+                            <input type="hidden" name="idusu" value=<?php echo "$value"?>>
                             <input type="submit" name="submit-text"><textarea class="form-control" name="text" rows="2" placeholder="Start a conversation..."></textarea>
                         </div>
                     </div>

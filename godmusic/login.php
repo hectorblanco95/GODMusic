@@ -21,6 +21,7 @@ require_once "Functions/bbdd.php";
         $pass = $_POST['password'];
         if(loginUsu($username, $pass)){// funcion que comprueba si existe el usuario i la contra en la bbdd.
            $fila = sessionUsu($username);
+           $_SESSION['idusuario'] = $fila['idusuario'];
            $_SESSION['username'] = $fila['nombre_usuario'];
            $_SESSION['nombre'] = $fila['nombre'];
            $_SESSION['apellidos'] = $fila['apellidos'];

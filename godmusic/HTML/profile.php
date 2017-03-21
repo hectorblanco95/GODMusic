@@ -25,6 +25,7 @@ if (isset($_SESSION['username'])) {?>
     <link href="vendor/themify/themify.css" rel="stylesheet" type="text/css" />
     <link href="vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css" />
     <link href="vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/basic.css" rel="stylesheet" type="text/css"/>
 
     <!-- Theme Styles -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -222,119 +223,218 @@ if (isset($_SESSION['username'])) {?>
         <div class="s-swiper__pagination-v1 s-swiper__pagination-v1--bc s-swiper__pagination-v1--white js__swiper-pagination"></div>
     </div>
     <!--========== END SWIPER SLIDER ==========-->
-
     <!--========== PAGE CONTENT ==========-->
-
-    <!-- Events -->
+    
     <div id="js__scroll-to-section2">
-
-        <!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> 
-<figure class="snip1237">
-
-
-<div class="image" id="truck"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1223" alt="Touch-A-Truck" height="100%" width="100%"><em></em>
- </div>
-<figcaption>
-<h3 style="text-align:center;">Touch-A-Truck</h3><br> 
-<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1223" class="read-more">Read More</a> </figcaption> </figure> 
-
-
-<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ -->
-<figure class="snip1237">
-<div class="image" id="yardsale"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1234" alt="Yard Sale" height="100%" width="100%"><em></em>
- </div>
-<figcaption>
-<h3 style="text-align:center;">Community Yard Sale</h3><br> 
-<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1234" class="read-more">Read More</a> </figcaption> </figure> 
-
-<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> 
-<figure class="snip1237">
-<div class="image" id="shredding"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1226" alt="Shredding Day" height="100%" width="100%"><em></em>
- </div>
-<figcaption>
-<h3 style="text-align:center;">Shredding day</h3><br> 
-<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1226" class="read-more">Read More</a> </figcaption> </figure>
-
-<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> 
-<figure class="snip1237">
-<div class="image" id="haunt"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1221" alt="Haunted Barn" height="100%" width="100%"><em></em>
- </div>
-<figcaption>
-<h3 style="text-align:center;">Haunted Barn</h3><br> 
-<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1221" class="read-more">Read More</a> </figcaption> </figure>
-
-<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> <figure class="snip1237">
-<div class="image" id="teenie"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1222" alt="Teenie Halloweenie" height="100%" width="100%"><em></em>
- </div>
-<figcaption>
-<h3 style="text-align:center;">Teenie Halloweenie</h3><br> 
-<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1222" class="read-more">Read More</a> </figcaption> </figure> 
-
-<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> <figure class="snip1237">
-<div class="image" id="gingerbread"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1220" alt="Gingerbread" height="100%" width="100%"><em></em>
- </div>
-<figcaption>
-<h3 style="text-align:center;">Gingerbread House Decorating Contest</h3>  
-<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1220" class="read-more">Read More</a> </figcaption> </figure> 
-
-
+                   <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
+                       
+                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">Artistas recomendados</h2>
+                       
+                        <div class="container3">
+    <div>
+        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
+            <div class="artist-title col-md-12">
+                <a href="">Chris Brown</a><br/>
+            </div>
+            <div class="artist-collage col-md-12">
+                <div class="col-md-6"><img src="http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg" alt="artist-image" width="150" height="150"></div>
+                <div class="col-md-6 collage-rhs">
+                    <div class="col-md-12"><img src="http://i.ytimg.com/vi/8gyLR4NfMiI/mqdefault.jpg" alt="artist-image" width="150" height="84"></div>
+                    <div class="col-md-12"><img src="http://i.ytimg.com/vi/zKCrSN9oXgQ/mqdefault.jpg" alt="artist-image" width="150" height="84"></div>        
+                </div>
+            </div>
+            <div class="listing-tab col-md-12">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Mejores Canciones</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="track">
+                        <ul>
+                            <li><a href="#">Loyal</a>    <span>4:31</span></li>
+                            <li><a href="#">Ayo</a> <span>6:01</span></li>
+                            <li><a href="#">Look at Me Now</a>  <span>4:09</span></li>
+                            <li><a href="#">Liquor</a>  <span>3:51</span></li>
+                            <li><a href="#">View all</a></li>
+                        </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
+            <div class="artist-title col-md-12">
+                <a href="">Chris Brown</a><br/>
+            </div>
+            <div class="artist-collage col-md-12">
+                <div class="col-md-6"><img src="http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg" alt="artist-image" width="150" height="150"></div>
+                <div class="col-md-6 collage-rhs">
+                    <div class="col-md-12"><img src="http://i.ytimg.com/vi/8gyLR4NfMiI/mqdefault.jpg" alt="artist-image" width="150" height="84"></div>
+                    <div class="col-md-12"><img src="http://i.ytimg.com/vi/zKCrSN9oXgQ/mqdefault.jpg" alt="artist-image" width="150" height="84"></div>        
+                </div>
+            </div>
+            <div class="listing-tab col-md-12">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Mejores Canciones</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="track">
+                        <ul>
+                            <li><a href="#">Loyal</a>    <span>4:31</span></li>
+                            <li><a href="#">Ayo</a> <span>6:01</span></li>
+                            <li><a href="#">Look at Me Now</a>  <span>4:09</span></li>
+                            <li><a href="#">Liquor</a>  <span>3:51</span></li>
+                            <li><a href="#">View all</a></li>
+                        </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
+            <div class="artist-title col-md-12">
+                <a href="">Chris Brown</a><br/>
+            </div>
+            <div class="artist-collage col-md-12">
+                <div class="col-md-6"><img src="http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg" alt="artist-image" width="150" height="150"></div>
+                <div class="col-md-6 collage-rhs">
+                    <div class="col-md-12"><img src="http://i.ytimg.com/vi/8gyLR4NfMiI/mqdefault.jpg" alt="artist-image" width="150" height="84"></div>
+                    <div class="col-md-12"><img src="http://i.ytimg.com/vi/zKCrSN9oXgQ/mqdefault.jpg" alt="artist-image" width="150" height="84"></div>        
+                </div>
+            </div>
+            <div class="listing-tab col-md-12">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Mejores Canciones</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="track">
+                        <ul>
+                            <li><a href="#">Loyal</a>    <span>4:31</span></li>
+                            <li><a href="#">Ayo</a> <span>6:01</span></li>
+                            <li><a href="#">Look at Me Now</a>  <span>4:09</span></li>
+                            <li><a href="#">Liquor</a>  <span>3:51</span></li>
+                            <li><a href="#">View all</a></li>
+                        </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+        
     </div>
-    <!-- /Events -->
+</div>
 
+                    </div>
+                </div>
+                
     <div id="js__scroll-to-section3">
-
-        <!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> 
-<figure class="snip1237">
-
-
-<div class="image" id="truck"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1223" alt="Touch-A-Truck" height="100%" width="100%"><em></em>
- </div>
-<figcaption>
-<h3 style="text-align:center;">Touch-A-Truck</h3><br> 
-<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1223" class="read-more">Read More</a> </figcaption> </figure> 
-
-
-<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ -->
-<figure class="snip1237">
-<div class="image" id="yardsale"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1234" alt="Yard Sale" height="100%" width="100%"><em></em>
- </div>
-<figcaption>
-<h3 style="text-align:center;">Community Yard Sale</h3><br> 
-<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1234" class="read-more">Read More</a> </figcaption> </figure> 
-
-<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> 
-<figure class="snip1237">
-<div class="image" id="shredding"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1226" alt="Shredding Day" height="100%" width="100%"><em></em>
- </div>
-<figcaption>
-<h3 style="text-align:center;">Shredding day</h3><br> 
-<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1226" class="read-more">Read More</a> </figcaption> </figure>
-
-<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> 
-<figure class="snip1237">
-<div class="image" id="haunt"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1221" alt="Haunted Barn" height="100%" width="100%"><em></em>
- </div>
-<figcaption>
-<h3 style="text-align:center;">Haunted Barn</h3><br> 
-<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1221" class="read-more">Read More</a> </figcaption> </figure>
-
-<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> <figure class="snip1237">
-<div class="image" id="teenie"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1222" alt="Teenie Halloweenie" height="100%" width="100%"><em></em>
- </div>
-<figcaption>
-<h3 style="text-align:center;">Teenie Halloweenie</h3><br> 
-<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1222" class="read-more">Read More</a> </figcaption> </figure> 
-
-<!-- -------------------------------------------------------------------------------------------START NEW MONTH------------------------------------------------------------------------------------------ --> <figure class="snip1237">
-<div class="image" id="gingerbread"> <img src="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1220" alt="Gingerbread" height="100%" width="100%"><em></em>
- </div>
-<figcaption>
-<h3 style="text-align:center;">Gingerbread House Decorating Contest</h3>  
-<a href="http://www.whitemarshtwp.org/ImageRepository/Document?documentID=1220" class="read-more">Read More</a> </figcaption> </figure> 
-
-
+                   <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
+                       
+                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">Conciertos recomendados</h2>
+                       
+                        <div class="container3">
+    <div>
+        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
+            <div class="artist-title col-md-12">
+                <a href=""><?php$fila = selectConciertos();?></a><br/>
+            </div>
+            <div class="artist-collage col-md-12">
+                <div><img src="/godmusic/HTML/img/2.jpg" alt="artist-image" width="300" height="150"></div>
+            </div>
+            <div class="listing-tab col-md-12">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Información</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="track">
+                        <ul>
+                            <li><p class="calendar">20<em>Abril</em></p></li>
+                            <li>Hora:</a> <span><?php$fila['hora'];?></span></li>
+                            <li><a href="#">Local:</a>  <span>4:09</span></li>
+                            <li><a href="#">Genero:</a>  <span>3:51</span></li>
+                        </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
+            <div class="artist-title col-md-12">
+                <a href="">Party Raiser</a><br/>
+            </div>
+            <div class="artist-collage col-md-12">
+               <div class="artist-collage col-md-12">
+                <div><img src="/godmusic/HTML/img/6.jpg" alt="artist-image" width="300" height="150"></div>
+            </div>
+            </div>
+            <div class="listing-tab col-md-12">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Información</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="track">
+                        <ul>
+                            <li><a href="#">Loyal</a>    <span>4:31</span></li>
+                            <li><a href="#">Ayo</a> <span>6:01</span></li>
+                            <li><a href="#">Look at Me Now</a>  <span>4:09</span></li>
+                            <li><a href="#">Liquor</a>  <span>3:51</span></li>
+                            <li><a href="#">View all</a></li>
+                        </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
+            <div class="artist-title col-md-12">
+                <a href="">Spring Festival</a><br/>
+            </div>
+            <div class="artist-collage col-md-12">
+                <div class="artist-collage col-md-12">
+                <div><img src="/godmusic/HTML/img/9.jpg" alt="artist-image" width="300" height="150"></div>
+            </div>
+            </div>
+            <div class="listing-tab col-md-12">
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Información</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="track">
+                        <ul>
+                            <li><a href="#">Loyal</a>    <span>4:31</span></li>
+                            <li><a href="#">Ayo</a> <span>6:01</span></li>
+                            <li><a href="#">Look at Me Now</a>  <span>4:09</span></li>
+                            <li><a href="#">Liquor</a>  <span>3:51</span></li>
+                            <li><a href="#">View all</a></li>
+                        </ul>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        
+        
     </div>
-    <!-- /Events -->
+</div>
+
+                    </div>
+                </div>            
 
     <!-- Form -->
     <div id="js__scroll-to-appointment" class="g-bg-color--sky-light g-padding-y-80--xs g-padding-y-125--sm">
@@ -414,10 +514,11 @@ if (isset($_SESSION['username'])) {?>
                     </div>
                 </div>
                 <!-- End Contacts -->
+                
             </div>
         </div>
     </div>
-    
+    <!-- End Form -->
     <!--========== END PAGE CONTENT ==========-->
 
     <!--========== FOOTER ==========-->
@@ -476,32 +577,33 @@ if (isset($_SESSION['username'])) {?>
     <!--========== END FOOTER ==========-->
 
     <!-- Back To Top -->
-    <a href="javascript:void(0);" class="s-back-to-top js__back-to-top"></a>
+    <a href="javascript:void(0); " class="s-back-to-top js__back-to-top "></a>
 
     <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
     <!-- Vendor -->
-    <script type="text/javascript" src="vendor/jquery.min.js"></script>
-    <script type="text/javascript" src="vendor/jquery.migrate.min.js"></script>
-    <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="vendor/jquery.smooth-scroll.min.js"></script>
-    <script type="text/javascript" src="vendor/jquery.back-to-top.min.js"></script>
-    <script type="text/javascript" src="vendor/scrollbar/jquery.scrollbar.min.js"></script>
-    <script type="text/javascript" src="vendor/swiper/swiper.jquery.min.js"></script>
-    <script type="text/javascript" src="vendor/masonry/jquery.masonry.pkgd.min.js"></script>
-    <script type="text/javascript" src="vendor/masonry/imagesloaded.pkgd.min.js"></script>
-    <script type="text/javascript" src="vendor/jquery.equal-height.min.js"></script>
-    <script type="text/javascript" src="vendor/jquery.parallax.min.js"></script>
-    <script type="text/javascript" src="vendor/jquery.wow.min.js"></script>
+    <script type="text/javascript " src="vendor/jquery.min.js "></script>
+    <script type="text/javascript " src="vendor/jquery.migrate.min.js "></script>
+    <script type="text/javascript " src="vendor/bootstrap/js/bootstrap.min.js "></script>
+    <script type="text/javascript " src="vendor/jquery.smooth-scroll.min.js "></script>
+    <script type="text/javascript " src="vendor/jquery.back-to-top.min.js "></script>
+    <script type="text/javascript " src="vendor/scrollbar/jquery.scrollbar.min.js "></script>
+    <script type="text/javascript " src="vendor/swiper/swiper.jquery.min.js "></script>
+    <script type="text/javascript " src="vendor/masonry/jquery.masonry.pkgd.min.js "></script>
+    <script type="text/javascript " src="vendor/masonry/imagesloaded.pkgd.min.js "></script>
+    <script type="text/javascript " src="vendor/jquery.equal-height.min.js "></script>
+    <script type="text/javascript " src="vendor/jquery.parallax.min.js "></script>
+    <script type="text/javascript " src="vendor/jquery.wow.min.js "></script>
+
 
     <!-- General Components and Settings -->
-    <script type="text/javascript" src="js/global.min.js"></script>
-    <script type="text/javascript" src="js/components/header-sticky.min.js"></script>
-    <script type="text/javascript" src="js/components/scrollbar.min.js"></script>
-    <script type="text/javascript" src="js/components/swiper.min.js"></script>
-    <script type="text/javascript" src="js/components/masonry.min.js"></script>
-    <script type="text/javascript" src="js/components/equal-height.min.js"></script>
-    <script type="text/javascript" src="js/components/parallax.min.js"></script>
-    <script type="text/javascript" src="js/components/wow.min.js"></script>
+    <script type="text/javascript " src="js/global.min.js "></script>
+    <script type="text/javascript " src="js/components/header-sticky.min.js "></script>
+    <script type="text/javascript " src="js/components/scrollbar.min.js "></script>
+    <script type="text/javascript " src="js/components/swiper.min.js "></script>
+    <script type="text/javascript " src="js/components/masonry.min.js "></script>
+    <script type="text/javascript " src="js/components/equal-height.min.js "></script>
+    <script type="text/javascript " src="js/components/parallax.min.js "></script>
+    <script type="text/javascript " src="js/components/wow.min.js "></script>
     <!--========== END JAVASCRIPTS ==========-->
 
 </body>

@@ -1,7 +1,39 @@
 <?php
-function insertarText($text){
+function selectConciertos(){
 	$con = conectar("godmusic");
-	$query = "insert into comentaris(`comentari`) values('$text');";
+	$select = "select idconcierto, nombre, dia, hora, pago, genero, ciudad, sexo, nacimiento, nombre_artistico, genero from concierto;";
+    // Ejecutamos la consulta y recogemos el resultado
+    $resultado = mysqli_query($con, $select);
+    $fila = mysqli_fetch_assoc($resultado);
+    desconectar($con);
+    // devolvemos el resultado
+    return $fila;
+} 
+function search(){
+        $con= conectar("godmusic");
+        $select= "select name from concierto";
+        $resultado= mysqli_query($con, $select);
+			desconectar($con);
+			return $resultado;
+		}
+// Función que modifica los datos de session en la bbdd.
+function setDatosSession($username, $nombre, $apellidos, $newPass, $descripcion, $localizacion, $genero) {
+    $con = conectar("godmusic");
+    $update = "update usuario set nombre_usuario=$username, password=$newPass, nombre=$nombre, apellidos=$apellidos, email, telefono, ciudad, sexo=$genero, nacimiento, nombre_artistico, genero, componentes, direccion=$localizacion, perfil where nombre_usuario='$username';";
+    	// Ejecutamos la consulta
+    if (mysqli_query($con, $query)) {
+        // Si ha ido bien
+        
+    } else {
+        // Sino mostramos el error
+        echo mysqli_error($con);
+    }
+    desconectar($con);
+}
+function insertarText($text, $id){
+	$con = conectar("godmusic");
+	$query = "insert into comentaris(`comentari`, `idusuario`) values('$text', '$id');";
+
 	// Ejecutamos la consulta
     if (mysqli_query($con, $query)) {
         // Si ha ido bien
@@ -14,7 +46,7 @@ function insertarText($text){
 }
 function sessionUsu($username){
 	$con = conectar("godmusic");
-	$select = "select nombre_usuario, nombre, apellidos, email, telefono, ciudad, sexo, nacimiento, nombre_artistico, genero, componentes, direccion, perfil from usuario where nombre_usuario='$username';";
+	$select = "select idusuario, nombre_usuario, nombre, apellidos, email, telefono, ciudad, sexo, nacimiento, nombre_artistico, genero, componentes, direccion, perfil from usuario where nombre_usuario='$username';";
     // Ejecutamos la consulta y recogemos el resultado
     $resultado = mysqli_query($con, $select);
     $fila = mysqli_fetch_assoc($resultado);
