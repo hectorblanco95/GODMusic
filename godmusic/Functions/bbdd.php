@@ -1,5 +1,5 @@
 <?php
-function selectConciertos(){
+function selectcomentario(){
 	$con = conectar("godmusic");
 	$select = "select idconcierto, nombre, dia, hora, pago, genero, ciudad, sexo, nacimiento, nombre_artistico, genero from concierto;";
     // Ejecutamos la consulta y recogemos el resultado
@@ -8,6 +8,20 @@ function selectConciertos(){
     desconectar($con);
     // devolvemos el resultado
     return $fila;
+} 
+function selectConciertos(){
+	$con = conectar("godmusic");
+	$select = "SELECT concierto.nombre, concierto.dia, usuario.nombre_artistico, concierto.hora, concierto.pago, genero.nomestilo
+FROM concierto
+INNER JOIN usuario ON concierto.idlocal = usuario.idusuario
+INNER JOIN genero ON concierto.genero = genero.idgenero
+WHERE usuario.perfil =  'l'
+LIMIT 0 , 9";
+    // Ejecutamos la consulta y recogemos el resultado
+    $resultado = mysqli_query($con, $select);
+    desconectar($con);
+    // devolvemos el resultado
+    return $resultado;
 } 
 function search(){
         $con= conectar("godmusic");
@@ -32,7 +46,7 @@ function setDatosSession($username, $nombre, $apellidos, $newPass, $descripcion,
 }
 function insertarText($text, $id){
 	$con = conectar("godmusic");
-	$query = "insert into comentaris(`comentari`, `idusuario`) values('$text', '$id');";
+	$query = "insert into comentaris(`comentari`, `idusuarioqueescribe`) values('$text', '$id');";
 
 	// Ejecutamos la consulta
     if (mysqli_query($con, $query)) {

@@ -1,3 +1,5 @@
+<?php
+require_once "/home/ubuntu/workspace/godmusic/Functions/bbdd.php";?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
 <!-- Begin Head -->
@@ -156,7 +158,7 @@
                                 <li class="s-header-v2__nav-item">
                                     <div class="input-group">
                                         <div class="input-group-btn search-panel">
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            <button type="button"  class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     	<span id="search_concept">Filter by</span> <span class="caret"></span>
                     </button>
                                             <ul class="dropdown-menu" role="menu">
@@ -169,9 +171,9 @@
                                             </ul>
                                         </div>
                                         <input type="hidden" name="search_param" value="all" id="search_param">
-                                        <input type="text" class="form-control" name="x" placeholder="Search term...">
+                                        <input type="text" class="form-control" name="x" placeholder="que quieres buscar?">
                                         <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                    <button class="btn btn-default" action="/godmusic/buscador.php" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                                         </span>
                                     </div>
                                 </li>
@@ -377,93 +379,42 @@
                        
                         <div class="container3">
     <div>
-        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
-            <div class="artist-title col-md-12">
-                <a href=""><?php$fila = selectConciertos();?></a><br/>
+        <?php
+        $concierto = selectConciertos();
+        while ($fila = mysqli_fetch_array($concierto)) {
+        extract($fila);
+        $date = '2010-11-24';
+        list($y, $m, $d) = explode('-', $date);
+        echo "
+        <div class='col-md-4 col-md-offset-4 watch-card' style='width:320px;'>
+            <div class='artist-title col-md-12'>
+                <a href=''>$nombre</a><br/>
             </div>
-            <div class="artist-collage col-md-12">
-                <div><img src="/godmusic/HTML/img/2.jpg" alt="artist-image" width="300" height="150"></div>
+            <div class='artist-collage col-md-12'>
+                <div><img src='/godmusic/HTML/img/2.jpg' alt='artist-image' width='300' height='150'></div>
             </div>
-            <div class="listing-tab col-md-12">
+            <div class='listing-tab col-md-12'>
                   <!-- Nav tabs -->
-                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Información</a></li>
+                  <ul class='nav nav-tabs' id='myTabs' role='tablist'>
+                    <li role='presentation' class='active'><a href='#track' aria-controls='track' role='tab' data-toggle='tab'>Información</a></li>
                   </ul>
                 
                   <!-- Tab panes -->
-                  <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="track">
+                  <div class='tab-content'>
+                    <div role='tabpanel' class='tab-pane active' id='track'>
                         <ul>
-                            <li><p class="calendar">20<em>Abril</em></p></li>
-                            <li>Hora:</a> <span><?php$fila['hora'];?></span></li>
-                            <li><a href="#">Local:</a>  <span>4:09</span></li>
-                            <li><a href="#">Genero:</a>  <span>3:51</span></li>
+                            <li><p class='calendar'>$d<em>$m</em></p></li>
+                            <li>Hora:</a> <span>$hora</span></li>
+                            <li><a href='#'>Local:</a>  <span>$nombre_artistico</span></li>
+                            <li><a href='#'>Genero:</a>  <span>$nomestilo</span></li>
                         </ul>
                     </div>
                   </div>
             </div>
-        </div>
+        </div>";
         
-        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
-            <div class="artist-title col-md-12">
-                <a href="">Party Raiser</a><br/>
-            </div>
-            <div class="artist-collage col-md-12">
-               <div class="artist-collage col-md-12">
-                <div><img src="/godmusic/HTML/img/6.jpg" alt="artist-image" width="300" height="150"></div>
-            </div>
-            </div>
-            <div class="listing-tab col-md-12">
-                  <!-- Nav tabs -->
-                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Información</a></li>
-                  </ul>
-                
-                  <!-- Tab panes -->
-                  <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="track">
-                        <ul>
-                            <li><a href="#">Loyal</a>    <span>4:31</span></li>
-                            <li><a href="#">Ayo</a> <span>6:01</span></li>
-                            <li><a href="#">Look at Me Now</a>  <span>4:09</span></li>
-                            <li><a href="#">Liquor</a>  <span>3:51</span></li>
-                            <li><a href="#">View all</a></li>
-                        </ul>
-                    </div>
-                  </div>
-            </div>
-        </div>
         
-        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
-            <div class="artist-title col-md-12">
-                <a href="">Spring Festival</a><br/>
-            </div>
-            <div class="artist-collage col-md-12">
-                <div class="artist-collage col-md-12">
-                <div><img src="/godmusic/HTML/img/9.jpg" alt="artist-image" width="300" height="150"></div>
-            </div>
-            </div>
-            <div class="listing-tab col-md-12">
-                  <!-- Nav tabs -->
-                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Información</a></li>
-                  </ul>
-                
-                  <!-- Tab panes -->
-                  <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="track">
-                        <ul>
-                            <li><a href="#">Loyal</a>    <span>4:31</span></li>
-                            <li><a href="#">Ayo</a> <span>6:01</span></li>
-                            <li><a href="#">Look at Me Now</a>  <span>4:09</span></li>
-                            <li><a href="#">Liquor</a>  <span>3:51</span></li>
-                            <li><a href="#">View all</a></li>
-                        </ul>
-                    </div>
-                  </div>
-            </div>
-        </div>
-        
+        }?>
         
     </div>
 </div>

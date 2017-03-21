@@ -54,6 +54,7 @@ CREATE TABLE `comentaris` (
   `idusuario` int(11) NOT NULL,
   `comentari` text NOT NULL,
   `data` date NOT NULL,
+   `idusuarioescribe` int(11) NOT NULL,
   PRIMARY KEY (`idcomentari`),
   CONSTRAINT fk_comentaris_usuario FOREIGN KEY(`idusuario`) REFERENCES `usuario` (`idusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
