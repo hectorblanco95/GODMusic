@@ -7,7 +7,7 @@ function selectcomentario(){
     $fila = mysqli_fetch_assoc($resultado);
     desconectar($con);
     // devolvemos el resultado
-    return $fila;
+    return $fila; 
 } 
 function selectConciertos(){
 	$con = conectar("godmusic");
@@ -125,15 +125,14 @@ inner join usuario as us on us.idusuario!=u.idusuario inner join ciudad on idciu
     return $resultado;
 }
 
-//function tablavotoconcierto(){
-//        $con = conectar("godmusic");
-//    $query = "select concierto.dia,concierto.hora,u.nombre_artistico, us.nombre_artistico, ciudad.nomciudad, count(voto_concierto.idconcierto) as 'votos' from usuario as u inner join concierto on idusuario=idlocal
-//inner join usuario as us on us.idusuario!=u.idusuario inner join ciudad  inner join voto_concierto on voto_concierto.idconcierto=concierto.idconcierto where us.perfil=("m") group by voto_concierto.idconcierto;";
-//    $resultado = mysqli_query($con, $query);
-//    desconectar($con);
-//    return $resultado;
-//}
 
+function usu(){
+    $con = conectar("godmusic");
+    $query = "select nombre_usuario from usuario";
+    $resultado = mysqli_query($con, $query);
+    desconectar($con);
+    return $resultado;
+}
 function conectar($database) {
     $conexion = mysqli_connect("localhost", "root", "", $database)
             or die("No se ha podido conectar a la BBDD");

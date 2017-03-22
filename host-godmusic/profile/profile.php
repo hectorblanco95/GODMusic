@@ -1,6 +1,6 @@
 <?php 
 session_start(); 
-require_once "../Functions/bbdd.php";
+require_once "/bbdd.php";
 if (isset($_SESSION['username'])) {?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
