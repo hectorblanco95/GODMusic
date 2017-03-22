@@ -8,9 +8,8 @@ require_once "Functions/bbdd.php";
         $pass = $_POST['password'];
         $pass2 = $_POST['confirm-password'];
         $usu = $_POST['usu'];
-        if($pass!=$pass2){
-            echo 'las contraseñas no coinciden';
-        }else {
+        if($pass!=$pass2) echo 'las contraseñas no coinciden';
+        else{
         insertarUsu($username, $pass, $mail, $usu);
         header("Location: HTML/index_home.php");
         }
@@ -35,8 +34,6 @@ require_once "Functions/bbdd.php";
            $_SESSION['direccion'] = $fila['direccion'];
            $_SESSION['perfil'] = $fila['perfil'];
             header("Location: HTML/profile.php");
-        } else{
-            header("Location: HTML/index_home.php");
-        }
+        } else header("Location: HTML/index_home.php");
     } 
     ?>

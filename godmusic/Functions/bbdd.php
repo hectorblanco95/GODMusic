@@ -37,13 +37,10 @@ function setDatosSession($username, $nombre, $apellidos, $newPass, $descripcion,
             INNER JOIN ciudad ON ciudad.idciudad = usuario.ciudad
             WHERE nombre_usuario = '$username';";
     	// Ejecutamos la consulta
-    if (mysqli_query($con, $query)) {
-        // Si ha ido bien
+    if (mysqli_query($con, $query)); // Si ha ido bien
         
-    } else {
-        // Sino mostramos el error
-        echo mysqli_error($con);
-    }
+    else echo mysqli_error($con); // Sino mostramos el error
+    
     desconectar($con);
 }
 function insertarText($text, $id){
@@ -51,13 +48,10 @@ function insertarText($text, $id){
 	$query = "insert into comentaris(`comentari`, `idusuarioqueescribe`) values('$text', '$id');";
 
 	// Ejecutamos la consulta
-    if (mysqli_query($con, $query)) {
-        // Si ha ido bien
+    if (mysqli_query($con, $query)); // Si ha ido bien
 
-    } else {
-        // Sino mostramos el error
-        echo mysqli_error($con);
-    }
+     else echo mysqli_error($con); // Sino mostramos el error
+    
     desconectar($con);
 }
 function sessionUsu($username){
@@ -79,15 +73,12 @@ function loginUsu($username, $pass){
 	// Ejecutamos la consulta
     if ($res = mysqli_query($con, $query)) {
         // Si ha ido bien
-        if(mysqli_num_rows($res))
-        {
+        if(mysqli_num_rows($res)){
             desconectar($con);
             return 1;
         }
-    } else {
-        // Sino mostramos el error
-        echo mysqli_error($con);
-    }
+    } else echo mysqli_error($con); // Sino mostramos el error
+        
     desconectar($con);
     return 0;
 }
@@ -95,13 +86,10 @@ function insertarUsu($username, $pass, $mail, $usu){
 	$con = conectar("godmusic");
 	$query = "insert into usuario(`nombre_usuario`, `password`, `email`, `perfil`) values('$username', '$pass', '$mail', '$usu');";
 	// Ejecutamos la consulta
-    if (mysqli_query($con, $query)) {
-        // Si ha ido bien
-
-    } else {
-        // Sino mostramos el error
-        echo mysqli_error($con);
-    }
+    if (mysqli_query($con, $query)); // Si ha ido bien
+    
+    else echo mysqli_error($con); // Sino mostramos el error
+    
     desconectar($con);
 }
 function ultimcosConciertos() {

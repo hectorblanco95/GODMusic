@@ -16,7 +16,7 @@ require_once "../Functions/bbdd.php";
     $descripcion = $_POST['descripcion'];
     $localizacion = $_POST['localizacion'];
     if($newPass!=$newPass2){
-        echo 'las contraseñas no coiciden';
+        echo 'las contraseñas no coinciden';
     } else{
     // Llamamos a la función que guarda los datos en la bbdd
     setDatosSession($username, $newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $descripcion, $localizacion);
