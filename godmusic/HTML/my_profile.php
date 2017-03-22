@@ -11,10 +11,10 @@ if (isset($_SESSION['username'])) {?>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>GOD Music</title>
-    <link rel="canonical" href="http://godmusic.com/" data-ajax-meta="binded">
+    <link rel="canonical" href="http://godmusic.es/" data-ajax-meta="binded">
     <meta name="keywords" content="HTML5 Theme" />
     <meta name="description" content="GODMusic - HTML5 Theme">
-    <meta name="author" content="godmusic.com">
+    <meta name="author" content="godmusic.es">
 
     <!-- Web Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
@@ -194,7 +194,7 @@ if (isset($_SESSION['username'])) {?>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet.</p>
                         <hr>
                         <h3><strong>Location</strong></h3>
-                        <p><?php echo $_SESSION['direccion'];?></p>
+                        <p><?php echo $_SESSION['ciudad'];?></p>
                         <hr>
                         <h3><strong>Gender</strong></h3>
                         <p><?php echo $_SESSION['sexo'];?></p>

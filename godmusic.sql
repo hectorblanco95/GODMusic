@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `godmusic` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE IF NOT EXISTS `godmusic` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `godmusic`;
 -- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
 --

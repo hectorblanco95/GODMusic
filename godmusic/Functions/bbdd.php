@@ -12,11 +12,11 @@ function selectcomentario(){
 function selectConciertos(){
 	$con = conectar("godmusic");
 	$select = "SELECT concierto.nombre, concierto.dia, usuario.nombre_artistico, concierto.hora, concierto.pago, genero.nomestilo
-FROM concierto
-INNER JOIN usuario ON concierto.idlocal = usuario.idusuario
-INNER JOIN genero ON concierto.genero = genero.idgenero
-WHERE usuario.perfil =  'l'
-LIMIT 0 , 9";
+            FROM concierto
+            INNER JOIN usuario ON concierto.idlocal = usuario.idusuario
+            INNER JOIN genero ON concierto.genero = genero.idgenero
+            WHERE usuario.perfil =  'l'
+            LIMIT 0 , 9";
     // Ejecutamos la consulta y recogemos el resultado
     $resultado = mysqli_query($con, $select);
     desconectar($con);
@@ -33,7 +33,9 @@ function search(){
 // Función que modifica los datos de session en la bbdd.
 function setDatosSession($username, $nombre, $apellidos, $newPass, $descripcion, $localizacion, $genero) {
     $con = conectar("godmusic");
-    $update = "update usuario set nombre_usuario=$username, password=$newPass, nombre=$nombre, apellidos=$apellidos, email, telefono, ciudad, sexo=$genero, nacimiento, nombre_artistico, genero, componentes, direccion=$localizacion, perfil where nombre_usuario='$username';";
+    $update = "update usuario set nombre_usuario=$username, password=$newPass, nombre=$nombre, apellidos=$apellidos, email, telefono, ciudad.nomciudad, sexo=$genero, nacimiento, nombre_artistico, genero, componentes, direccion=$localizacion, perfil FROM usuario
+            INNER JOIN ciudad ON ciudad.idciudad = usuario.ciudad
+            WHERE nombre_usuario = '$username';";
     	// Ejecutamos la consulta
     if (mysqli_query($con, $query)) {
         // Si ha ido bien
@@ -60,7 +62,10 @@ function insertarText($text, $id){
 }
 function sessionUsu($username){
 	$con = conectar("godmusic");
-	$select = "select idusuario, nombre_usuario, nombre, apellidos, email, telefono, ciudad, sexo, nacimiento, nombre_artistico, genero, componentes, direccion, perfil from usuario where nombre_usuario='$username';";
+	$select = "SELECT idusuario, nombre_usuario, nombre, apellidos, email, telefono, ciudad.nomciudad, sexo, nacimiento, nombre_artistico, genero, componentes, direccion, perfil
+            FROM usuario
+            INNER JOIN ciudad ON ciudad.idciudad = usuario.ciudad
+            WHERE nombre_usuario = '$username';";
     // Ejecutamos la consulta y recogemos el resultado
     $resultado = mysqli_query($con, $select);
     $fila = mysqli_fetch_assoc($resultado);
@@ -142,7 +147,7 @@ inner join usuario as us on us.idusuario!=u.idusuario inner join ciudad on idciu
 //}
 
 function conectar($database) {
-    $conexion = mysqli_connect("127.0.0.1", "root", "", $database)
+    $conexion = mysqli_connect("localhost", "root", "", $database)
             or die("No se ha podido conectar a la BBDD");
     return $conexion;
 }

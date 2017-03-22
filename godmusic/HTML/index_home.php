@@ -1,5 +1,5 @@
 <?php
-require_once "/home/ubuntu/workspace/godmusic/Functions/bbdd.php";?>
+require_once "../Functions/bbdd.php";?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
 <!-- Begin Head -->
@@ -10,10 +10,10 @@ require_once "/home/ubuntu/workspace/godmusic/Functions/bbdd.php";?>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>GOD Music</title>
-    <link rel="canonical" href="http://godmusic.com/" data-ajax-meta="binded">
+    <link rel="canonical" href="http://godmusic.es/" data-ajax-meta="binded">
     <meta name="keywords" content="HTML5 Theme" />
     <meta name="description" content="GODMusic - HTML5 Theme">
-    <meta name="author" content="godmusic.com">
+    <meta name="author" content="godmusic.es">
 
     <!-- Web Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
@@ -366,11 +366,10 @@ require_once "/home/ubuntu/workspace/godmusic/Functions/bbdd.php";?>
         </div>
         
         
+        </div>
     </div>
 </div>
-
-                    </div>
-                </div>
+</div>
                 
     <div id="js__scroll-to-section3">
                    <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
@@ -383,8 +382,20 @@ require_once "/home/ubuntu/workspace/godmusic/Functions/bbdd.php";?>
         $concierto = selectConciertos();
         while ($fila = mysqli_fetch_array($concierto)) {
         extract($fila);
-        $date = '2010-11-24';
+        $date = $dia;
         list($y, $m, $d) = explode('-', $date);
+        if ($m==01) $m='January';
+        else if ($m==02) $m='February';
+        else if ($m==03) $m='March';
+        else if ($m==04) $m='April';
+        else if ($m==05) $m='May';
+        else if ($m==06) $m='June';
+        else if ($m==07) $m='July';
+        else if ($m==08) $m='August';
+        else if ($m==09) $m='September';
+        else if ($m==10) $m='October';
+        else if ($m==11) $m='November';
+        else if ($m==12) $m='December';
         echo "
         <div class='col-md-4 col-md-offset-4 watch-card' style='width:320px;'>
             <div class='artist-title col-md-12'>
@@ -403,10 +414,10 @@ require_once "/home/ubuntu/workspace/godmusic/Functions/bbdd.php";?>
                   <div class='tab-content'>
                     <div role='tabpanel' class='tab-pane active' id='track'>
                         <ul>
-                            <li><p class='calendar'>$d<em>$m</em></p></li>
-                            <li>Hora:</a> <span>$hora</span></li>
-                            <li><a href='#'>Local:</a>  <span>$nombre_artistico</span></li>
-                            <li><a href='#'>Genero:</a>  <span>$nomestilo</span></li>
+                            <li><p class='calendar'> $d<em> $m</em></p></li>
+                            <li>Hora:</a><span>$hora</span></li>
+                            <li>Local:</a><span>$nombre_artistico</span></li>
+                            <li>Genero:</a><span>$nomestilo</span></li>
                         </ul>
                     </div>
                   </div>
@@ -416,11 +427,10 @@ require_once "/home/ubuntu/workspace/godmusic/Functions/bbdd.php";?>
         
         }?>
         
+        </div>
     </div>
 </div>
-
-                    </div>
-                </div>            
+</div>            
 
     <!-- Form -->
     <div id="js__scroll-to-appointment" class="g-bg-color--sky-light g-padding-y-80--xs g-padding-y-125--sm">
@@ -487,7 +497,7 @@ require_once "/home/ubuntu/workspace/godmusic/Functions/bbdd.php";?>
                                     <i class="g-font-size-20--xs g-color--white-opacity-light ti-email"></i>
                                 </div>
                                 <div class="g-media__body">
-                                    support@godmusic.com
+                                    support@godmusic.es
                                 </div>
                             </li>
                         </ul>
@@ -554,7 +564,7 @@ require_once "/home/ubuntu/workspace/godmusic/Functions/bbdd.php";?>
                     </a>
                 </div>
                 <div class="col-xs-6 g-text-right--xs">
-                    <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light"><a href="http://godmusic.com/preview/GODMusic/">GODMusic</a> Theme Powered by: <a href="http://www.godmusic.com/">godmusic.com</a></p>
+                    <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light"><a href="http://godmusic.es/preview/GODMusic/">GODMusic</a> Theme Powered by: <a href="http://www.godmusic.es/">godmusic.es</a></p>
                 </div>
             </div>
         </div>

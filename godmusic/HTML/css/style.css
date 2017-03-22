@@ -3036,3 +3036,18 @@ span.play-mix-btn:hover {
 .calendar em:after {
   right: 13px
 }
+
+.votar {
+  width: 100px;
+  padding: 0px;
+  margin: 0px;
+  color: black;
+}
+
+#no {
+  background-color: red;
+}
+
+#yes {
+  background-color: green;
+}
