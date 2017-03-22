@@ -13,7 +13,7 @@ require_once "Functions/bbdd.php";
         }
         else{
         insertarUsu($username, $pass, $mail, $usu);
-          header("Location: HTML/index_home.php");
+        header("Location: HTML/index_home.php");
         }
     } if (isset($_POST['login-submit'])){
         // Recogemos las variables del POST

@@ -1,5 +1,5 @@
 <?php
-require_once "/functions/bbdd.php";?>
+require_once "./bbdd.php";?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
 <!-- Begin Head -->
@@ -143,8 +143,8 @@ require_once "/functions/bbdd.php";?>
                         <!-- Logo -->
                         <div class="s-header-v2__logo">
                             <a href="/godmusic/html/index.php" class="s-header-v2__logo-link">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/html/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/html/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/html/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/html/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
                             </a>
                         </div>
                         <!-- End Logo -->

@@ -143,8 +143,8 @@ require_once "../Functions/bbdd.php";?>
                         <!-- Logo -->
                         <div class="s-header-v2__logo">
                             <a href="/godmusic/HTML/index_home.php" class="s-header-v2__logo-link">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
                             </a>
                         </div>
                         <!-- End Logo -->
