@@ -30,8 +30,8 @@ require_once "../Functions/bbdd.php";?>
     <link href="css/global/global.css" rel="stylesheet" type="text/css" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/godmusic/HTML/img/IconGodMusic.ico" type="image/x-icon">
-    <link rel="icon" href="/godmusic/HTML/img/IconGodMusic.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/IconGodMusic.ico" type="image/x-icon">
+    <link rel="icon" href="./img/IconGodMusic.ico" type="image/x-icon">
 </head>
 <!-- End Head -->
 

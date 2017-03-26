@@ -7,7 +7,7 @@ function selectcomentario(){
     $fila = mysqli_fetch_assoc($resultado);
     desconectar($con);
     // devolvemos el resultado
-    return $fila; 
+    return $fila;
 } 
 function selectConciertos(){
 	$con = conectar("godmusic");

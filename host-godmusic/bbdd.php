@@ -1,5 +1,14 @@
 <?php
-
+function selectcomentario(){
+	$con = conectar("godmusic");
+	$select = "select idconcierto, nombre, dia, hora, pago, genero, ciudad, sexo, nacimiento, nombre_artistico, genero from concierto;";
+    // Ejecutamos la consulta y recogemos el resultado
+    $resultado = mysqli_query($con, $select);
+    $fila = mysqli_fetch_assoc($resultado);
+    desconectar($con);
+    // devolvemos el resultado
+    return $fila;
+} 
 function selectConciertos(){
 	$con = conectar("godmusic");
 	$select = "SELECT concierto.nombre, concierto.dia, usuario.nombre_artistico, concierto.hora, concierto.pago, genero.nomestilo
@@ -15,13 +24,74 @@ function selectConciertos(){
     return $resultado;
 } 
 function search(){
-    $con= conectar("godmusic");
-    $select= "select name from concierto";
-    $resultado= mysqli_query($con, $select);
-	desconectar($con);
-	return $resultado;
+        $con= conectar("godmusic");
+        $select= "select name from concierto";
+        $resultado= mysqli_query($con, $select);
+			desconectar($con);
+			return $resultado;
+		}
+// Función que modifica los datos de session en la bbdd.
+function setDatosSession($username, $nombre, $apellidos, $newPass, $descripcion, $localizacion, $genero) {
+    $con = conectar("godmusic");
+    $update = "update usuario set nombre_usuario=$username, password=$newPass, nombre=$nombre, apellidos=$apellidos, email, telefono, ciudad.nomciudad, sexo=$genero, nacimiento, nombre_artistico, genero, componentes, direccion=$localizacion, perfil FROM usuario
+            INNER JOIN ciudad ON ciudad.idciudad = usuario.ciudad
+            WHERE nombre_usuario = '$username';";
+    	// Ejecutamos la consulta
+    if (mysqli_query($con, $query)); // Si ha ido bien
+        
+    else echo mysqli_error($con); // Sino mostramos el error
+    
+    desconectar($con);
 }
+function insertarText($text, $id){
+	$con = conectar("godmusic");
+	$query = "insert into comentaris(`comentari`, `idusuarioqueescribe`) values('$text', '$id');";
 
+	// Ejecutamos la consulta
+    if (mysqli_query($con, $query)); // Si ha ido bien
+
+     else echo mysqli_error($con); // Sino mostramos el error
+    
+    desconectar($con);
+}
+function sessionUsu($username){
+	$con = conectar("godmusic");
+	$select = "SELECT idusuario, nombre_usuario, nombre, apellidos, email, telefono, ciudad.nomciudad, sexo, nacimiento, nombre_artistico, genero, componentes, direccion, perfil
+            FROM usuario
+            INNER JOIN ciudad ON ciudad.idciudad = usuario.ciudad
+            WHERE nombre_usuario = '$username';";
+    // Ejecutamos la consulta y recogemos el resultado
+    $resultado = mysqli_query($con, $select);
+    $fila = mysqli_fetch_assoc($resultado);
+    desconectar($con);
+    // devolvemos el resultado
+    return $fila;
+} 
+function loginUsu($username, $pass){
+	$con = conectar("godmusic");
+	$query = "select nombre_usuario, password from usuario where nombre_usuario='$username' and password='$pass';";
+	// Ejecutamos la consulta
+    if ($res = mysqli_query($con, $query)) {
+        // Si ha ido bien
+        if(mysqli_num_rows($res)){
+            desconectar($con);
+            return 1;
+        }
+    } else echo mysqli_error($con); // Sino mostramos el error
+        
+    desconectar($con);
+    return 0;
+}
+function insertarUsu($username, $pass, $mail, $usu){
+	$con = conectar("godmusic");
+	$query = "insert into usuario(`nombre_usuario`, `password`, `email`, `perfil`) values('$username', '$pass', '$mail', '$usu');";
+	// Ejecutamos la consulta
+    if (mysqli_query($con, $query)); // Si ha ido bien
+    
+    else echo mysqli_error($con); // Sino mostramos el error
+    
+    desconectar($con);
+}
 function ultimcosConciertos() {
     $con = conectar("godmusic");
     $query = "select concierto.dia,u.nombre_artistico, us.nombre_artistico from usuario as u inner join concierto on idusuario=idlocal
@@ -55,6 +125,14 @@ inner join usuario as us on us.idusuario!=u.idusuario inner join ciudad on idciu
     return $resultado;
 }
 
+
+function usu(){
+    $con = conectar("godmusic");
+    $query = "select nombre_usuario from usuario";
+    $resultado = mysqli_query($con, $query);
+    desconectar($con);
+    return $resultado;
+}
 function conectar($database) {
     $conexion = mysqli_connect("localhost", "root", "", $database)
             or die("No se ha podido conectar a la BBDD");

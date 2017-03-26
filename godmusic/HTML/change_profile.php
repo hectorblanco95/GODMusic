@@ -65,6 +65,7 @@ if (isset($_SESSION['username'])) {?>
 <!-- Body -->
 
 <body>
+    <form id="changebbdd-form" action="" method="post" role="form">
     <!--========== HEADER V2 ==========-->
     <header class="navbar-fixed-top s-header-v2 js__header-sticky">
         <div class="row">
@@ -204,7 +205,6 @@ if (isset($_SESSION['username'])) {?>
     </header>
     
 <!--========== PAGE CONTENT ==========-->
-
     <div style="padding-top:90px;"> </div>
         <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
             <div class="panel panel-default">
@@ -522,6 +522,7 @@ if (isset($_SESSION['username'])) {?>
         </div>
     </div>
 </div>
+</form>
     <!--========== END PAGE CONTENT ==========-->
 
     <!-- Back To Top -->
