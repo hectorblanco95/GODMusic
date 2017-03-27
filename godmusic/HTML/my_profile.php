@@ -252,10 +252,7 @@ if (isset($_SESSION['username'])) {?>
                             </a>
                         </div>
                         <div class="media-body">
-                            <?php
-                            $value=$_SESSION['idusuario'];
-                            ?>
-                            <input type="hidden" name="idusu" value=<?php echo "$value"?>>
+                            <input type="hidden" name="idusu" value=<?php echo $_SESSION['idusuario'];?>>
                             <input type="submit" name="submit-text"><textarea class="form-control" name="text" rows="2" placeholder="Start a conversation..."></textarea>
                         </div>
                     </div>

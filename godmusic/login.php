@@ -9,8 +9,7 @@ require_once "Functions/bbdd.php";
         $pass2 = $_POST['confirm-password'];
         $usu = $_POST['usu'];
        
-        if($pass!=$pass2){ echo 'las contraseñas no coinciden';
-        }
+        if($pass!=$pass2) echo 'las contraseñas no coinciden';
         else{
         insertarUsu($username, $pass, $mail, $usu);
         header("Location: HTML/index_home.php");
