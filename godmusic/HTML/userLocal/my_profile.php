@@ -1,6 +1,9 @@
 <?php 
 session_start(); 
-if (isset($_SESSION['username'])) {?>
+if (isset($_SESSION['username'])) {
+require_once "../Functions/bbdd.php";
+$usu = sessionUsu($_SESSION['username']);
+?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
 <!-- Begin Head -->
@@ -59,8 +62,8 @@ if (isset($_SESSION['username'])) {?>
                             <!-- Logo -->
                             <div class="s-header-v2__logo">
                                 <a href="/godmusic/HTML/profile.php" class="s-header-v2__logo-link">
-                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
-                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
+                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
+                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
                                 </a>
                             </div>
                             <!-- End Logo -->
@@ -121,7 +124,7 @@ if (isset($_SESSION['username'])) {?>
                                         <ul class="navbar-right">
                                 <li class="dropdown"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     <span class="user-avatar pull-left" style="margin-right:8px; margin-top:28px;">
-                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="John Doe" alt="John Doe" width="30px" height="30px">
+                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="<?php echo $_SESSION['username'];?>" alt="<?php echo $_SESSION['username'];?>" width="30px" height="30px">
                                     </span>
                                     <span class="user-name">
                                         <?php echo $_SESSION['username'];?>
@@ -132,14 +135,14 @@ if (isset($_SESSION['username'])) {?>
                                             <div class="navbar-content">
                                                 <div class="row">
                                                     <div class="col-md-5">
-                                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" alt="Alternate Text" class="img-responsive" width="120px" height="120px" />
+                                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" alt="<?php echo $_SESSION['username'];?>" class="img-responsive" width="120px" height="120px" />
                                                         <p class="text-center small">
                                                             <a href="/godmusic/HTML/change_profile.php">Change Photo</a></p>
                                                     </div>
                                                     <div class="col-md-7">
                                                         <span><?php echo $_SESSION['username'];?></span>
                                                         <p class="text-muted small">
-                                                            <?php echo $_SESSION['email'];?></p>
+                                                            <?php echo $usu['email'];?></p>
                                                         <div class="divider">
                                                         </div>
                                                         <a href="/godmusic/HTML/my_profile.php" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
@@ -194,13 +197,13 @@ if (isset($_SESSION['username'])) {?>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet.</p>
                         <hr>
                         <h3><strong>Location</strong></h3>
-                        <p><?php echo $_SESSION['ciudad'];?></p>
+                        <p><?php echo $usu['ciudad'];?></p>
                         <hr>
                         <h3><strong>Gender</strong></h3>
-                        <p><?php echo $_SESSION['sexo'];?></p>
+                        <p><?php echo $usu['sexo'];?></p>
                         <hr>
                         <h3><strong>Birthday</strong></h3>
-                        <p><?php echo $_SESSION['nacimiento'];?></p>
+                        <p><?php echo $usu['nacimiento'];?></p>
                     </div>
                 </div>
             </div>
@@ -210,7 +213,7 @@ if (isset($_SESSION['username'])) {?>
         <div class="panel panel-default">
             <div class="panel-body">
                 <span>
-                        <h1 class="panel-title pull-left" style="font-size:30px;"><?php echo $_SESSION['username'];?> <small> <?php echo $_SESSION['email'];?></small> <i class="fa fa-check text-success" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="John Doe is sharing with you"></i></h1>
+                        <h1 class="panel-title pull-left" style="font-size:30px;"><?php echo $_SESSION['username'];?> <small> <?php echo $usu['email'];?></small> <i class="fa fa-check text-success" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" title="<?php echo $_SESSION['username'];?> is sharing with you"></i></h1>
                         <div class="dropdown pull-right">
                             <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 Friends
@@ -267,7 +270,7 @@ if (isset($_SESSION['username'])) {?>
                     <img class="media-object img-circle" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;">
                 </a>
             </div>
-            <h4><a href="#" style="text-decoration:none;"><strong>John Doe</strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a></small></small>
+            <h4><a href="#" style="text-decoration:none;"><strong><?php echo $_SESSION['username'];?></strong></a> – <small><small><a style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a></small></small>
             </h4>
             <span>
                         <div class="navbar-right">
@@ -325,7 +328,7 @@ if (isset($_SESSION['username'])) {?>
                     <img class="media-object img-circle" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;">
                 </a>
             </div>
-            <h4><a href="#" style="text-decoration:none;"><strong>John Doe</strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a></small></small>
+            <h4><a href="#" style="text-decoration:none;"><strong><?php echo $_SESSION['username'];?></strong></a> – <small><small><a style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a></small></small>
             </h4>
             <span>
                         <div class="navbar-right">
@@ -354,7 +357,7 @@ if (isset($_SESSION['username'])) {?>
                         <img class="media-object img-circle" src="https://diaspote.org/uploads/images/thumb_large_283df6397c4db3fe0344.png" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;">
                     </a>
                 </div>
-                <h4><a href="#" style="text-decoration:none;"><strong>✪ SтeғOғғιcιel ✪ ツ</strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> about 15 hours ago</i></a></small></small>
+                <h4><a href="#" style="text-decoration:none;"><strong>✪ SтeғOғғιcιel ✪ ツ</strong></a> – <small><small><a style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> about 15 hours ago</i></a></small></small>
                 </h4>
                 <hr>
                 <div class="post-content">
@@ -398,7 +401,7 @@ if (isset($_SESSION['username'])) {?>
                     <img class="media-object img-circle" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;">
                 </a>
             </div>
-            <h4><a href="#" style="text-decoration:none;"><strong>John Doe</strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a></small></small>
+            <h4><a href="#" style="text-decoration:none;"><strong><?php echo $_SESSION['username'];?></strong></a> – <small><small><a style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a></small></small>
             </h4>
             <span>
                         <div class="navbar-right">
@@ -457,7 +460,7 @@ if (isset($_SESSION['username'])) {?>
                     <img class="media-object img-circle" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="50px" height="50px" style="margin-right:8px; margin-top:-5px;">
                 </a>
             </div>
-            <h4><a href="#" style="text-decoration:none;"><strong>John Doe</strong></a> – <small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a></small></small>
+            <h4><a href="#" style="text-decoration:none;"><strong><?php echo $_SESSION['username'];?></strong></a> – <small><small><a style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 42 minutes ago</i></a></small></small>
             </h4>
             <span>
                         <div class="navbar-right">
@@ -515,7 +518,7 @@ if (isset($_SESSION['username'])) {?>
                         ipsum elit, a elementum nulla ultrices eu. In posuere mollis efficitur. Maecenas justo turpis, tristique sit amet ultricies quis, molestie eget ex. Nam vestibulum consequat tincidunt. Morbi vitae placerat sapien. Phasellus quis
                         mi tincidunt sem scelerisque tincidunt. Ut viverra porttitor sagittis. Phasellus aliquam auctor purus, id sollicitudin mauris pulvinar ac. Vivamus vel erat nec orci ultricies iaculis quis sit amet augue. Vestibulum aliquam felis
                         lorem, interdum porttitor sapien sodales ac. Maecenas id ullamcorper risus. Suspendisse id dui sed urna rutrum pharetra. Nam eu lectus et orci vestibulum bibendum. Mauris et pulvinar dui, ac facilisis leo.
-                        <br><small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 12 minutes ago</i></a></small></small>
+                        <br><small><small><a style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 12 minutes ago</i></a></small></small>
                     </div>
                 </div>
             </div>
@@ -536,7 +539,7 @@ if (isset($_SESSION['username'])) {?>
                         ipsum elit, a elementum nulla ultrices eu. In posuere mollis efficitur. Maecenas justo turpis, tristique sit amet ultricies quis, molestie eget ex. Nam vestibulum consequat tincidunt. Morbi vitae placerat sapien. Phasellus quis
                         mi tincidunt sem scelerisque tincidunt. Ut viverra porttitor sagittis. Phasellus aliquam auctor purus, id sollicitudin mauris pulvinar ac. Vivamus vel erat nec orci ultricies iaculis quis sit amet augue. Vestibulum aliquam felis
                         lorem, interdum porttitor sapien sodales ac. Maecenas id ullamcorper risus. Suspendisse id dui sed urna rutrum pharetra. Nam eu lectus et orci vestibulum bibendum. Mauris et pulvinar dui, ac facilisis leo.
-                        <br><small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 9 minutes ago</i></a></small></small>
+                        <br><small><small><a style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 9 minutes ago</i></a></small></small>
                     </div>
                 </div>
             </div>
@@ -550,14 +553,14 @@ if (isset($_SESSION['username'])) {?>
                             <img class="media-object img-circle" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="35px" height="35px" style="margin-right:8px; margin-top:-5px;">
                         </a>
                     </div>
-                    <h4><a href="#" style="text-decoration:none;"><strong>John Doe</strong></a></h4>
+                    <h4><a href="#" style="text-decoration:none;"><strong><?php echo $_SESSION['username'];?></strong></a></h4>
                     <hr>
                     <div class="post-content">
                         Yet another post.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at arcu sapien. Donec laoreet, nisl quis tempor hendrerit, libero augue blandit turpis, in dignissim odio mauris eu tortor. Ut hendrerit
                         ipsum elit, a elementum nulla ultrices eu. In posuere mollis efficitur. Maecenas justo turpis, tristique sit amet ultricies quis, molestie eget ex. Nam vestibulum consequat tincidunt. Morbi vitae placerat sapien. Phasellus quis
                         mi tincidunt sem scelerisque tincidunt. Ut viverra porttitor sagittis. Phasellus aliquam auctor purus, id sollicitudin mauris pulvinar ac. Vivamus vel erat nec orci ultricies iaculis quis sit amet augue. Vestibulum aliquam felis
                         lorem, interdum porttitor sapien sodales ac. Maecenas id ullamcorper risus. Suspendisse id dui sed urna rutrum pharetra. Nam eu lectus et orci vestibulum bibendum. Mauris et pulvinar dui, ac facilisis leo.
-                        <br><small><small><a href="#" style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 2 minutes ago</i></a></small></small>
+                        <br><small><small><a style="text-decoration:none; color:grey;"><i><i class="fa fa-clock-o" aria-hidden="true"></i> 2 minutes ago</i></a></small></small>
                     </div>
                 </div>
             </div>

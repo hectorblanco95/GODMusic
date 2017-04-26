@@ -1,5 +1,6 @@
 <?php
-require_once "./bbdd.php";?>
+require_once "/constantes.php";
+?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
 <!-- Begin Head -->
@@ -19,19 +20,19 @@ require_once "./bbdd.php";?>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
 
     <!-- Vendor Styles -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="css/animate.css" rel="stylesheet" type="text/css" />
-    <link href="vendor/themify/themify.css" rel="stylesheet" type="text/css" />
-    <link href="vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css" />
-    <link href="vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $css_bootstrap ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $animate?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $themify?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $scrollbar2?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $swiper2?>" rel="stylesheet" type="text/css" />
 
     <!-- Theme Styles -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/global/global.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $style?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo $global?>" rel="stylesheet" type="text/css" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/godmusic/html/img/IconGodMusic.ico" type="image/x-icon">
-    <link rel="icon" href="/godmusic/html/img/IconGodMusic.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo $icon ?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo $icon ?>" type="image/x-icon">
 </head>
 <!-- End Head -->
 
@@ -56,7 +57,7 @@ require_once "./bbdd.php";?>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form href="/godmusic/html/profile.php" id="login-form" action="/godmusic/profile/login.php" method="post" role="form" style="display: block;">
+                            <form href="<?php echo $profile ?>" id="login-form" action="<?php echo $login ?>" method="post" role="form" style="display: block;">
                                 <div class="form-group">
                                     <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" required>
                                 </div>
@@ -84,7 +85,7 @@ require_once "./bbdd.php";?>
                                     </div>
                                 </div>
                             </form>
-                            <form id="register-form" action="/godmusic/profile/login.php" method="POST" role="form" style="display: none;">
+                            <form id="register-form" action="<?php echo $login ?>" method="POST" role="form" style="display: none;">
                                 <div class="form-group">
                                     <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" required>
                                 </div>
@@ -142,9 +143,9 @@ require_once "./bbdd.php";?>
                     <div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
                         <!-- Logo -->
                         <div class="s-header-v2__logo">
-                            <a href="/godmusic/html/index.php" class="s-header-v2__logo-link">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/html/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/html/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
+                            <a href="<?php echo $index ?>" class="s-header-v2__logo-link">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="<?php echo $profile ?>" alt="GODMusic Logo" width="255px" high="208px">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="<?php echo $profile ?>" alt="GODMusic Logo" width="255px" high="208px">
                             </a>
                         </div>
                         <!-- End Logo -->
@@ -173,7 +174,7 @@ require_once "./bbdd.php";?>
                                         <input type="hidden" name="search_param" value="all" id="search_param">
                                         <input type="text" class="form-control" name="x" placeholder="que quieres buscar?">
                                         <span class="input-group-btn">
-                    <button class="btn btn-default" action="/godmusic/buscador.php" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                    <button class="btn btn-default" action="<?php echo $buscador ?>" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                                         </span>
                                     </div>
                                 </li>
@@ -188,7 +189,7 @@ require_once "./bbdd.php";?>
                             <ul class="s-header-v2__nav">
                                 <!-- Home -->
                                 <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                    <a href="/godmusic/html/index.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                    <a href="<?php echo $index ?>" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                     <ul class="dropdown-menu s-header-v2__dropdown-menu">
                                         <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
                                         <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
@@ -218,39 +219,39 @@ require_once "./bbdd.php";?>
     <div id="js__scroll-to-section" class="s-swiper js__swiper-slider">
         <!-- Swiper Wrapper -->
         <div class="swiper-wrapper">
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide swip" style="background: url('/godmusic/html/img/1.png');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide swip" style="background: url('/godmusic/HTML/img/1.png');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/2.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/2.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/3.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/3.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/4.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/4.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/5.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/5.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/6.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/6.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/7.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/7.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/8.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/8.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/9.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/9.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/10.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/10.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/12.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/12.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/13.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/13.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/14.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/14.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/15.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/15.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/16.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/16.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/17.png');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/17.png');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/html/img/19.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/19.jpg');">
             </div>
         </div>
         <!-- End Swiper Wrapper -->
@@ -402,7 +403,7 @@ require_once "./bbdd.php";?>
                 <a href=''>$nombre</a><br/>
             </div>
             <div class='artist-collage col-md-12'>
-                <div><img src='/godmusic/html/img/2.jpg' alt='artist-image' width='300' height='150'></div>
+                <div><img src='<?php echo $img2?>' alt='artist-image' width='300' height='150'></div>
             </div>
             <div class='listing-tab col-md-12'>
                   <!-- Nav tabs -->
@@ -559,8 +560,8 @@ require_once "./bbdd.php";?>
         <div class="container g-padding-y-50--xs">
             <div class="row">
                 <div class="col-xs-6">
-                    <a href="index.html">
-                        <img class="g-width-100--xs g-height-auto--xs" src="img/logo.png" alt="GODMusic Logo">
+                    <a href="<?php echo $index ?>">
+                        <img class="g-width-100--xs g-height-auto--xs" src="<?php echo $logo?>" alt="GODMusic Logo">
                     </a>
                 </div>
                 <div class="col-xs-6 g-text-right--xs">
@@ -577,29 +578,29 @@ require_once "./bbdd.php";?>
 
     <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
     <!-- Vendor -->
-    <script type="text/javascript " src="vendor/jquery.min.js "></script>
-    <script type="text/javascript " src="vendor/jquery.migrate.min.js "></script>
-    <script type="text/javascript " src="vendor/bootstrap/js/bootstrap.min.js "></script>
-    <script type="text/javascript " src="vendor/jquery.smooth-scroll.min.js "></script>
-    <script type="text/javascript " src="vendor/jquery.back-to-top.min.js "></script>
-    <script type="text/javascript " src="vendor/scrollbar/jquery.scrollbar.min.js "></script>
-    <script type="text/javascript " src="vendor/swiper/swiper.jquery.min.js "></script>
-    <script type="text/javascript " src="vendor/masonry/jquery.masonry.pkgd.min.js "></script>
-    <script type="text/javascript " src="vendor/masonry/imagesloaded.pkgd.min.js "></script>
-    <script type="text/javascript " src="vendor/jquery.equal-height.min.js "></script>
-    <script type="text/javascript " src="vendor/jquery.parallax.min.js "></script>
-    <script type="text/javascript " src="vendor/jquery.wow.min.js "></script>
+    <script type="text/javascript " src="<?php echo $global_min ?> "></script>
+    <script type="text/javascript " src="<?php echo $migrate ?> "></script>
+    <script type="text/javascript " src="<?php echo $js_bootstrap ?> "></script>
+    <script type="text/javascript " src="<?php echo $jquery_smooth?> "></script>
+    <script type="text/javascript " src="<?php echo $back_top ?> "></script>
+    <script type="text/javascript " src="<?php echo $scrollbar1?>"></script>
+    <script type="text/javascript " src="<?php echo $swiper1?> "></script>
+    <script type="text/javascript " src="<?php echo $masonry2 ?> "></script>
+    <script type="text/javascript " src="<?php echo $masonry1 ?> "></script>
+    <script type="text/javascript " src="<?php echo $equal_height?> "></script>
+    <script type="text/javascript " src="<?php echo $jquery_parallax?> "></script>
+    <script type="text/javascript " src="<?php echo $jquery_wow ?> "></script>
 
 
     <!-- General Components and Settings -->
-    <script type="text/javascript " src="js/global.min.js "></script>
-    <script type="text/javascript " src="js/components/header-sticky.min.js "></script>
-    <script type="text/javascript " src="js/components/scrollbar.min.js "></script>
-    <script type="text/javascript " src="js/components/swiper.min.js "></script>
-    <script type="text/javascript " src="js/components/masonry.min.js "></script>
-    <script type="text/javascript " src="js/components/equal-height.min.js "></script>
-    <script type="text/javascript " src="js/components/parallax.min.js "></script>
-    <script type="text/javascript " src="js/components/wow.min.js "></script>
+    <script type="text/javascript " src="<?php echo $global_min ?> "></script>
+    <script type="text/javascript " src="<?php echo $heder ?> "></script>
+    <script type="text/javascript " src="<?php echo $scrollbar ?> "></script>
+    <script type="text/javascript " src="<?php echo $swiper ?> "></script>
+    <script type="text/javascript " src="<?php echo $masonry ?> "></script>
+    <script type="text/javascript " src="<?php echo $equal ?> "></script>
+    <script type="text/javascript " src="<?php echo $parallax ?> "></script>
+    <script type="text/javascript " src="<?php echo $wow ?> "></script>
     <!--========== END JAVASCRIPTS ==========-->
 
 </body>

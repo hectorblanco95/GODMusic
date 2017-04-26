@@ -3038,10 +3038,11 @@ span.play-mix-btn:hover {
 }
 
 .votar {
-  width: 100px;
+  width: 250px;
   padding: 0px;
   margin: 0px;
   color: black;
+  left: 15px;
 }
 
 #no {
@@ -3051,4 +3052,6 @@ span.play-mix-btn:hover {
 
 #yes {
   background-color: green;
+  margin-top: 10px;
+  margin-left: 10px;
 }

@@ -170,8 +170,11 @@ require_once "../Functions/bbdd.php";?>
                                                 <li><a href="#all">Anything</a></li>
                                             </ul>
                                         </div>
+                                        <form action="/godmusic/buscador.php" method="POST">
                                         <input type="hidden" name="search_param" value="all" id="search_param">
                                         <input type="text" class="form-control" name="x" placeholder="que quieres buscar?">
+                                        <input type="submit" class="form-control" name="namees" value="Buscar">
+                                            </form>
                                         <span class="input-group-btn">
                     <button class="btn btn-default" action="/godmusic/buscador.php" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                                         </span>

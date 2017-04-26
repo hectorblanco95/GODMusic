@@ -4,7 +4,6 @@ require_once "../Functions/bbdd.php";
 
 // Comprobamos si se ha pulsado botón "modificar"
  if (isset($_POST['modificar'])) {
-    $username = $_POST['username'];
     $newPass = $_POST['newPass'];
     $newPass2 = $_POST['newPass2'];
     $nombre = $_POST['nombre'];
@@ -15,17 +14,20 @@ require_once "../Functions/bbdd.php";
     $genero = $_POST['genero'];
     $descripcion = $_POST['descripcion'];
     $localizacion = $_POST['localizacion'];
+ 
     if($newPass!=$newPass2){
         echo 'las contraseñas no coinciden';
     } else{
     // Llamamos a la función que guarda los datos en la bbdd
-    setDatosSession($username, $newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $descripcion, $localizacion);
+    setDatosSession($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $_SESSION['username']);
     header("Location: my_profile.php");
     }
     
 } else{
     
-if (isset($_SESSION['username'])) {?>
+if (isset($_SESSION['username'])) {
+$usu = sessionUsu($_SESSION['username']);
+?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
 <!-- Begin Head -->
@@ -85,8 +87,8 @@ if (isset($_SESSION['username'])) {?>
                             <!-- Logo -->
                             <div class="s-header-v2__logo">
                                 <a href="/godmusic/HTML/profile.php" class="s-header-v2__logo-link">
-                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
-                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
+                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
+                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
                                 </a>
                             </div>
                             <!-- End Logo -->
@@ -147,7 +149,7 @@ if (isset($_SESSION['username'])) {?>
                                         <ul class="navbar-right">
                                 <li class="dropdown"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     <span class="user-avatar pull-left" style="margin-right:8px; margin-top:28px;">
-                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="John Doe" alt="John Doe" width="30px" height="30px">
+                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="<?php echo $_SESSION['username'];?>" alt="<?php echo $_SESSION['username'];?>" width="30px" height="30px">
                                     </span>
                                     <span class="user-name">
                                         <?php echo $_SESSION['username'];?>
@@ -158,14 +160,14 @@ if (isset($_SESSION['username'])) {?>
                                             <div class="navbar-content">
                                                 <div class="row">
                                                     <div class="col-md-5">
-                                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" alt="Alternate Text" class="img-responsive" width="120px" height="120px" />
+                                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" alt="<?php echo $_SESSION['username'];?>" class="img-responsive" width="120px" height="120px" />
                                                         <p class="text-center small">
                                                             <a href="/godmusic/HTML/change_profile.php">Change Photo</a></p>
                                                     </div>
                                                     <div class="col-md-7">
                                                         <span><?php echo $_SESSION['username'];?></span>
                                                         <p class="text-muted small">
-                                                            <?php echo $_SESSION['email'];?></p>
+                                                            <?php echo $usu['email'];?></p>
                                                         <div class="divider">
                                                         </div>
                                                         <a href="/godmusic/HTML/my_profile.php" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
@@ -221,15 +223,6 @@ if (isset($_SESSION['username'])) {?>
             </div>
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3 class="panel-title pull-left">Your Username</h3>
-                    <br><br>
-                    <form class="form-horizontal">
-                        <label for="Username">Username</label>
-                        <input type="text" class="form-control" id="Username" name="username" value="<?php echo $_SESSION['username'];?>">
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-body">
                     <h3 class="panel-title pull-left">Your Password</h3>
                     <br><br>
                     <form class="form-horizontal">
@@ -246,9 +239,9 @@ if (isset($_SESSION['username'])) {?>
                     <br><br>
                     <form class="form-horizontal">
                         <label for="First_name">First name</label>
-                        <input type="text" class="form-control" id="First_name" name="nombre" value="<?php echo $_SESSION['nombre'];?>">
+                        <input type="text" class="form-control" id="First_name" name="nombre" value="<?php echo $usu['nombre'];?>">
                         <label for="Last_name">Last name</label>
-                        <input type="text" class="form-control" id="Last_name" name="apellidos" value="<?php echo $_SESSION['apellidos'];?>">
+                        <input type="text" class="form-control" id="Last_name" name="apellidos" value="<?php echo $usu['apellidos'];?>">
                     </form>
                 </div>
             </div>
@@ -258,7 +251,7 @@ if (isset($_SESSION['username'])) {?>
                     <br><br>
                     <form class="form-horizontal">
                         <label for="Email">Email</label>
-                        <input type="text" class="form-control" id="Email" name="email" value="<?php echo $_SESSION['email'];?>">
+                        <input type="text" class="form-control" id="Email" name="email" value="<?php echo $usu['email'];?>">
                 </div>
             </div>
             <div class="panel panel-default">
@@ -267,7 +260,7 @@ if (isset($_SESSION['username'])) {?>
                     <br><br>
                     <form class="form-horizontal">
                         <label for="PhoneNumber">Phone Number</label>
-                        <input type="text" class="form-control" id="PhoneNumber" name="telef" value="<?php echo $_SESSION['telefono'];?>">
+                        <input type="text" class="form-control" id="PhoneNumber" name="telef" value="<?php echo $usu['telefono'];?>">
                 </div>
             </div>
             <div class="panel panel-default">
@@ -276,7 +269,7 @@ if (isset($_SESSION['username'])) {?>
                     <br><br>
                     <form class="form-horizontal">
                         <label for="City">City</label>
-                        <input type="text" class="form-control" id="City" name="ciudad" value="<?php echo $_SESSION['ciudad'];?>">
+                        <input type="text" class="form-control" id="City" name="ciudad" value="<?php echo $usu['ciudad'];?>">
                 </div>
             </div>
             <div class="panel panel-default">
@@ -316,14 +309,14 @@ if (isset($_SESSION['username'])) {?>
                     <br><br>
                     <form class="form-horizontal">
                         <label for="Your_location">Your location</label>
-                        <input type="text" class="form-control" id="Your_location" placeholder="Fill me out" name="localizacion" value="<?php echo $_SESSION['ciudad'];?>">
+                        <input type="text" class="form-control" id="Your_location" placeholder="Fill me out" name="localizacion" value="<?php echo $usu['ciudad'];?>">
                         <br>
                         <label for="Your_gender">Your gender</label>
-                        <input type="text" class="form-control" id="Your_gender" placeholder="Fill me out" name="genero" value="<?php echo $_SESSION['sexo'];?>">
+                        <input type="text" class="form-control" id="Your_gender" placeholder="Fill me out" name="genero" value="<?php echo $usu['sexo'];?>">
                         <br>
                         <label>Your Birthday</label>
                         <?php
-                        $date = $_SESSION['nacimiento'];
+                        $date = $usu['nacimiento'];
                         list($y, $m, $d) = explode('-', $date);
                         if ($y==0000) $y='Year';
                         if ($d==00) $d='Day';

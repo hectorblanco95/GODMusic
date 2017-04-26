@@ -1,9 +1,11 @@
 <?php 
-session_start(); 
-require_once "/constantes.php";
-
+session_start();
 if (isset($_SESSION['username'])) {
+require_once "../../Functions/bbdd.php";
+$usu = sessionUsu($_SESSION['username']);
 ?>
+
+
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
 <!-- Begin Head -->
@@ -23,19 +25,19 @@ if (isset($_SESSION['username'])) {
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
 
     <!-- Vendor Styles -->
-    <link href="<?php echo $css_bootstrap ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $animate?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $themify?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $scrollbar2?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $swiper2?>" rel="stylesheet" type="text/css" />
-
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="../vendor/themify/themify.css" rel="stylesheet" type="text/css" />
+    <link href="../vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css" />
+    <link href="../vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css" />
+    <link href="../css/basic.css" rel="styleshit" type="text/css"/>
     <!-- Theme Styles -->
-    <link href="<?php echo $style?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $global?>" rel="stylesheet" type="text/css" />
-
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/global/global.css" rel="stylesheet" type="text/css" />
+   
     <!-- Favicon -->
-    <link rel="shortcut icon" href="<?php echo $icon ?>" type="image/x-icon">
-    <link rel="icon" href="<?php echo $icon ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="/godmusic/HTML/img/IconGodMusic.ico" type="image/x-icon">
+    <link rel="icon" href="/godmusic/HTML/img/IconGodMusic.ico" type="image/x-icon">
 </head>
 <!-- End Head -->
 
@@ -59,9 +61,9 @@ if (isset($_SESSION['username'])) {
                     <div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
                         <!-- Logo -->
                         <div class="s-header-v2__logo">
-                            <a href="<?php echo $profile?>" class="s-header-v2__logo-link">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="<?php echo $logo?>" alt="Dublin Logo" width="255px" high="208px">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="<?php echo $logo?>" alt="Dublin Logo" width="255px" high="208px">
+                            <a href="/godmusic/HTML/profile.php" class="s-header-v2__logo-link">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
                             </a>
                         </div>
                         <!-- End Logo -->
@@ -105,7 +107,7 @@ if (isset($_SESSION['username'])) {
                             <ul class="s-header-v2__nav">
                                 <!-- Home -->
                                 <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                    <a href="<?php echo $index?>" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                    <a href="/godmusic/HTML/index_home.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                     <ul class="dropdown-menu s-header-v2__dropdown-menu">
                                         <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
                                         <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Conciertos en Bcn</a></li>
@@ -122,7 +124,7 @@ if (isset($_SESSION['username'])) {
                                     <ul class="navbar-right">
                                 <li class="dropdown"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     <span class="user-avatar pull-left" style="margin-right:8px; margin-top:28px;">
-                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="John Doe" alt="John Doe" width="30px" height="30px">
+                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="<?php echo $_SESSION['username'];?>" alt="<?php echo $_SESSION['username'];?>" width="30px" height="30px">
                                     </span>
                                     <span class="user-name">
                                         <?php echo $_SESSION['username'];?>
@@ -133,19 +135,19 @@ if (isset($_SESSION['username'])) {
                                             <div class="navbar-content">
                                                 <div class="row">
                                                     <div class="col-md-5">
-                                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" alt="Alternate Text" class="img-responsive" width="120px" height="120px" />
+                                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" alt="<?php echo $_SESSION['username'];?>" class="img-responsive" width="120px" height="120px" />
                                                         <p class="text-center small">
-                                                            <a href="<?php echo $changeprofile?>">Change Photo</a></p>
+                                                            <a href="/godmusic/HTML/change_profile.php">Change Photo</a></p>
                                                     </div>
                                                     <div class="col-md-7">
                                                         <span><?php echo $_SESSION['username'];?></span>
                                                         <p class="text-muted small">
-                                                            <?php echo $_SESSION['email'];?></p>
+                                                            <?php echo $usu['email'];?></p>
                                                         <div class="divider">
                                                         </div>
-                                                        <a href="<?php echo $myprofile?>" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
+                                                        <a href="/godmusic/HTML/my_profile.php" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
                                                         <a href="#" class="btn btn-default btn-xs"><i class="fa fa-address-card-o" aria-hidden="true"></i> Contacts</a>
-                                                        <a href="<?php echo $changeprofile?>" class="btn btn-default btn-xs"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
+                                                        <a href="/godmusic/HTML/change_profile.php" class="btn btn-default btn-xs"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
                                                         <a href="#" class="btn btn-default btn-xs"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Help!</a>
                                                     </div>
                                                 </div>
@@ -154,10 +156,10 @@ if (isset($_SESSION['username'])) {
                                                 <div class="navbar-footer-content">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <a href="<?php echo $changeprofile?>" class="btn btn-default btn-sm"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Change Passowrd</a>
+                                                            <a href="/godmusic/HTML/change_profile.php" class="btn btn-default btn-sm"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Change Passowrd</a>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <a href="<?php echo $logout?>" class="btn btn-default btn-sm pull-right"><i class="fa fa-power-off" aria-hidden="true"></i> Sign Out</a>
+                                                            <a href="/godmusic/logout.php" class="btn btn-default btn-sm pull-right"><i class="fa fa-power-off" aria-hidden="true"></i> Sign Out</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -230,127 +232,64 @@ if (isset($_SESSION['username'])) {
     <div id="js__scroll-to-section1">
                    <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
                        
-                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">Conciertos Cerca De Barcelona</h2>
+                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">Grupos que ya ahs votado</h2>
                        
                         <div class="container3">
     <div>
-        <!--CONCERT1-->
-        <div class="col-md-4 col-md-offset-4 watch-card" id="pedra" style="width:320px;">
-            <div class="artist-title col-md-12">
-                <a href=""><b>Chris Brown</b></a><br/>
+        <!--CONCERT1 aqui-->
+       <?php
+        $groups = vergruposyavotados($id);
+        while ($fila = mysqli_fetch_array($groups)){
+        extract($fila);
+       echo "<div class='col-md-4 col-md-offset-4 watch-card' id='pedra' style='width:320px;'>
+            <div class='artist-title col-md-12'>
+                <a href=''><b>$nombre_artistico</b></a><br/>
             </div>
-            <div class="artist-collage col-md-12">
-                <div class="col-md-6"><img src="http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg" alt="artist-image" width="150" height="150"></div>
-                <div class="col-md-6 collage-rhs">
-                    <div class="col-md-12"><img src="http://i.ytimg.com/vi/8gyLR4NfMiI/mqdefault.jpg" alt="artist-image" width="150" height="84"></div>
-                    <div class="col-md-12"><img src="http://i.ytimg.com/vi/zKCrSN9oXgQ/mqdefault.jpg" alt="artist-image" width="150" height="84"></div>        
+            <div class='artist-collage col-md-12'>
+                <div class='col-md-6'><img src='http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg' alt='artist-image' width='150' height='150'></div>
+                <div class='col-md-6 collage-rhs'>
+                    <div class='col-md-12'><img src='http://i.ytimg.com/vi/8gyLR4NfMiI/mqdefault.jpg' alt='artist-image' width='150' height='84'></div>
+                    <div class='col-md-12'><img src='http://i.ytimg.com/vi/zKCrSN9oXgQ/mqdefault.jpg' alt='artist-image' width='150' height='84'></div>        
                 </div>
             </div>
-            <div class="listing-tab col-md-12">
+            <div class='listing-tab col-md-12'>
                   <!-- Nav tabs -->
-                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Próximo Conciertos</a></li>
+                  <ul class='nav nav-tabs' id='myTabs' role='tablist'>
+                    <li role='presentation' class='active'><a href='#track' aria-controls='track' role='tab' data-toggle='tab'>Datos del grupo</a></li>
                   </ul>
                 
                   <!-- Tab panes -->
                  
-                  <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="track">
+                  <div class='tab-content'>
+                    <div role='tabpanel' class='tab-pane active' id='track'>
                         <ul>
-                            <li><p class="calendar">26<em>Marzo</em></p></li>
-                            <li>Hora:</a> <span><?php//$fila['hora'];?> 22.30h</span></li>
-                            <li>Local:</a>  <span><a href="https://www.google.com/maps/place/Razzmatazz/@41.3968598,2.1915848,17.06z/data=!4m5!3m4!1s0x12a4a3190e0640b5:0x40f9d8fe93a98ca!8m2!3d41.397732!4d2.191077?hl=es" target="_blank">Razzmatazz</a></span></li>
-                            <li>Genero:</a>  <span>Hip-Hop</span></li>
-                             <span><button id="yes"><div class="votar"><a href="javascript:clicks2();"><img src="http://www.freeiconspng.com/uploads/like-button-png-3.png" width="25" height="25"></a></div></button></span>
+                          
+                            <li>Numero de votos:$voto</a> </li>
+                            <li>Genero:</a>  <span>$nomestilo</span></li>
+                            <span>
+                                <button id='yes'>
+                                    
+                                        <div class='votar'>
+                                             <form action='votarmusico.php' method='POST'>
+                                             <input type='submit' name='holi'  id='id' value='' width='25' height='25'/>
+                                             <input type='hidden' name='holis' value='$id'>
+                                             </form>
+                                        </div>
+                                    </a>
+                                </button>
+                            </span>
                         </ul>
-                    <?php
-                    	if(isset($_POST['form'])){
-                    	    echo "<form action='' method='POST'>";
-                    	    $usuari = $_POST['usu'];
-                    	    echo "</form>";
-                    	    echo $usuari.", voto efectuado satisfactoriamente!";
-                    	}else{
-                    echo "<form action='' method='POST'>";
-	
-                    	}
-                    ?>
-
-        <p>Clicks negatius: <span id="clicks">0</span></p>
-        <p>Clicks positius: <span id="clicks2">0</span></p>
+    
+                      
                     </div>
-                  </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
-            <div class="artist-title col-md-12">
-                <a href=""><b>U2</b></a></a><br/>
-            </div>
-            <div class="artist-collage col-md-12">
-                <div class="col-md-6"><img src="http://www.u2spain.es/wp-content/uploads/2014/11/U2-mojo2.jpg" alt="artist-image" width="150" height="150"></div>
-                <div class="col-md-6 collage-rhs">
-                    <div class="col-md-12"><img src="http://cdn.u2.com/images/news/news_tn_248X150.jpg" alt="artist-image" width="150" height="84"></div>
-                    <div class="col-md-12"><img src="http://www.hollywoodreporter.com/sites/default/files/custom/u2-time.jpg" alt="artist-image" width="150" height="84"></div>        
                 </div>
             </div>
-            <div class="listing-tab col-md-12">
-                  <!-- Nav tabs -->
-                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Próximo Concierto</a></li>
-                  </ul>
-                
-                  <!-- Tab panes -->
-                  <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="track">
-                        <ul>
-                            <li><p class="calendar">5<em>Septiembre</em></p></li>
-                            <li>Hora:</a> <span><?php//$fila['hora'];?> 21.00h</span></li>
-                            <li>Local:</a>  <span><a href="https://www.google.es/maps/place/Sala+Apolo/@41.3742979,2.1674963,17z/data=!3m1!4b1!4m5!3m4!1s0x12a4a25c75a2cf3b:0xfe58977ad221b3a6!8m2!3d41.3742979!4d2.169685" target="blank">Sala Apolo</a></span></li>
-                            <li>Genero:</a>  <span>Rock'n Roll</span></li>
-                             <span><button id="yes"><div class="votar"><a href="javascript:clicks2();"><img src="http://www.freeiconspng.com/uploads/like-button-png-3.png" width="25" height="25"></a></div></button></span>
-                        </ul>
-
-        <p>Clicks negatius: <span id="clicks3">0</span></p>
-        <p>Clicks positius: <span id="clicks4">0</span></p>
-                    </div>
-                  </div>
-            </div>
-        </div>
+        </div>";
+        }
+        ?>
+      
         
-        <div class="col-md-4 col-md-offset-4 watch-card" style="width:320px;">
-            <div class="artist-title col-md-12">
-                <a href=""><b>Jus Deelax</b></a><br/>
-            </div>
-            <div class="artist-collage col-md-12">
-                <div class="col-md-6"><img src="http://palace.hu/wp-content/uploads/2016/05/mnml_j%C3%BAl2-cover-845x315.jpg" alt="artist-image" width="150" height="150"></div>
-                <div class="col-md-6 collage-rhs">
-                    <div class="col-md-12"><img src="https://i.ytimg.com/vi/3m26fYt9kR8/hqdefault.jpg" alt="artist-image" width="150" height="84"></div>
-                    <div class="col-md-12"><img src="http://emocion.movistar.es/yavoy_res/images/122173.jpg" alt="artist-image" width="150" height="84"></div>        
-                </div>
-            </div>
-            <div class="listing-tab col-md-12">
-                  <!-- Nav tabs -->
-                  <ul class="nav nav-tabs" id="myTabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#track" aria-controls="track" role="tab" data-toggle="tab">Próximo Concierto</a></li>
-                  </ul>
-                
-                  <!-- Tab panes -->
-                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="track">
-                        <ul>
-                            <li><p class="calendar">20<em>Abril</em></p></li>
-                            <li>Hora:</a> <span><?php//$fila['hora'];?> 00.00h</span></li>
-                            <li>Local:</a>  <span><a href="https://www.google.es/maps/place/Pacha+Barcelona/@41.3857471,2.1948701,17z/data=!3m1!4b1!4m5!3m4!1s0x12a4a30ed4c76ce9:0x3af51a6640254e5b!8m2!3d41.3857471!4d2.1970588" target="blank">Pacha</a></span></li>
-                            <li>Genero:</a>  <span>Minimal</span></li>
-                              <span><button id="yes"><div class="votar"><a href="javascript:clicks2();"><img src="http://www.freeiconspng.com/uploads/like-button-png-3.png" width="25" height="25"></a></div></button></span>
-                        </ul>
-
-        <p>Clicks negatius: <span id="clicks5">0</span></p>
-        <p>Clicks positius: <span id="clicks6">0</span></p>
-                    </div>
-                  </div>
-            </div>
-        </div>
+       
         
         
     </div>
@@ -390,7 +329,7 @@ if (isset($_SESSION['username'])) {
                 <a href=''>$nombre</a><br/>
             </div>
             <div class='artist-collage col-md-12'>
-                <div><img src='<?php echo $img2?>' alt='artist-image' width='300' height='150'></div>
+                <div><img src='/godmusic/HTML/img/2.jpg' alt='artist-image' width='300' height='150'></div>
             </div>
             <div class='listing-tab col-md-12'>
                   <!-- Nav tabs -->
@@ -463,8 +402,8 @@ if (isset($_SESSION['username'])) {
         <div class="container g-padding-y-50--xs">
             <div class="row">
                 <div class="col-xs-6">
-                    <a href="<?php echo $index?>">
-                        <img class="g-width-100--xs g-height-auto--xs" src="<?php echo $logo?>" alt="GODMusic Logo">
+                    <a href="index.html">
+                        <img class="g-width-100--xs g-height-auto--xs" src="img/logo.png" alt="GODMusic Logo">
                     </a>
                 </div>
                 <div class="col-xs-6 g-text-right--xs">
@@ -481,29 +420,29 @@ if (isset($_SESSION['username'])) {
 
     <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
     <!-- Vendor -->
-    <script type="text/javascript " src="<?php echo $global_min ?> "></script>
-    <script type="text/javascript " src="<?php echo $migrate ?> "></script>
-    <script type="text/javascript " src="<?php echo $js_bootstrap ?> "></script>
-    <script type="text/javascript " src="<?php echo $jquery_smooth?> "></script>
-    <script type="text/javascript " src="<?php echo $back_top ?> "></script>
-    <script type="text/javascript " src="<?php echo $scrollbar1?>"></script>
-    <script type="text/javascript " src="<?php echo $swiper1?> "></script>
-    <script type="text/javascript " src="<?php echo $masonry2 ?> "></script>
-    <script type="text/javascript " src="<?php echo $masonry1 ?> "></script>
-    <script type="text/javascript " src="<?php echo $equal_height?> "></script>
-    <script type="text/javascript " src="<?php echo $jquery_parallax?> "></script>
-    <script type="text/javascript " src="<?php echo $jquery_wow ?> "></script>
+    <script type="text/javascript " src="../vendor/jquery.min.js "></script>
+    <script type="text/javascript " src="../vendor/jquery.migrate.min.js "></script>
+    <script type="text/javascript " src="../vendor/bootstrap/js/bootstrap.min.js "></script>
+    <script type="text/javascript " src="../vendor/jquery.smooth-scroll.min.js "></script>
+    <script type="text/javascript " src="../vendor/jquery.back-to-top.min.js "></script>
+    <script type="text/javascript " src="../vendor/scrollbar/jquery.scrollbar.min.js "></script>
+    <script type="text/javascript " src="../vendor/swiper/swiper.jquery.min.js "></script>
+    <script type="text/javascript " src="../vendor/masonry/jquery.masonry.pkgd.min.js "></script>
+    <script type="text/javascript " src="../vendor/masonry/imagesloaded.pkgd.min.js "></script>
+    <script type="text/javascript " src="../vendor/jquery.equal-height.min.js "></script>
+    <script type="text/javascript " src="../vendor/jquery.parallax.min.js "></script>
+    <script type="text/javascript " src="../vendor/jquery.wow.min.js "></script>
 
 
     <!-- General Components and Settings -->
-    <script type="text/javascript " src="<?php echo $global_min ?> "></script>
-    <script type="text/javascript " src="<?php echo $heder ?> "></script>
-    <script type="text/javascript " src="<?php echo $scrollbar ?> "></script>
-    <script type="text/javascript " src="<?php echo $swiper ?> "></script>
-    <script type="text/javascript " src="<?php echo $masonry ?> "></script>
-    <script type="text/javascript " src="<?php echo $equal ?> "></script>
-    <script type="text/javascript " src="<?php echo $parallax ?> "></script>
-    <script type="text/javascript " src="<?php echo $wow ?> "></script>
+    <script type="text/javascript " src="../js/global.min.js "></script>
+    <script type="text/javascript " src="../js/components/header-sticky.min.js "></script>
+    <script type="text/javascript " src="../js/components/scrollbar.min.js "></script>
+    <script type="text/javascript " src="../js/components/swiper.min.js "></script>
+    <script type="text/javascript " src="../js/components/masonry.min.js "></script>
+    <script type="text/javascript " src="../js/components/equal-height.min.js "></script>
+    <script type="text/javascript " src="../js/components/parallax.min.js "></script>
+    <script type="text/javascript " src="../js/components/wow.min.js "></script>
     <!--========== END JAVASCRIPTS ==========-->
 
 </body>
@@ -511,6 +450,6 @@ if (isset($_SESSION['username'])) {
 
 </html>
 <?php
-} else{
-    header("Location: ../index.php");
-}?>
+} else
+   header("Location: index_home.php");
+?>

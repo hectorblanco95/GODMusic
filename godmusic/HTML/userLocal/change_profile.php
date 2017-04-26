@@ -1,10 +1,9 @@
 <?php 
 session_start();
-require_once "/constantes.php";
+require_once "../Functions/bbdd.php";
 
 // Comprobamos si se ha pulsado botón "modificar"
  if (isset($_POST['modificar'])) {
-    $username = $_POST['username'];
     $newPass = $_POST['newPass'];
     $newPass2 = $_POST['newPass2'];
     $nombre = $_POST['nombre'];
@@ -15,17 +14,20 @@ require_once "/constantes.php";
     $genero = $_POST['genero'];
     $descripcion = $_POST['descripcion'];
     $localizacion = $_POST['localizacion'];
+ 
     if($newPass!=$newPass2){
         echo 'las contraseñas no coinciden';
     } else{
     // Llamamos a la función que guarda los datos en la bbdd
-    setDatosSession($username, $newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $descripcion, $localizacion);
-    header("Location: $myprofile");
+    setDatosSession($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $_SESSION['username']);
+    header("Location: my_profile.php");
     }
     
 } else{
     
-if (isset($_SESSION['username'])) {?>
+if (isset($_SESSION['username'])) {
+$usu = sessionUsu($_SESSION['username']);
+?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
 <!-- Begin Head -->
@@ -46,19 +48,19 @@ if (isset($_SESSION['username'])) {?>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Vendor Styles -->
-    <link href="<?php echo $css_bootstrap?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $animate?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $themify?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $scrollbar2?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $swiper2?>" rel="stylesheet" type="text/css" />
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="vendor/themify/themify.css" rel="stylesheet" type="text/css" />
+    <link href="vendor/scrollbar/scrollbar.min.css" rel="stylesheet" type="text/css" />
+    <link href="vendor/swiper/swiper.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Theme Styles -->
-    <link href="<?php echo $style?>" rel="stylesheet" type="text/css" />
-    <link href="<?php echo $global?>" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/global/global.css" rel="stylesheet" type="text/css" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="<?php echo $icon ?>" type="image/x-icon">
-    <link rel="icon" href="<?php echo $icon ?>" type="image/x-icon">
+    <link rel="shortcut icon" href="/godmusic/HTML/img/IconGodMusic.ico" type="image/x-icon">
+    <link rel="icon" href="/godmusic/HTML/img/IconGodMusic.ico" type="image/x-icon">
 </head>
 <!-- End Head -->
 
@@ -84,9 +86,9 @@ if (isset($_SESSION['username'])) {?>
                         <div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
                             <!-- Logo -->
                             <div class="s-header-v2__logo">
-                                <a href="<?php echo $profile ?>" class="s-header-v2__logo-link">
-                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
-                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/HTML/img/logo.PNG" alt="Dublin Logo" width="255px" high="208px">
+                                <a href="/godmusic/HTML/profile.php" class="s-header-v2__logo-link">
+                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
+                                    <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
                                 </a>
                             </div>
                             <!-- End Logo -->
@@ -130,7 +132,7 @@ if (isset($_SESSION['username'])) {?>
                                 <ul class="s-header-v2__nav">
                                     <!-- Home -->
                                     <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                        <a href="<?php echo $profile ?>" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right:-31px;">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                        <a href="/godmusic/HTML/profile.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right:-31px;">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                         <ul class="dropdown-menu s-header-v2__dropdown-menu">
                                             <li><a href="profile.php#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
                                             <li><a href="profile.php#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
@@ -147,7 +149,7 @@ if (isset($_SESSION['username'])) {?>
                                         <ul class="navbar-right">
                                 <li class="dropdown"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     <span class="user-avatar pull-left" style="margin-right:8px; margin-top:28px;">
-                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="John Doe" alt="John Doe" width="30px" height="30px">
+                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="<?php echo $_SESSION['username'];?>" alt="<?php echo $_SESSION['username'];?>" width="30px" height="30px">
                                     </span>
                                     <span class="user-name">
                                         <?php echo $_SESSION['username'];?>
@@ -158,19 +160,19 @@ if (isset($_SESSION['username'])) {?>
                                             <div class="navbar-content">
                                                 <div class="row">
                                                     <div class="col-md-5">
-                                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" alt="Alternate Text" class="img-responsive" width="120px" height="120px" />
+                                                        <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" alt="<?php echo $_SESSION['username'];?>" class="img-responsive" width="120px" height="120px" />
                                                         <p class="text-center small">
-                                                            <a href="<?php echo $changeprofile ?>">Change Photo</a></p>
+                                                            <a href="/godmusic/HTML/change_profile.php">Change Photo</a></p>
                                                     </div>
                                                     <div class="col-md-7">
                                                         <span><?php echo $_SESSION['username'];?></span>
                                                         <p class="text-muted small">
-                                                            <?php echo $_SESSION['email'];?></p>
+                                                            <?php echo $usu['email'];?></p>
                                                         <div class="divider">
                                                         </div>
-                                                        <a href="<?php echo $myprofile ?>" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
+                                                        <a href="/godmusic/HTML/my_profile.php" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
                                                         <a href="#" class="btn btn-default btn-xs"><i class="fa fa-address-card-o" aria-hidden="true"></i> Contacts</a>
-                                                        <a href="<?php echo $changeprofile ?>" class="btn btn-default btn-xs"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
+                                                        <a href="/godmusic/HTML/change_profile.php" class="btn btn-default btn-xs"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
                                                         <a href="#" class="btn btn-default btn-xs"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Help!</a>
                                                     </div>
                                                 </div>
@@ -179,10 +181,10 @@ if (isset($_SESSION['username'])) {?>
                                                 <div class="navbar-footer-content">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <a href="<?php echo $changeprofile ?>" class="btn btn-default btn-sm"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Change Passowrd</a>
+                                                            <a href="/godmusic/HTML/change_profile.php" class="btn btn-default btn-sm"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Change Passowrd</a>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <a href="<?php echo $logout ?>" class="btn btn-default btn-sm pull-right"><i class="fa fa-power-off" aria-hidden="true"></i> Sign Out</a>
+                                                            <a href="/godmusic/logout.php" class="btn btn-default btn-sm pull-right"><i class="fa fa-power-off" aria-hidden="true"></i> Sign Out</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -221,15 +223,6 @@ if (isset($_SESSION['username'])) {?>
             </div>
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3 class="panel-title pull-left">Your Username</h3>
-                    <br><br>
-                    <form class="form-horizontal">
-                        <label for="Username">Username</label>
-                        <input type="text" class="form-control" id="Username" name="username" value="<?php echo $_SESSION['username'];?>">
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-body">
                     <h3 class="panel-title pull-left">Your Password</h3>
                     <br><br>
                     <form class="form-horizontal">
@@ -246,9 +239,9 @@ if (isset($_SESSION['username'])) {?>
                     <br><br>
                     <form class="form-horizontal">
                         <label for="First_name">First name</label>
-                        <input type="text" class="form-control" id="First_name" name="nombre" value="<?php echo $_SESSION['nombre'];?>">
+                        <input type="text" class="form-control" id="First_name" name="nombre" value="<?php echo $usu['nombre'];?>">
                         <label for="Last_name">Last name</label>
-                        <input type="text" class="form-control" id="Last_name" name="apellidos" value="<?php echo $_SESSION['apellidos'];?>">
+                        <input type="text" class="form-control" id="Last_name" name="apellidos" value="<?php echo $usu['apellidos'];?>">
                     </form>
                 </div>
             </div>
@@ -258,7 +251,7 @@ if (isset($_SESSION['username'])) {?>
                     <br><br>
                     <form class="form-horizontal">
                         <label for="Email">Email</label>
-                        <input type="text" class="form-control" id="Email" name="email" value="<?php echo $_SESSION['email'];?>">
+                        <input type="text" class="form-control" id="Email" name="email" value="<?php echo $usu['email'];?>">
                 </div>
             </div>
             <div class="panel panel-default">
@@ -267,7 +260,7 @@ if (isset($_SESSION['username'])) {?>
                     <br><br>
                     <form class="form-horizontal">
                         <label for="PhoneNumber">Phone Number</label>
-                        <input type="text" class="form-control" id="PhoneNumber" name="telef" value="<?php echo $_SESSION['telefono'];?>">
+                        <input type="text" class="form-control" id="PhoneNumber" name="telef" value="<?php echo $usu['telefono'];?>">
                 </div>
             </div>
             <div class="panel panel-default">
@@ -276,7 +269,7 @@ if (isset($_SESSION['username'])) {?>
                     <br><br>
                     <form class="form-horizontal">
                         <label for="City">City</label>
-                        <input type="text" class="form-control" id="City" name="ciudad" value="<?php echo $_SESSION['ciudad'];?>">
+                        <input type="text" class="form-control" id="City" name="ciudad" value="<?php echo $usu['ciudad'];?>">
                 </div>
             </div>
             <div class="panel panel-default">
@@ -316,14 +309,14 @@ if (isset($_SESSION['username'])) {?>
                     <br><br>
                     <form class="form-horizontal">
                         <label for="Your_location">Your location</label>
-                        <input type="text" class="form-control" id="Your_location" placeholder="Fill me out" name="localizacion" value="<?php echo $_SESSION['ciudad'];?>">
+                        <input type="text" class="form-control" id="Your_location" placeholder="Fill me out" name="localizacion" value="<?php echo $usu['ciudad'];?>">
                         <br>
                         <label for="Your_gender">Your gender</label>
-                        <input type="text" class="form-control" id="Your_gender" placeholder="Fill me out" name="genero" value="<?php echo $_SESSION['sexo'];?>">
+                        <input type="text" class="form-control" id="Your_gender" placeholder="Fill me out" name="genero" value="<?php echo $usu['sexo'];?>">
                         <br>
                         <label>Your Birthday</label>
                         <?php
-                        $date = $_SESSION['nacimiento'];
+                        $date = $usu['nacimiento'];
                         list($y, $m, $d) = explode('-', $date);
                         if ($y==0000) $y='Year';
                         if ($d==00) $d='Day';
@@ -530,29 +523,28 @@ if (isset($_SESSION['username'])) {?>
 
     <!--========== JAVASCRIPTS (Load javascripts at bottom, this will reduce page load time) ==========-->
     <!-- Vendor -->
-    <script type="text/javascript " src="<?php echo $global_min ?> "></script>
-    <script type="text/javascript " src="<?php echo $migrate ?> "></script>
-    <script type="text/javascript " src="<?php echo $js_bootstrap ?> "></script>
-    <script type="text/javascript " src="<?php echo $jquery_smooth?> "></script>
-    <script type="text/javascript " src="<?php echo $back_top ?> "></script>
-    <script type="text/javascript " src="<?php echo $scrollbar1?>"></script>
-    <script type="text/javascript " src="<?php echo $swiper1?> "></script>
-    <script type="text/javascript " src="<?php echo $masonry2 ?> "></script>
-    <script type="text/javascript " src="<?php echo $masonry1 ?> "></script>
-    <script type="text/javascript " src="<?php echo $equal_height?> "></script>
-    <script type="text/javascript " src="<?php echo $jquery_parallax?> "></script>
-    <script type="text/javascript " src="<?php echo $jquery_wow ?> "></script>
-
+    <script type="text/javascript" src="vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery.migrate.min.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery.smooth-scroll.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery.back-to-top.min.js"></script>
+    <script type="text/javascript" src="vendor/scrollbar/jquery.scrollbar.min.js"></script>
+    <script type="text/javascript" src="vendor/swiper/swiper.jquery.min.js"></script>
+    <script type="text/javascript" src="vendor/masonry/jquery.masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="vendor/masonry/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery.equal-height.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery.parallax.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery.wow.min.js"></script>
 
     <!-- General Components and Settings -->
-    <script type="text/javascript " src="<?php echo $global_min ?> "></script>
-    <script type="text/javascript " src="<?php echo $heder ?> "></script>
-    <script type="text/javascript " src="<?php echo $scrollbar ?> "></script>
-    <script type="text/javascript " src="<?php echo $swiper ?> "></script>
-    <script type="text/javascript " src="<?php echo $masonry ?> "></script>
-    <script type="text/javascript " src="<?php echo $equal ?> "></script>
-    <script type="text/javascript " src="<?php echo $parallax ?> "></script>
-    <script type="text/javascript " src="<?php echo $wow ?> "></script>
+    <script type="text/javascript" src="js/global.min.js"></script>
+    <script type="text/javascript" src="js/components/header-sticky.min.js"></script>
+    <script type="text/javascript" src="js/components/scrollbar.min.js"></script>
+    <script type="text/javascript" src="js/components/swiper.min.js"></script>
+    <script type="text/javascript" src="js/components/masonry.min.js"></script>
+    <script type="text/javascript" src="js/components/equal-height.min.js"></script>
+    <script type="text/javascript" src="js/components/parallax.min.js"></script>
+    <script type="text/javascript" src="js/components/wow.min.js"></script>
     <!--========== END JAVASCRIPTS ==========-->
 
 </body>
@@ -561,6 +553,6 @@ if (isset($_SESSION['username'])) {?>
 </html>
 <?php
 } else{
-    header("Location: ../index.php");
+    header("Location: index_home.php");
 }
 }?>

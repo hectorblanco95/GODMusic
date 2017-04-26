@@ -1,6 +1,7 @@
 <?php
 session_start();
-require_once "Functions/bbdd.php";
+require_once "/constantes.php";
+
     if (isset($_POST['register-submit'])) {
         // Recogemos las variables del POST
         $username = $_POST['username'];
@@ -12,7 +13,7 @@ require_once "Functions/bbdd.php";
         if($pass!=$pass2) echo 'las contraseñas no coinciden';
         else{
         insertarUsu($username, $pass, $mail, $usu);
-        header("Location: HTML/index_home.php");
+        header("Location: $index");
         }
     } if (isset($_POST['login-submit'])){
         // Recogemos las variables del POST
@@ -34,7 +35,7 @@ require_once "Functions/bbdd.php";
            $_SESSION['componentes'] = $fila['componentes'];
            $_SESSION['direccion'] = $fila['direccion'];
            $_SESSION['perfil'] = $fila['perfil'];
-            header("Location: HTML/profile.php");
-        } else header("Location: HTML/index_home.php");
+            header("Location: ./HTML/profile.php");
+        } else header("Location: $index");
     } 
     ?>
