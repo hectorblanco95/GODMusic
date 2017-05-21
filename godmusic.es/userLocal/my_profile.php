@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 if (isset($_SESSION['username'])) {
-require_once "/Functions/bbdd.php";
+require_once "../Functions/bbdd.php";
 $usu = sessionUsu($_SESSION['username']);
 ?>
 <!DOCTYPE html>

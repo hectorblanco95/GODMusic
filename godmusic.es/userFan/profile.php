@@ -1,8 +1,8 @@
 <?php 
 session_start();
 if (isset($_SESSION['username'])) {
-require_once "/Functions/bbdd.php";
-$id=idUsu($_SESSION['username']);
+require_once "../Functions/bbdd.php";
+$id=$_SESSION['idusuario'];
 ?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">

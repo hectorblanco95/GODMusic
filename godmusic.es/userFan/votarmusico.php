@@ -1,6 +1,6 @@
 <?php
 
-require_once "/Functions/bbdd.php";
+require_once "../Functions/bbdd.php";
 if(isset($_POST['quitar'])==true){
     $idmusico=$_POST['quitare'];
     $idfan=$_POST['fans'];

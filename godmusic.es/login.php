@@ -22,12 +22,11 @@ require_once "Functions/bbdd.php";
     } 
     if (isset($_POST['login-submit'])){
         // Recogemos las variables del POST
-        $username = $_POST['username'];
+        $_SESSION['username'] = $_POST['username'];
         $pass = $_POST['password'];
-        if(loginUsu($username, $pass)){// funcion que comprueba si existe el usuario i la contra en la bbdd.
-           $fila = sessionUsu($username);
+        if(loginUsu($_SESSION['username'], $pass)){// funcion que comprueba si existe el usuario i la contra en la bbdd.
+           $fila = sessionUsu($_SESSION['username']);
            $_SESSION['idusuario'] = $fila['idusuario'];
-           $_SESSION['username'] = $fila['nombre_usuario'];
            $_SESSION['perfil'] = $fila['perfil'];
 
            if ($_SESSION['perfil']=='l'){

@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 if (isset($_SESSION['username'])) {
-require_once "/Functions/bbdd.php";
+require_once "../Functions/bbdd.php";
 ?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
@@ -481,7 +481,7 @@ require_once "/Functions/bbdd.php";
             <div class="row">
                 <div class="col-xs-6">
                     <a href="/index.php">
-                        <img class="g-width-100--xs g-height-auto--xs" src="img/logo.png" alt="GODMusic Logo">
+                        <img class="g-width-100--xs g-height-auto--xs" src="/HTML/img/logo.png" alt="GODMusic Logo">
                     </a>
                 </div>
                 <div class="col-xs-6 g-text-right--xs">

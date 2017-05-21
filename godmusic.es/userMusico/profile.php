@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if (isset($_SESSION['username'])) {
-require_once "/Functions/bbdd.php";
+require_once "../Functions/bbdd.php";
 ?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
@@ -58,9 +58,9 @@ require_once "/Functions/bbdd.php";
                     <div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
                         <!-- Logo -->
                         <div class="s-header-v2__logo">
-                            <a href="/godmusic/HTML/profile.php" class="s-header-v2__logo-link">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
+                            <a href="profile.php" class="s-header-v2__logo-link">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
                             </a>
                         </div>
                         <!-- End Logo -->
@@ -104,7 +104,7 @@ require_once "/Functions/bbdd.php";
                             <ul class="s-header-v2__nav">
                                 <!-- Home -->
                                 <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                    <a href="/godmusic/HTML/index_home.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                    <a href="/index.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                     <ul class="dropdown-menu s-header-v2__dropdown-menu">
                                         <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
                                         <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Conciertos en Bcn</a></li>
@@ -134,7 +134,7 @@ require_once "/Functions/bbdd.php";
                                                     <div class="col-md-5">
                                                         <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" alt="<?php echo $_SESSION['username'];?>" class="img-responsive" width="120px" height="120px" />
                                                         <p class="text-center small">
-                                                            <a href="/godmusic/HTML/change_profile.php">Change Photo</a></p>
+                                                            <a href="change_profile.php">Change Photo</a></p>
                                                     </div>
                                                     <div class="col-md-7">
                                                         <span><?php echo $_SESSION['username'];?></span>
@@ -142,9 +142,9 @@ require_once "/Functions/bbdd.php";
                                                             <?php echo $_SESSION['email'];?></p>
                                                         <div class="divider">
                                                         </div>
-                                                        <a href="/godmusic/HTML/my_profile.php" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
+                                                        <a href="my_profile.php" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
                                                         <a href="#" class="btn btn-default btn-xs"><i class="fa fa-address-card-o" aria-hidden="true"></i> Contacts</a>
-                                                        <a href="/godmusic/HTML/change_profile.php" class="btn btn-default btn-xs"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
+                                                        <a href="change_profile.php" class="btn btn-default btn-xs"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
                                                         <a href="#" class="btn btn-default btn-xs"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Help!</a>
                                                     </div>
                                                 </div>
@@ -153,10 +153,10 @@ require_once "/Functions/bbdd.php";
                                                 <div class="navbar-footer-content">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <a href="/godmusic/HTML/change_profile.php" class="btn btn-default btn-sm"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Change Passowrd</a>
+                                                            <a href="change_profile.php" class="btn btn-default btn-sm"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Change Passowrd</a>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <a href="/godmusic/logout.php" class="btn btn-default btn-sm pull-right"><i class="fa fa-power-off" aria-hidden="true"></i> Sign Out</a>
+                                                            <a href="/logout.php" class="btn btn-default btn-sm pull-right"><i class="fa fa-power-off" aria-hidden="true"></i> Sign Out</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -183,39 +183,39 @@ require_once "/Functions/bbdd.php";
     <div id="js__scroll-to-section" class="s-swiper js__swiper-slider">
         <!-- Swiper Wrapper -->
         <div class="swiper-wrapper">
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide swip" style="background: url('/godmusic/HTML/img/1.png');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide swip" style="background: url('/HTML/img/1.png');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/2.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/2.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/3.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/3.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/4.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/4.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/5.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/5.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/6.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/6.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/7.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/7.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/8.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/8.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/9.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/9.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/10.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/10.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/12.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/12.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/13.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/13.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/14.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/14.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/15.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/15.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/16.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/16.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/17.png');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/17.png');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/19.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/19.jpg');">
             </div>
         </div>
         <!-- End Swiper Wrapper -->
@@ -399,12 +399,12 @@ require_once "/Functions/bbdd.php";
         <div class="container g-padding-y-50--xs">
             <div class="row">
                 <div class="col-xs-6">
-                    <a href="index.html">
-                        <img class="g-width-100--xs g-height-auto--xs" src="img/logo.png" alt="GODMusic Logo">
+                    <a href="/index.php">
+                        <img class="g-width-100--xs g-height-auto--xs" src="/HTML/img/logo.png" alt="GODMusic Logo">
                     </a>
                 </div>
                 <div class="col-xs-6 g-text-right--xs">
-                    <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light"><a href="http://godmusic.es/preview/GODMusic/">GODMusic</a> Theme Powered by: <a href="http://www.godmusic.es/">godmusic.es</a></p>
+                    <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light"><a href="http://godmusic.es">GODMusic</a> Theme Powered by: <a href="http://www.godmusic.es/">godmusic.es</a></p>
                 </div>
             </div>
         </div>

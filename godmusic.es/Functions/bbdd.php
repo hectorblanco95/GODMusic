@@ -1,18 +1,12 @@
 <?php
-function idUsu($username){
-    $con = conectar("godmusic");
-    $select = "select idusuario from usuario where nombre_usuario = '$username';";
-    $resultado= mysqli_query($con, $select);
-    $f=mysqli_fetch_array($resultado);
-    desconectar($con);
-    return $f["idusuario"];
-}
+
  function insertConcert($nomConcert, $state, $day, $time, $cost, $username, $type){
     $con= conectar("godmusic");
     $insert= "insert into concierto (`nombre`, `estado`, `dia`, `hora`, `pago`, `idlocal`, `genero`) values('$nomConcert', '$state', '$day', '$time', $cost, '$username', $type);";
-	if (mysqli_query($con, $insert)) // Si ha ido bien
-	echo "Concierto dado de alta!";
-    else echo mysqli_error($con); // Sino mostramos el error
+	if (mysqli_query($con, $insert)) {// Si ha ido bien
+		echo "Concierto dado de alta!";
+		header("refresh:3;url=../index.php");
+    } else echo mysqli_error($con); // Sino mostramos el error
     desconectar($con);
 }
 function selectcomentario(){
@@ -80,7 +74,7 @@ function sessionUsu($username){
 
     if ($fila['nombre'] != NULL && $fila['apellidos'] != NULL && $fila['telefono'] != NULL && $fila['ciudad'] != NULL && $fila['sexo'] != NULL && $fila['nacimiento'] != NULL && $fila['nombre_artistico'] != NULL && $fila['genero'] != NULL && $fila['componentes'] != NULL && $fila['direccion'] != NULL) {
         $con = conectar("godmusic");
-        $query = "select idusuario, nombre_usuario, nombre, apellidos, email, telefono, ciudad.nomciudad, sexo, nacimiento, nombre_artistico, genero, componentes, direccion, perfil
+        $query = "select idusuario, nombre, apellidos, email, telefono, ciudad.nomciudad, sexo, nacimiento, nombre_artistico, genero, componentes, direccion, perfil
                 FROM usuario
                 INNER JOIN ciudad ON ciudad.idciudad = usuario.ciudad
                 WHERE nombre_usuario = '$username';";
@@ -91,7 +85,7 @@ function sessionUsu($username){
         return $fila;
     } else { 
 	    $con = conectar("godmusic");
-	    $select = "SELECT idusuario, nombre_usuario, email, perfil FROM usuario WHERE nombre_usuario = '$username';";
+	    $select = "SELECT idusuario, email, perfil FROM usuario WHERE nombre_usuario = '$username';";
         // Ejecutamos la consulta y recogemos el resultado
         $resultado = mysqli_query($con, $select);
         $fila = mysqli_fetch_assoc($resultado);
@@ -200,8 +194,8 @@ INNER JOIN genero ON usuario.genero = genero.idgenero
 WHERE usuario.perfil = 'm'
 AND idfan NOT IN (SELECT idfan
 FROM voto_musico
-WHERE idfan =$id)
-GROUP BY idmusico";
+WHERE idfan ='$id')
+GROUP BY idmusico;";
     $resultado = mysqli_query($con, $query);
     if($resultado == false) { 
     die(mysqli_error($con)); // TODO: better error handling

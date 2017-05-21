@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once "/Functions/bbdd.php";
+require_once "../Functions/bbdd.php";
 
 // Comprobamos si se ha pulsado botón "modificar"
  if (isset($_POST['modificar'])) {
