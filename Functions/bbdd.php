@@ -5,7 +5,7 @@
     $insert= "insert into concierto (`nombre`, `estado`, `dia`, `hora`, `pago`, `idlocal`, `genero`) values('$nomConcert', '$state', '$day', '$time', $cost, '$username', $type);";
 	if (mysqli_query($con, $insert)) {// Si ha ido bien
 		echo "Concierto dado de alta!";
-		header("refresh:3;url=../index.php");
+		header("refresh:3;url=profile.php");
     } else echo mysqli_error($con); // Sino mostramos el error
     desconectar($con);
 }
@@ -187,18 +187,24 @@ function vergruposquenohasvotado(){
 
 function vergruposyavotados($id){
     $con = conectar("godmusic");
-    $query = "SELECT usuario.nombre_artistico, genero.nomestilo, usuario.idusuario
-FROM voto_musico
-INNER JOIN usuario ON usuario.idusuario = voto_musico.idmusico
-INNER JOIN genero ON usuario.genero = genero.idgenero
-WHERE usuario.perfil = 'm'
-AND idfan NOT IN (SELECT idfan
-FROM voto_musico
-WHERE idfan ='$id')
+    $query = "select voto_musico.idmusico,voto_musico.idfan,usuario.nombre_artistico from voto_musico inner join usuario on voto_musico.idmusico=usuario.idusuario where usuario.idusuario=voto_musico.idmusico and voto_musico.idfan='$id'
 GROUP BY idmusico;";
     $resultado = mysqli_query($con, $query);
     if($resultado == false) { 
     die(mysqli_error($con)); // TODO: better error handling
+}else{
+
+    desconectar($con);
+    return $resultado;
+}
+
+}
+function listadodeconsiertos(){
+    $con = conectar("godmusic");
+    $query = "select concierto.nombre,concierto.dia,concierto.pago,concierto.hora,usuario.nombre_artistico as local from concierto inner join usuario on concierto.idlocal=usuario.idusuario inner join genero on concierto.genero=genero.idgenero where estado='O' and perfil='l';";
+    $resultado = mysqli_query($con, $query);
+    if($resultado == false) { 
+    die(mysqli_error($con)); 
 }else{
 
     desconectar($con);

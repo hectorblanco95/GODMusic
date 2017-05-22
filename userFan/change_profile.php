@@ -25,7 +25,7 @@ require_once "../Functions/bbdd.php";
     
 } else{
     
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['username']) && $_SESSION['perfil']=='f') {
 $usu = sessionUsu($_SESSION['username']);
 ?>
 <!DOCTYPE html>
@@ -147,7 +147,7 @@ $usu = sessionUsu($_SESSION['username']);
                                     <!-- Profile -->
                                     <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
                                         <ul class="navbar-right">
-                                <li class="dropdown"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <li class="dropdown" style="list-style-type: none !important;"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     <span class="user-avatar pull-left" style="margin-right:8px; margin-top:28px;">
                                         <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="<?php echo $_SESSION['username'];?>" alt="<?php echo $_SESSION['username'];?>" width="30px" height="30px">
                                     </span>
@@ -318,21 +318,21 @@ $usu = sessionUsu($_SESSION['username']);
                         <?php
                         $date = $usu['nacimiento'];
                         list($y, $m, $d) = explode('-', $date);
-                        if ($y==0000) $y='Year';
-                        if ($d==00) $d='Day';
-                        if ($m==00) $m='Month';
-                        else if ($m==01) $m='January';
-                        else if ($m==02) $m='February';
-                        else if ($m==03) $m='March';
-                        else if ($m==04) $m='April';
-                        else if ($m==05) $m='May';
-                        else if ($m==06) $m='June';
-                        else if ($m==07) $m='July';
-                        else if ($m==08) $m='August';
-                        else if ($m==09) $m='September';
-                        else if ($m==10) $m='October';
-                        else if ($m==11) $m='November';
-                        else if ($m==12) $m='December';
+                        if ($y=='0000') $y='Year';
+                        if ($d=='00') $d='Day';
+                        if ($m=='00') $m='Month';
+                        else if ($m=='01') $m='January';
+                        else if ($m=='02') $m='February';
+                        else if ($m=='03') $m='March';
+                        else if ($m=='04') $m='April';
+                        else if ($m=='05') $m='May';
+                        else if ($m=='06') $m='June';
+                        else if ($m=='07') $m='July';
+                        else if ($m=='08') $m='August';
+                        else if ($m=='09') $m='September';
+                        else if ($m=='10') $m='October';
+                        else if ($m=='11') $m='November';
+                        else if ($m=='12') $m='December';
                          
                         echo "
                         <div class='form-inline' id='birth-date'>
@@ -554,6 +554,6 @@ $usu = sessionUsu($_SESSION['username']);
 </html>
 <?php
 } else{
-    header("Location: index_home.php");
+    header("Location: ../index.php");
 }
 }?>

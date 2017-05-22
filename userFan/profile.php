@@ -1,7 +1,8 @@
 <?php 
 session_start();
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['username']) && $_SESSION['perfil']=='f') {
 require_once "../Functions/bbdd.php";
+$id=$_SESSION['idusuario'];
 ?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
@@ -89,7 +90,7 @@ require_once "../Functions/bbdd.php";
                                         <input type="hidden" name="search_param" value="all" id="search_param">
                                         <input type="text" class="form-control" name="x" placeholder="Search term...">
                                         <span class="input-group-btn">
-                    <button class="btn btn-default" action="/godmusic/buscador.php" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                    <button class="btn btn-default" action="/buscador.php" type="button"><span class="glyphicon glyphicon-search"></span></button>
                                         </span>
                                     </div>
                                 </li>
@@ -119,7 +120,7 @@ require_once "../Functions/bbdd.php";
                                 <!-- Profile -->
                                 <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
                                     <ul class="navbar-right">
-                                <li class="dropdown"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <li class="dropdown" style="list-style-type: none !important;"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     <span class="user-avatar pull-left" style="margin-right:8px; margin-top:28px;">
                                         <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="<?php echo $_SESSION['username'];?>" alt="<?php echo $_SESSION['username'];?>" width="30px" height="30px">
                                     </span>
@@ -225,11 +226,143 @@ require_once "../Functions/bbdd.php";
     </div>
     <!--========== END SWIPER SLIDER ==========-->
     <!--========== PAGE CONTENT ==========-->
-    
+       
     <div id="js__scroll-to-section1">
                    <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
                        
-                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">Grupos que ya ahs votado</h2>
+                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">ranking de grupos</h2>
+                       
+                        <div class="container3">
+    <div>
+        <!--CONCERT1 aqui-->
+       <?php
+        $groups =rankinggroups();
+        while ($fila = mysqli_fetch_array($groups)){
+        extract($fila);
+       echo "<div class='col-md-4 col-md-offset-4 watch-card' id='pedra' style='width:320px;'>
+            <div class='artist-title col-md-12'>
+                <a href=''><b>$nombre_artistico</b></a><br/>
+            </div>
+            <div class='artist-collage col-md-12'>
+                <div class='col-md-6'><img src='http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg' alt='artist-image' width='150' height='150'></div>
+                <div class='col-md-6 collage-rhs'>
+                    <div class='col-md-12'><img src='http://i.ytimg.com/vi/8gyLR4NfMiI/mqdefault.jpg' alt='artist-image' width='150' height='84'></div>
+                    <div class='col-md-12'><img src='http://i.ytimg.com/vi/zKCrSN9oXgQ/mqdefault.jpg' alt='artist-image' width='150' height='84'></div>        
+                </div>
+            </div>
+            <div class='listing-tab col-md-12'>
+                  <!-- Nav tabs -->
+                  <ul class='nav nav-tabs' id='myTabs' role='tablist'>
+                    <li role='presentation' class='active'><a href='#track' aria-controls='track' role='tab' data-toggle='tab'>Datos del grupo</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                 
+                  <div class='tab-content'>
+                    <div role='tabpanel' class='tab-pane active' id='track'>
+                        <ul>
+                          
+                            <li>Numero de votos:$voto</a> </li>
+                            <li>Genero:</a>  <span>$nomestilo</span></li>
+                            <span>
+                               
+                                   
+                                    </a>
+                              
+                            </span>
+                        </ul>
+    
+                      
+                    </div>
+                </div>
+            </div>
+        </div>";
+        }
+        ?>
+          
+        
+       
+        
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+                    <div id="js__scroll-to-section1">
+                   <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
+                       
+                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">Grupos para votar</h2>
+                       
+                        <div class="container3">
+    <div>
+        <!--CONCERT1 aqui-->
+       <?php
+        $groups = rankinggroups();
+        while ($fila = mysqli_fetch_array($groups)){
+        extract($fila);
+       echo "<div class='col-md-4 col-md-offset-4 watch-card' id='pedra' style='width:320px;'>
+            <div class='artist-title col-md-12'>
+                <a href=''><b>$nombre_artistico</b></a><br/>
+            </div>
+            <div class='artist-collage col-md-12'>
+                <div class='col-md-6'><img src='http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg' alt='artist-image' width='150' height='150'></div>
+                <div class='col-md-6 collage-rhs'>
+                    <div class='col-md-12'><img src='http://i.ytimg.com/vi/8gyLR4NfMiI/mqdefault.jpg' alt='artist-image' width='150' height='84'></div>
+                    <div class='col-md-12'><img src='http://i.ytimg.com/vi/zKCrSN9oXgQ/mqdefault.jpg' alt='artist-image' width='150' height='84'></div>        
+                </div>
+            </div>
+            <div class='listing-tab col-md-12'>
+                  <!-- Nav tabs -->
+                  <ul class='nav nav-tabs' id='myTabs' role='tablist'>
+                    <li role='presentation' class='active'><a href='#track' aria-controls='track' role='tab' data-toggle='tab'>Datos del grupo</a></li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                 
+                  <div class='tab-content'>
+                    <div role='tabpanel' class='tab-pane active' id='track'>
+                        <ul>
+                          
+                           
+                            <li>Genero:</a>  <span>$nomestilo</span></li>
+                            <span>
+                               
+                          
+                                   <div class='votar'>
+                                             <form action='votarmusico.php' method='POST'>
+                                             <input type='submit' name='votar'  id='id' value='votar' width='25' height='25'/>
+                                             <input type='hidden' name='votare' value='$idusuario'>
+                                             <input type='hidden' name='fany' value='$id'>
+                                             </form>
+                                        </div>
+                                    </a>
+                              
+                            </span>
+                        </ul>
+    
+                      
+                    </div>
+                </div>
+            </div>
+        </div>";
+        }
+        ?>
+          
+        
+       
+        
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+   
+    <div id="js__scroll-to-section1">
+                   <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
+                       
+                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">Grupos que ya has votado</h2>
                        
                         <div class="container3">
     <div>
@@ -261,19 +394,20 @@ require_once "../Functions/bbdd.php";
                     <div role='tabpanel' class='tab-pane active' id='track'>
                         <ul>
                           
-                            <li>Numero de votos:$voto</a> </li>
+                        
                             <li>Genero:</a>  <span>$nomestilo</span></li>
                             <span>
-                                <button id='yes'>
+                               
                                     
                                         <div class='votar'>
                                              <form action='votarmusico.php' method='POST'>
-                                             <input type='submit' name='holi'  id='id' value='' width='25' height='25'/>
-                                             <input type='hidden' name='holis' value='$id'>
+                                             <input type='submit' name='quitar'  id='id' value='quitar voto' width='25' height='25'/>
+                                             <input type='hidden' name='quitare' value='$idusuario'>
+                                             <input type='hidden' name='fans' value='$id'>
                                              </form>
                                         </div>
                                     </a>
-                                </button>
+                              
                             </span>
                         </ul>
     
@@ -284,7 +418,7 @@ require_once "../Functions/bbdd.php";
         </div>";
         }
         ?>
-      
+          
         
        
         
@@ -294,7 +428,7 @@ require_once "../Functions/bbdd.php";
 
                     </div>
                 </div>
-                
+              
     <div id="js__scroll-to-section2">
                    <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
                        
@@ -326,7 +460,7 @@ require_once "../Functions/bbdd.php";
                 <a href=''>$nombre</a><br/>
             </div>
             <div class='artist-collage col-md-12'>
-                <div><img src='/godmusic/HTML/img/2.jpg' alt='artist-image' width='300' height='150'></div>
+                <div><img src='/HTML/img/2.jpg' alt='artist-image' width='300' height='150'></div>
             </div>
             <div class='listing-tab col-md-12'>
                   <!-- Nav tabs -->
@@ -399,7 +533,7 @@ require_once "../Functions/bbdd.php";
         <div class="container g-padding-y-50--xs">
             <div class="row">
                 <div class="col-xs-6">
-                    <a href="/index.php">
+                    <a href="/index.html">
                         <img class="g-width-100--xs g-height-auto--xs" src="/HTML/img/logo.png" alt="GODMusic Logo">
                     </a>
                 </div>
@@ -442,11 +576,13 @@ require_once "../Functions/bbdd.php";
     <script type="text/javascript " src="/HTML/js/components/wow.min.js "></script>
     <!--========== END JAVASCRIPTS ==========-->
 
+
 </body>
 <!-- End Body -->
 
 </html>
 <?php
 } else
-   header("Location: index.php");
+   header("Location: ../index.php");
+   
 ?>

@@ -1,8 +1,7 @@
 <?php 
 session_start();
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['username']) && $_SESSION['perfil']=='m') {
 require_once "../Functions/bbdd.php";
-$id=$_SESSION['idusuario'];
 ?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
@@ -59,9 +58,9 @@ $id=$_SESSION['idusuario'];
                     <div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
                         <!-- Logo -->
                         <div class="s-header-v2__logo">
-                            <a href="/godmusic/HTML/profile.php" class="s-header-v2__logo-link">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/godmusic/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/godmusic/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
+                            <a href="profile.php" class="s-header-v2__logo-link">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="/HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
                             </a>
                         </div>
                         <!-- End Logo -->
@@ -90,7 +89,7 @@ $id=$_SESSION['idusuario'];
                                         <input type="hidden" name="search_param" value="all" id="search_param">
                                         <input type="text" class="form-control" name="x" placeholder="Search term...">
                                         <span class="input-group-btn">
-                    <button class="btn btn-default" action="/godmusic/buscador.php" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                    <button class="btn btn-default" action="/buscador.php" type="button"><span class="glyphicon glyphicon-search"></span></button>
                                         </span>
                                     </div>
                                 </li>
@@ -105,7 +104,7 @@ $id=$_SESSION['idusuario'];
                             <ul class="s-header-v2__nav">
                                 <!-- Home -->
                                 <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                    <a href="/godmusic/HTML/index_home.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                    <a href="/index.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                     <ul class="dropdown-menu s-header-v2__dropdown-menu">
                                         <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
                                         <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Conciertos en Bcn</a></li>
@@ -120,7 +119,7 @@ $id=$_SESSION['idusuario'];
                                 <!-- Profile -->
                                 <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
                                     <ul class="navbar-right">
-                                <li class="dropdown"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <li class="dropdown" style="list-style-type: none !important;"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     <span class="user-avatar pull-left" style="margin-right:8px; margin-top:28px;">
                                         <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="<?php echo $_SESSION['username'];?>" alt="<?php echo $_SESSION['username'];?>" width="30px" height="30px">
                                     </span>
@@ -135,7 +134,7 @@ $id=$_SESSION['idusuario'];
                                                     <div class="col-md-5">
                                                         <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" alt="<?php echo $_SESSION['username'];?>" class="img-responsive" width="120px" height="120px" />
                                                         <p class="text-center small">
-                                                            <a href="/godmusic/HTML/change_profile.php">Change Photo</a></p>
+                                                            <a href="change_profile.php">Change Photo</a></p>
                                                     </div>
                                                     <div class="col-md-7">
                                                         <span><?php echo $_SESSION['username'];?></span>
@@ -143,9 +142,9 @@ $id=$_SESSION['idusuario'];
                                                             <?php echo $_SESSION['email'];?></p>
                                                         <div class="divider">
                                                         </div>
-                                                        <a href="/godmusic/HTML/my_profile.php" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
+                                                        <a href="my_profile.php" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
                                                         <a href="#" class="btn btn-default btn-xs"><i class="fa fa-address-card-o" aria-hidden="true"></i> Contacts</a>
-                                                        <a href="/godmusic/HTML/change_profile.php" class="btn btn-default btn-xs"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
+                                                        <a href="change_profile.php" class="btn btn-default btn-xs"><i class="fa fa-cogs" aria-hidden="true"></i> Settings</a>
                                                         <a href="#" class="btn btn-default btn-xs"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Help!</a>
                                                     </div>
                                                 </div>
@@ -154,10 +153,10 @@ $id=$_SESSION['idusuario'];
                                                 <div class="navbar-footer-content">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <a href="/godmusic/HTML/change_profile.php" class="btn btn-default btn-sm"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Change Passowrd</a>
+                                                            <a href="change_profile.php" class="btn btn-default btn-sm"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Change Passowrd</a>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <a href="/godmusic/logout.php" class="btn btn-default btn-sm pull-right"><i class="fa fa-power-off" aria-hidden="true"></i> Sign Out</a>
+                                                            <a href="/logout.php" class="btn btn-default btn-sm pull-right"><i class="fa fa-power-off" aria-hidden="true"></i> Sign Out</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -184,39 +183,39 @@ $id=$_SESSION['idusuario'];
     <div id="js__scroll-to-section" class="s-swiper js__swiper-slider">
         <!-- Swiper Wrapper -->
         <div class="swiper-wrapper">
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide swip" style="background: url('/godmusic/HTML/img/1.png');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide swip" style="background: url('/HTML/img/1.png');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/2.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/2.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/3.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/3.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/4.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/4.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/5.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/5.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/6.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/6.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/7.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/7.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/8.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/8.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/9.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/9.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/10.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/10.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/12.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/12.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/13.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/13.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/14.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/14.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/15.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/15.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/16.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/16.jpg');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/17.png');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/17.png');">
             </div>
-            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/godmusic/HTML/img/19.jpg');">
+            <div class="g-fullheight--xs g-bg-position--center swiper-slide" style="background: url('/HTML/img/19.jpg');">
             </div>
         </div>
         <!-- End Swiper Wrapper -->
@@ -226,209 +225,70 @@ $id=$_SESSION['idusuario'];
     </div>
     <!--========== END SWIPER SLIDER ==========-->
     <!--========== PAGE CONTENT ==========-->
-       
-    <div id="js__scroll-to-section1">
+    
+
+                
+                
+    <div id="js__scroll-to-section2">
                    <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
                        
-                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">ranking de grupos</h2>
+                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">Conciertos abiertos</h2>
                        
                         <div class="container3">
     <div>
-        <!--CONCERT1 aqui-->
-       <?php
-        $groups =rankinggroups();
-        while ($fila = mysqli_fetch_array($groups)){
+        <?php
+        $concierto = listadodeconsiertos();
+        while ($fila = mysqli_fetch_array($concierto)) {
         extract($fila);
-       echo "<div class='col-md-4 col-md-offset-4 watch-card' id='pedra' style='width:320px;'>
+        $date = $dia;
+        list($y, $m, $d) = explode('-', $date);
+        if ($m=='01') $m='January';
+        else if ($m=='02') $m='February';
+        else if ($m=='03') $m='March';
+        else if ($m=='04') $m='April';
+        else if ($m=='05') $m='May';
+        else if ($m=='06') $m='June';
+        else if ($m=='07') $m='July';
+        else if ($m=='08') $m='August';
+        else if ($m=='09') $m='September';
+        else if ($m=='10') $m='October';
+        else if ($m=='11') $m='November';
+        else if ($m=='12') $m='December';
+        echo "
+        <div class='col-md-4 col-md-offset-4 watch-card' style='width:320px;'>
             <div class='artist-title col-md-12'>
-                <a href=''><b>$nombre_artistico</b></a><br/>
+                <a href=''>$nombre</a><br/>
             </div>
             <div class='artist-collage col-md-12'>
-                <div class='col-md-6'><img src='http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg' alt='artist-image' width='150' height='150'></div>
-                <div class='col-md-6 collage-rhs'>
-                    <div class='col-md-12'><img src='http://i.ytimg.com/vi/8gyLR4NfMiI/mqdefault.jpg' alt='artist-image' width='150' height='84'></div>
-                    <div class='col-md-12'><img src='http://i.ytimg.com/vi/zKCrSN9oXgQ/mqdefault.jpg' alt='artist-image' width='150' height='84'></div>        
-                </div>
+                <div><img src='/HTML/img/2.jpg' alt='artist-image' width='300' height='150'></div>
             </div>
             <div class='listing-tab col-md-12'>
                   <!-- Nav tabs -->
                   <ul class='nav nav-tabs' id='myTabs' role='tablist'>
-                    <li role='presentation' class='active'><a href='#track' aria-controls='track' role='tab' data-toggle='tab'>Datos del grupo</a></li>
+                    <li role='presentation' class='active'><a href='#track' aria-controls='track' role='tab' data-toggle='tab'>Información</a></li>
                   </ul>
                 
                   <!-- Tab panes -->
-                 
                   <div class='tab-content'>
                     <div role='tabpanel' class='tab-pane active' id='track'>
                         <ul>
-                          
-                            <li>Numero de votos:$voto</a> </li>
-                            <li>Genero:</a>  <span>$nomestilo</span></li>
-                            <span>
-                               
-                                   
-                                    </a>
-                              
-                            </span>
+                            <li><p class='calendar'> $d<em> $m</em></p></li>
+                            <li>Hora:</a><span>$hora</span></li>
+                            <li>Local:</a><span>$local</span></li>
+                            <li>Genero:</a><span>$nomestilo</span></li>
                         </ul>
-    
-                      
                     </div>
-                </div>
+                  </div>
             </div>
         </div>";
-        }
-        ?>
-          
-        
-       
         
         
+        }?>
+        
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-
-                    </div>
-                </div>
-                    <div id="js__scroll-to-section1">
-                   <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
-                       
-                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">Grupos para votar</h2>
-                       
-                        <div class="container3">
-    <div>
-        <!--CONCERT1 aqui-->
-       <?php
-        $groups = rankinggroups();
-        while ($fila = mysqli_fetch_array($groups)){
-        extract($fila);
-       echo "<div class='col-md-4 col-md-offset-4 watch-card' id='pedra' style='width:320px;'>
-            <div class='artist-title col-md-12'>
-                <a href=''><b>$nombre_artistico</b></a><br/>
-            </div>
-            <div class='artist-collage col-md-12'>
-                <div class='col-md-6'><img src='http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg' alt='artist-image' width='150' height='150'></div>
-                <div class='col-md-6 collage-rhs'>
-                    <div class='col-md-12'><img src='http://i.ytimg.com/vi/8gyLR4NfMiI/mqdefault.jpg' alt='artist-image' width='150' height='84'></div>
-                    <div class='col-md-12'><img src='http://i.ytimg.com/vi/zKCrSN9oXgQ/mqdefault.jpg' alt='artist-image' width='150' height='84'></div>        
-                </div>
-            </div>
-            <div class='listing-tab col-md-12'>
-                  <!-- Nav tabs -->
-                  <ul class='nav nav-tabs' id='myTabs' role='tablist'>
-                    <li role='presentation' class='active'><a href='#track' aria-controls='track' role='tab' data-toggle='tab'>Datos del grupo</a></li>
-                  </ul>
-                
-                  <!-- Tab panes -->
-                 
-                  <div class='tab-content'>
-                    <div role='tabpanel' class='tab-pane active' id='track'>
-                        <ul>
-                          
-                           
-                            <li>Genero:</a>  <span>$nomestilo</span></li>
-                            <span>
-                               
-                          
-                                   <div class='votar'>
-                                             <form action='votarmusico.php' method='POST'>
-                                             <input type='submit' name='votar'  id='id' value='votar' width='25' height='25'/>
-                                             <input type='hidden' name='votare' value='$idusuario'>
-                                             <input type='hidden' name='fany' value='$id'>
-                                             </form>
-                                        </div>
-                                    </a>
-                              
-                            </span>
-                        </ul>
-    
-                      
-                    </div>
-                </div>
-            </div>
-        </div>";
-        }
-        ?>
-          
-        
-       
-        
-        
-    </div>
-</div>
-
-                    </div>
-                </div>
-   
-    <div id="js__scroll-to-section1">
-                   <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
-                       
-                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">Grupos que ya has votado</h2>
-                       
-                        <div class="container3">
-    <div>
-        <!--CONCERT1 aqui-->
-       <?php
-        $groups = vergruposyavotados($id);
-        while ($fila = mysqli_fetch_array($groups)){
-        extract($fila);
-       echo "<div class='col-md-4 col-md-offset-4 watch-card' id='pedra' style='width:320px;'>
-            <div class='artist-title col-md-12'>
-                <a href=''><b>$nombre_artistico</b></a><br/>
-            </div>
-            <div class='artist-collage col-md-12'>
-                <div class='col-md-6'><img src='http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg' alt='artist-image' width='150' height='150'></div>
-                <div class='col-md-6 collage-rhs'>
-                    <div class='col-md-12'><img src='http://i.ytimg.com/vi/8gyLR4NfMiI/mqdefault.jpg' alt='artist-image' width='150' height='84'></div>
-                    <div class='col-md-12'><img src='http://i.ytimg.com/vi/zKCrSN9oXgQ/mqdefault.jpg' alt='artist-image' width='150' height='84'></div>        
-                </div>
-            </div>
-            <div class='listing-tab col-md-12'>
-                  <!-- Nav tabs -->
-                  <ul class='nav nav-tabs' id='myTabs' role='tablist'>
-                    <li role='presentation' class='active'><a href='#track' aria-controls='track' role='tab' data-toggle='tab'>Datos del grupo</a></li>
-                  </ul>
-                
-                  <!-- Tab panes -->
-                 
-                  <div class='tab-content'>
-                    <div role='tabpanel' class='tab-pane active' id='track'>
-                        <ul>
-                          
-                        
-                            <li>Genero:</a>  <span>$nomestilo</span></li>
-                            <span>
-                               
-                                    
-                                        <div class='votar'>
-                                             <form action='votarmusico.php' method='POST'>
-                                             <input type='submit' name='quitar'  id='id' value='quitar voto' width='25' height='25'/>
-                                             <input type='hidden' name='quitare' value='$idusuario'>
-                                             <input type='hidden' name='fans' value='$id'>
-                                             </form>
-                                        </div>
-                                    </a>
-                              
-                            </span>
-                        </ul>
-    
-                      
-                    </div>
-                </div>
-            </div>
-        </div>";
-        }
-        ?>
-          
-        
-       
-        
-        
-    </div>
-</div>
-
-                    </div>
-                </div>
-              
     <div id="js__scroll-to-section2">
                    <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
                        
@@ -460,7 +320,7 @@ $id=$_SESSION['idusuario'];
                 <a href=''>$nombre</a><br/>
             </div>
             <div class='artist-collage col-md-12'>
-                <div><img src='/godmusic/HTML/img/2.jpg' alt='artist-image' width='300' height='150'></div>
+                <div><img src='/HTML/img/2.jpg' alt='artist-image' width='300' height='150'></div>
             </div>
             <div class='listing-tab col-md-12'>
                   <!-- Nav tabs -->
@@ -533,12 +393,12 @@ $id=$_SESSION['idusuario'];
         <div class="container g-padding-y-50--xs">
             <div class="row">
                 <div class="col-xs-6">
-                    <a href="index.html">
-                        <img class="g-width-100--xs g-height-auto--xs" src="img/logo.png" alt="GODMusic Logo">
+                    <a href="/index.php">
+                        <img class="g-width-100--xs g-height-auto--xs" src="/HTML/img/logo.png" alt="GODMusic Logo">
                     </a>
                 </div>
                 <div class="col-xs-6 g-text-right--xs">
-                    <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light"><a href="http://godmusic.es/preview/GODMusic/">GODMusic</a> Theme Powered by: <a href="http://www.godmusic.es/">godmusic.es</a></p>
+                    <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light"><a href="http://godmusic.es">GODMusic</a> Theme Powered by: <a href="http://www.godmusic.es/">godmusic.es</a></p>
                 </div>
             </div>
         </div>
@@ -576,13 +436,11 @@ $id=$_SESSION['idusuario'];
     <script type="text/javascript " src="/HTML/js/components/wow.min.js "></script>
     <!--========== END JAVASCRIPTS ==========-->
 
-
 </body>
 <!-- End Body -->
 
 </html>
 <?php
 } else
-   header("Location: index.php");
-   
+   header("Location: ../index.php");
 ?>
