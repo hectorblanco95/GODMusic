@@ -3,6 +3,8 @@ session_start();
 if (isset($_SESSION['username']) && $_SESSION['perfil']=='f') {
 require_once "../Functions/bbdd.php";
 $id=$_SESSION['idusuario'];
+$usu = sessionUsu($_SESSION['username']);
+extract($usu);
 ?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
@@ -227,68 +229,9 @@ $id=$_SESSION['idusuario'];
     <!--========== END SWIPER SLIDER ==========-->
     <!--========== PAGE CONTENT ==========-->
        
-    <div id="js__scroll-to-section1">
-                   <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
-                       
-                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">ranking de grupos</h2>
-                       
-                        <div class="container3">
-    <div>
-        <!--CONCERT1 aqui-->
-       <?php
-        $groups =rankinggroups();
-        while ($fila = mysqli_fetch_array($groups)){
-        extract($fila);
-       echo "<div class='col-md-4 col-md-offset-4 watch-card' id='pedra' style='width:320px;'>
-            <div class='artist-title col-md-12'>
-                <a href=''><b>$nombre_artistico</b></a><br/>
-            </div>
-            <div class='artist-collage col-md-12'>
-                <div class='col-md-6'><img src='http://i.ytimg.com/i/MXDyVR2tclKWhbqNforSyA/mq1.jpg' alt='artist-image' width='150' height='150'></div>
-                <div class='col-md-6 collage-rhs'>
-                    <div class='col-md-12'><img src='http://i.ytimg.com/vi/8gyLR4NfMiI/mqdefault.jpg' alt='artist-image' width='150' height='84'></div>
-                    <div class='col-md-12'><img src='http://i.ytimg.com/vi/zKCrSN9oXgQ/mqdefault.jpg' alt='artist-image' width='150' height='84'></div>        
-                </div>
-            </div>
-            <div class='listing-tab col-md-12'>
-                  <!-- Nav tabs -->
-                  <ul class='nav nav-tabs' id='myTabs' role='tablist'>
-                    <li role='presentation' class='active'><a href='#track' aria-controls='track' role='tab' data-toggle='tab'>Datos del grupo</a></li>
-                  </ul>
-                
-                  <!-- Tab panes -->
-                 
-                  <div class='tab-content'>
-                    <div role='tabpanel' class='tab-pane active' id='track'>
-                        <ul>
-                          
-                            <li>Numero de votos:$voto</a> </li>
-                            <li>Genero:</a>  <span>$nomestilo</span></li>
-                            <span>
-                               
-                                   
-                                    </a>
-                              
-                            </span>
-                        </ul>
-    
-                      
-                    </div>
-                </div>
-            </div>
-        </div>";
-        }
-        ?>
-          
-        
-       
-        
-        
-    </div>
-</div>
 
-                    </div>
-                </div>
+
+                
                     <div id="js__scroll-to-section1">
                    <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
                        
@@ -298,9 +241,14 @@ $id=$_SESSION['idusuario'];
     <div>
         <!--CONCERT1 aqui-->
        <?php
-        $groups = rankinggroups();
+        $groups = listadodemusicos();
         while ($fila = mysqli_fetch_array($groups)){
         extract($fila);
+           $dataset[] = $fila['idusuario'];
+          
+            $longitud = count($dataset);
+       $i=0;
+           if($dataset[$i]!=$dataset2[$i]){
        echo "<div class='col-md-4 col-md-offset-4 watch-card' id='pedra' style='width:320px;'>
             <div class='artist-title col-md-12'>
                 <a href=''><b>$nombre_artistico</b></a><br/>
@@ -346,7 +294,11 @@ $id=$_SESSION['idusuario'];
                 </div>
             </div>
         </div>";
+           }
+           $i++;
         }
+      
+         
         ?>
           
         
@@ -371,6 +323,7 @@ $id=$_SESSION['idusuario'];
         $groups = vergruposyavotados($id);
         while ($fila = mysqli_fetch_array($groups)){
         extract($fila);
+         $dataset2[] = $fila['idusuario'];
        echo "<div class='col-md-4 col-md-offset-4 watch-card' id='pedra' style='width:320px;'>
             <div class='artist-title col-md-12'>
                 <a href=''><b>$nombre_artistico</b></a><br/>
@@ -400,10 +353,10 @@ $id=$_SESSION['idusuario'];
                                
                                     
                                         <div class='votar'>
-                                             <form action='votarmusico.php' method='POST'>
+                                             <form action='borrarvotomusico.php' method='POST'>
                                              <input type='submit' name='quitar'  id='id' value='quitar voto' width='25' height='25'/>
-                                             <input type='hidden' name='quitare' value='$idusuario'>
-                                             <input type='hidden' name='fans' value='$id'>
+                                             <input type='hidden' name='quitare' value='$id'>
+                                             <input type='hidden' name='fans' value='$idusuario'>
                                              </form>
                                         </div>
                                     </a>

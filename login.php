@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 require_once "Functions/bbdd.php";
     if (isset($_POST['register-submit'])) {
         // Recogemos las variables del POST
@@ -13,10 +14,27 @@ require_once "Functions/bbdd.php";
         $pass2 = $_POST['confirm-password'];
         $usu = $_POST['usu'];
        
-        if($pass!=$pass2) echo "<p>Las contraseñas no coinciden. </p>";
-        else{
+        if($pass!=$pass2){ 
+            echo "<p>Las contraseñas no coinciden. </p>";
+            header("refresh:3;url=index.php");
+        } else{
         insertarUsu($username, $pass, $mail, $usu);
-        header("Location: index.php");
+        
+        if(loginUsu($username, $pass)){// funcion que comprueba si existe el usuario i la contra en la bbdd.
+           $_SESSION['username']=$username;
+           $fila = sessionUsu($_SESSION['username']);
+           $_SESSION['idusuario'] = $fila['idusuario'];
+           $_SESSION['perfil'] = $fila['perfil'];
+
+           if ($_SESSION['perfil']=='l'){
+               header("Location: userLocal/profile.php");
+           } else if ($_SESSION['perfil']=='m'){
+               header("Location: userMusico/profile.php");
+           } else if ($_SESSION['perfil']=='f'){
+               header("Location: userFan/profile.php");
+           }
+        } else 
+            header("Location: index.php");
         }
     }
     } 
@@ -38,4 +56,5 @@ require_once "Functions/bbdd.php";
         } else 
             header("Location: index.php");
     } 
-    ?>
+ob_end_flush();    
+?>

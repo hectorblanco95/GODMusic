@@ -21,12 +21,12 @@ function selectcomentario(){
 } 
 function selectConciertos(){
 	$con = conectar("godmusic");
-	$select = "SELECT concierto.nombre, concierto.dia, usuario.nombre_artistico, concierto.hora, concierto.pago, genero.nomestilo
+	$select = "SELECT concierto.nombre, concierto.dia, usuario.nombre_artistico, concierto.hora, concierto.pago, genero.nomestilo, concierto.imagen
             FROM concierto
             INNER JOIN usuario ON concierto.idlocal = usuario.idusuario
             INNER JOIN genero ON concierto.genero = genero.idgenero
             WHERE usuario.perfil =  'l'
-            LIMIT 0 , 9";
+            LIMIT 0 , 9;";
     // Ejecutamos la consulta y recogemos el resultado
     $resultado = mysqli_query($con, $select);
     desconectar($con);
@@ -34,21 +34,23 @@ function selectConciertos(){
     return $resultado;
 } 
 function search(){
-        $con= conectar("godmusic");
-        $select= "select name from concierto";
-        $resultado= mysqli_query($con, $select);
-			desconectar($con);
-			return $resultado;
-		}
+    $con= conectar("godmusic");
+    $select= "select name from concierto";
+    $resultado= mysqli_query($con, $select);
+	desconectar($con);
+	return $resultado;
+}
+		
 // Función que modifica los datos de session en la bbdd.
-function setDatosSession($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $username) {
+function setDatosSession($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $username) { 
     $con = conectar("godmusic");
-    $update = "update usuario set newPass=$newPass, nombre=$nombre, apellidos=$apellidos, email=$email, telefono=$telef, sexo=$genero, direccion=$localizacion WHERE nombre_usuario = '$username';";
+    $passCif = password_hash($pass, PASSWORD_DEFAULT);
+    $update = "update usuario set password='$passCif', nombre='$nombre', apellidos='$apellidos', email='$email', telefono='$telef', sexo='$genero', direccion='$localizacion' WHERE nombre_usuario = '$username';";
     	// Ejecutamos la consulta
-    if (mysqli_query($con, $update)); // Si ha ido bien
-        
-    else echo mysqli_error($con); // Sino mostramos el error
-    
+    if (mysqli_query($con, $update)){ // Si ha ido bien
+        echo "settt";
+        header("refresh:10;url=my_profile.php");
+    }else echo mysqli_error($con); // Sino mostramos el error
     desconectar($con);
 }
 function insertarText($text, $id){
@@ -108,17 +110,22 @@ function existUser($username) {
 }
 function loginUsu($username, $pass){
 	$con = conectar("godmusic");
-	$query = "select nombre_usuario, password from usuario where nombre_usuario='$username' and password='$pass';";
+	$query = "select password from usuario where nombre_usuario='$username';";
 	$resultado = mysqli_query($con, $query);
     $filas = mysqli_num_rows($resultado);
     desconectar($con);
     // Si hay fila user ok, sino user incorrecto
-   // if ($filas > 0) return true;
-    return ($filas>0);
+    if ($filas > 0) {
+        // comprobamos si la contraseña es correcta
+        $fila = mysqli_fetch_array($resultado);
+        extract($fila);
+        return password_verify($pass, $password);
+    }
 }
 function insertarUsu($username, $pass, $mail, $usu){
 	$con = conectar("godmusic");
-	$query = "insert into usuario (`nombre_usuario`, `password`, `email`, `perfil`) values('$username', '$pass', '$mail', '$usu');";
+	$passCif = password_hash($pass, PASSWORD_DEFAULT);
+	$query = "insert into usuario (`nombre_usuario`, `password`, `email`, `perfil`) values('$username', '$passCif', '$mail', '$usu');";
 	// Ejecutamos la consulta
     if (mysqli_query($con, $query)); // Si ha ido bien
     
@@ -159,16 +166,6 @@ inner join usuario as us on us.idusuario!=u.idusuario inner join ciudad on idciu
     return $resultado;
 }
 
-
-function usu(){
-    $con = conectar("godmusic");
-    $query = "select nombre_usuario from usuario";
-    $resultado = mysqli_query($con, $query);
-    desconectar($con);
-    return $resultado;
-}
-
-
 function rankinggroups(){
     $con = conectar("godmusic");
     $query = "select count(idmusico) as voto, usuario.nombre_artistico,genero.nomestilo from voto_musico inner join usuario on usuario.idusuario=voto_musico.idmusico inner join genero on usuario.genero=genero.idgenero where usuario.perfil='m' group by idmusico; ";
@@ -201,7 +198,20 @@ GROUP BY idmusico;";
 }
 function listadodeconsiertos(){
     $con = conectar("godmusic");
-    $query = "select concierto.nombre,concierto.dia,concierto.pago,concierto.hora,usuario.nombre_artistico as local from concierto inner join usuario on concierto.idlocal=usuario.idusuario inner join genero on concierto.genero=genero.idgenero where estado='O' and perfil='l';";
+    $query = "select concierto.idconcierto,concierto.nombre,concierto.dia,concierto.pago,concierto.hora,usuario.nombre_artistico as local from concierto inner join usuario on concierto.idlocal=usuario.idusuario inner join genero on concierto.genero=genero.idgenero where estado='O' and perfil='l';";
+    $resultado = mysqli_query($con, $query);
+    if($resultado == false) { 
+    die(mysqli_error($con)); 
+}else{
+
+    desconectar($con);
+    return $resultado;
+}
+
+}
+function listadodemusicos(){
+    $con = conectar("godmusic");
+    $query = "SELECT nombre_artistico,genero.nomestilo,idusuario from usuario inner join genero on genero.idgenero=usuario.genero where perfil='m';";
     $resultado = mysqli_query($con, $query);
     if($resultado == false) { 
     die(mysqli_error($con)); 

@@ -57,10 +57,10 @@ require_once "Functions/bbdd.php";?>
                         <div class="col-lg-12">
                             <form id="login-form" action="login.php" method="post" role="form" style="display: block;">
                                 <div class="form-group">
-                                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" required>
+                                    <input type="text" name="username" id="username" tabindex="-1" class="form-control" placeholder="Username" value="" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" required>
+                                    <input type="password" name="password" id="password" tabindex="0" class="form-control" placeholder="Password" required>
                                 </div>
                                 <div class="form-group text-center">
                                     <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
@@ -85,13 +85,13 @@ require_once "Functions/bbdd.php";?>
                             </form>
                             <form id="register-form" action="login.php" method="POST" role="form" style="display: none;">
                                 <div class="form-group">
-                                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" required>
+                                    <input type="text" name="username" id="username" tabindex="-1" class="form-control" placeholder="Username" value="" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="" required>
+                                    <input type="email" name="email" id="email" tabindex="0" class="form-control" placeholder="Email Address" value="" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" required>
+                                    <input type="password" name="password" id="password" tabindex="1" class="form-control" placeholder="Password" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password" required>
@@ -169,11 +169,11 @@ require_once "Functions/bbdd.php";?>
                                                 <li><a href="#all">Anything</a></li>
                                             </ul>
                                         </div>
-                                        <form action="buscador.php" method="POST">
+                                      
                                         <input type="hidden" name="search_param" value="all" id="search_param">
                                         <input type="text" class="form-control" name="x" placeholder="que quieres buscar?">
-                                        <input type="submit" class="form-control" name="namees" value="Buscar">
-                                            </form>
+                                      
+                                          
                                         <span class="input-group-btn">
                     <button class="btn btn-default" action="buscador.php" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                                         </span>
@@ -404,7 +404,7 @@ require_once "Functions/bbdd.php";?>
                 <a href=''>$nombre</a><br/>
             </div>
             <div class='artist-collage col-md-12'>
-                <div><img src='HTML/img/2.jpg' alt='artist-image' width='300' height='150'></div>
+                <div><img src='$imagen' alt='artist-image' width='300' height='150'></div>
             </div>
             <div class='listing-tab col-md-12'>
                   <!-- Nav tabs -->

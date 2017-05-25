@@ -2,6 +2,8 @@
 session_start();
 if (isset($_SESSION['username']) && $_SESSION['perfil']=='m') {
 require_once "../Functions/bbdd.php";
+$usu = sessionUsu($_SESSION['username']);
+extract($usu);
 ?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">
@@ -241,6 +243,7 @@ require_once "../Functions/bbdd.php";
         while ($fila = mysqli_fetch_array($concierto)) {
         extract($fila);
         $date = $dia;
+        $idusua=$_SESSION['idusuario'];
         list($y, $m, $d) = explode('-', $date);
         if ($m=='01') $m='January';
         else if ($m=='02') $m='February';
@@ -277,6 +280,13 @@ require_once "../Functions/bbdd.php";
                             <li>Local:</a><span>$local</span></li>
                             <li>Genero:</a><span>$nomestilo</span></li>
                         </ul>
+                            <div class='votar'>
+                                             <form action='propuesta.php' method='POST'>
+                                             <input type='submit' name='unirse al concierto'  id='id' value='transfer' width='25' height='25'/>
+                                             <input type='hidden' name='idconcert' value='$idconcierto'>
+                                             <input type='hidden' name='idusi' value='$idusua'>
+                                             </form>
+                                        </div>
                     </div>
                   </div>
             </div>

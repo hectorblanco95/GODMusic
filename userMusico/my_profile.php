@@ -3,6 +3,7 @@ session_start();
 if (isset($_SESSION['username']) && $_SESSION['perfil']=='m') {
 require_once "../Functions/bbdd.php";
 $usu = sessionUsu($_SESSION['username']);
+extract($usu);
 ?>
 <!DOCTYPE html>
 <html lang="es-ES" class="no-js">

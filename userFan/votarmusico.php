@@ -1,16 +1,17 @@
 <?php
 
 require_once "../Functions/bbdd.php";
-if(isset($_POST['quitar'])==true){
-    $idmusico=$_POST['quitare'];
-    $idfan=$_POST['fans'];
-    deletevoto($idmusico,$idfan);
+
+if(isset($_POST['votar'])==true){
+    $idmusico=$_POST['votare'];
+    $idfan=$_POST['fany'];
+     votar($idmusico,$idfan);
      header("Location: profile.php");
 }
 
-function deletevoto($idmusico,$idfan){
+function votar($idmusico,$idfan){
      $con = conectar("godmusic");
-    $query = "DELETE FROM voto_musico WHERE idfan=$idfan and idmusico=$idmusico;";
+    $query = "insert into voto_musico values ('$idfan', '$idmusico');";
      $resultado = mysqli_query($con, $query);
       if($resultado == false) { 
     die(mysqli_error($con)); // TODO: better error handling
@@ -20,4 +21,5 @@ function deletevoto($idmusico,$idfan){
   
 }
 }
+
 ?>
