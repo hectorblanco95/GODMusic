@@ -8,6 +8,7 @@ require_once "Functions/bbdd.php";
         // Comprobamos si existe un usuario con el mismo username
     if (existUser($username)) { // es lo mismo que existUser($username)==true
         echo "<p>Ya existe un usuario con ese username.</p>";
+        header("refresh:3;url=index.php");
     } else {
         $mail = $_POST['email'];
         $pass = $_POST['password'];

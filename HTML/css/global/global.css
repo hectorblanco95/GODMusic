@@ -1046,6 +1046,276 @@
   Background Position
 ------------------------------------*/
 
+@media (max-height:500px) {
+  .g-bg-position--center {
+    margin-top: 2px;
+  }
+}
+
+@media (max-width:990px) {
+  .g-bg-position--center {
+    margin-top: 100px;
+  }
+  .s-swiper__pagination-v1--bc {
+    bottom: 15.875rem !important;
+  }
+  .col-md-4 {
+    display: inline-grid;
+  }
+}
+
+@media (max-width:854px) {
+  .g-bg-position--center {
+    margin-top: 100px;
+  }
+  .s-swiper__pagination-v1--bc {
+    bottom: 15.875rem !important;
+  }
+  .col-md-4 {
+    display: inline-grid;
+  }
+  .watch-card {
+    margin-left: 38px;
+  }
+}
+
+@media (max-width:991px) {
+  .col-md-4 {
+    display: inline-grid;
+  }
+  .watch-card {
+    margin-left: 38px;
+  }
+}
+
+@media (min-width:1196px) and (max-width:1234px) {
+  .watch-card {
+    margin-left: 42px;
+  }
+}
+
+@media (min-width:1172px) and (max-width:1195px) {
+  .watch-card {
+    margin-left: 34px;
+  }
+}
+
+@media (min-width:1154px) and (max-width:1171px) {
+  .watch-card {
+    margin-left: 28px;
+  }
+}
+
+@media (min-width:1130px) and (max-width:1153px) {
+  .watch-card {
+    margin-left: 20px;
+  }
+}
+
+@media (min-width:1106px) and (max-width:1129px) {
+  .watch-card {
+    margin-left: 12px;
+  }
+}
+
+@media (min-width:1094px) and (max-width:1105px) {
+  .watch-card {
+    margin-left: 8px;
+  }
+}
+
+@media (min-width:1085px) and (max-width:1093px) {
+  .watch-card {
+    margin-left: 5px;
+  }
+}
+
+@media (min-width:1082px) and (max-width:1084px) {
+  .watch-card {
+    margin-left: 4px;
+  }
+}
+
+@media (min-width:1079px) and (max-width:1081px) {
+  .watch-card {
+    margin-left: 3px;
+  }
+}
+
+@media (min-width:1076px) and (max-width:1078px) {
+  .watch-card {
+    margin-left: 2px;
+  }
+}
+
+@media (min-width:1073px) and (max-width:1075px) {
+  .watch-card {
+    margin-left: 1px;
+  }
+}
+
+@media (min-width:1070px) and (max-width:1072px) {
+  .watch-card {
+    margin-left: 0px;
+  }
+}
+
+@media (min-width:1067px) and (max-width:1069px) {
+  .watch-card {
+    margin-left: -1px;
+  }
+}
+
+@media (min-width:1064px) and (max-width:1066px) {
+  .watch-card {
+    margin-left: -2px;
+  }
+}
+
+@media (min-width:1061px) and (max-width:1063px) {
+  .watch-card {
+    margin-left: -3px;
+  }
+}
+
+@media (min-width:1058px) and (max-width:1060px) {
+  .watch-card {
+    margin-left: -4px;
+  }
+}
+
+@media (min-width:1055px) and (max-width:1057px) {
+  .watch-card {
+    margin-left: -5px;
+  }
+}
+
+@media (min-width:1052px) and (max-width:1054px) {
+  .watch-card {
+    margin-left: -6px;
+  }
+}
+
+@media (min-width:1049px) and (max-width:1051px) {
+  .watch-card {
+    margin-left: -7px;
+  }
+}
+
+@media (min-width:1046px) and (max-width:1048px) {
+  .watch-card {
+    margin-left: -8px;
+  }
+}
+
+@media (min-width:1043px) and (max-width:1045px) {
+  .watch-card {
+    margin-left: -9px;
+  }
+}
+
+@media (min-width:1040px) and (max-width:1042px) {
+  .watch-card {
+    margin-left: -10px;
+  }
+}
+
+@media (min-width:1037px) and (max-width:1039px) {
+  .watch-card {
+    margin-left: -11px;
+  }
+}
+
+@media (min-width:1034px) and (max-width:1036px) {
+  .watch-card {
+    margin-left: -12px;
+  }
+}
+
+@media (min-width:1031px) and (max-width:1033px) {
+  .watch-card {
+    margin-left: -13px;
+  }
+}
+
+@media (min-width:1028px) and (max-width:1030px) {
+  .watch-card {
+    margin-left: -14px;
+  }
+}
+
+@media (min-width:1025px) and (max-width:1027px) {
+  .watch-card {
+    margin-left: -15px;
+  }
+}
+
+@media (min-width:1022px) and (max-width:1024px) {
+  .watch-card {
+    margin-left: -16px;
+  }
+}
+
+@media (min-width:1019px) and (max-width:1021px) {
+  .watch-card {
+    margin-left: -17px;
+  }
+}
+
+@media (min-width:1016px) and (max-width:1018px) {
+  .watch-card {
+    margin-left: -18px;
+  }
+}
+
+@media (min-width:1013px) and (max-width:1015px) {
+  .watch-card {
+    margin-left: -19px;
+  }
+}
+
+@media (min-width:1010px) and (max-width:1012px) {
+  .watch-card {
+    margin-left: -20px;
+  }
+}
+
+@media (min-width:1007px) and (max-width:1009px) {
+  .watch-card {
+    margin-left: -21px;
+  }
+}
+
+@media (min-width:1004px) and (max-width:1006px) {
+  .watch-card {
+    margin-left: -22px;
+  }
+}
+
+@media (min-width:1001px) and (max-width:1003px) {
+  .watch-card {
+    margin-left: -23px;
+  }
+}
+
+@media (min-width:998px) and (max-width:1000px) {
+  .watch-card {
+    margin-left: -24px;
+  }
+}
+
+@media (min-width:995px) and (max-width:997px) {
+  .watch-card {
+    margin-left: -25px;
+  }
+}
+
+@media (min-width:992px) and (max-width:994px) {
+  .watch-card {
+    margin-left: -26px;
+  }
+}
+
 .g-bg-position--center {
   background-position: center 88px !important;
   background-size: contain !important;

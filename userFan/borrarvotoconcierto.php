@@ -2,23 +2,24 @@
 
 require_once "../Functions/bbdd.php";
 if(isset($_POST['quitar'])==true){
-    $idmusicos=$_POST['quitare'];
+    $idcon=$_POST['quitare'];
     $idfans=$_POST['fans'];
-    deletevoto($idmusicos,$idfans);
+    deletevotos($idcon,$idfans);
       header("Location: profile.php");
 }
 
 
-function deletevoto($idmusicos,$idfans){
+function deletevotos($idcon,$idfans){
      $con = conectar();
-    $query = "DELETE FROM voto_musico WHERE idfan='$idmusicos' and idmusico='$idfans';";
+    $query = "DELETE FROM voto_concierto WHERE idfan='$idcon' and idconcierto='$idfans';";
      $resultado = mysqli_query($con, $query);
 
       if($resultado == false) { 
     die(mysqli_error($con));
-else{
+}else{
+
     desconectar($con);
-}
+  
 }
 }
 

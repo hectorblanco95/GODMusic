@@ -10,4 +10,7 @@ if(isset($_POST['alta'])){
 	$type = $_POST['tipo'];
 	insertConcert($nomConcert, $state, $day, $time, $cost, $_SESSION['idusuario'], $type);
 }
+if(isset($_POST['aceptado'])){
+	updateApuntado($_POST['aceptado'], $_POST['idconcierto'], $_POST['idgrupo']);
+}
 ?>

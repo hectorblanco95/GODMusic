@@ -2,16 +2,16 @@
 
 require_once "../Functions/bbdd.php";
 
-if(isset($_POST['votar'])){
-    $idmusico=$_POST['votare'];
+if(isset($_POST['votar'])==true){
+    $idconcierto=$_POST['votare'];
     $idfan=$_POST['fany'];
-     votar($idmusico,$idfan);
+     votarcon($idconcierto,$idfan);
      header("Location: profile.php");
 }
 
-function votar($idmusico,$idfan){
+function votarcon($idconcierto,$idfan){
      $con = conectar();
-    $query = "insert into voto_musico values ('$idfan', '$idmusico');";
+    $query = "insert into voto_concierto values ('$idfan', '$idconcierto');";
      $resultado = mysqli_query($con, $query);
       if($resultado == false) { 
     die(mysqli_error($con)); // TODO: better error handling

@@ -45,9 +45,10 @@ extract($usu);
 
     <!-- Web Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    
     <!-- Vendor Styles -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="/HTML/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="/HTML/css/animate.css" rel="stylesheet" type="text/css" />
     <link href="/HTML/vendor/themify/themify.css" rel="stylesheet" type="text/css" />
@@ -59,8 +60,8 @@ extract($usu);
     <link href="/HTML/css/global/global.css" rel="stylesheet" type="text/css" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/HTML/img/IconGodMusic.ico" type="image/x-icon">
-    <link rel="icon" href="/HTML/img/IconGodMusic.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/HTML/img/gm_favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/HTML/img/gm_favicon.ico" type="image/x-icon">
 </head>
 <!-- End Head -->
 
@@ -131,7 +132,7 @@ extract($usu);
                                 <ul class="s-header-v2__nav">
                                     <!-- Home -->
                                     <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                        <a href="profile.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right:-31px;">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                        <a href="profile.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right: 0;">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                         <ul class="dropdown-menu s-header-v2__dropdown-menu">
                                             <li><a href="profile.php#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
                                             <li><a href="profile.php#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
@@ -146,7 +147,7 @@ extract($usu);
                                     <!-- Profile -->
                                     <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
                                         <ul class="navbar-right">
-                                <li class="dropdown" style="list-style-type: none !important;"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <li class="dropdown" style="list-style-type: none !important;"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin: 0;margin-left: -11px;">
                                     <span class="user-avatar pull-left" style="margin-right:8px; margin-top:28px;">
                                         <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="<?php echo $_SESSION['username'];?>" alt="<?php echo $_SESSION['username'];?>" width="30px" height="30px">
                                     </span>
@@ -225,60 +226,63 @@ extract($usu);
                 <div class="panel-body">
                     <h3 class="panel-title pull-left">Your Password</h3>
                     <br><br>
-                    <form class="form-horizontal">
+                    <div class="form-horizontal">
                         <label for="New_pass">New Password</label>
                         <input type="text" class="form-control" id="New_pass" name="newPass">
                         <label for="Repeat_pass">Repeat New Password</label>
                         <input type="text" class="form-control" id="Repeat_pass" name="newPass2">
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h3 class="panel-title pull-left">Your Name</h3>
                     <br><br>
-                    <form class="form-horizontal">
+                    <div class="form-horizontal">
                         <label for="First_name">First name</label>
                         <input type="text" class="form-control" id="First_name" name="nombre" value="<?php echo $usu['nombre'];?>">
                         <label for="Last_name">Last name</label>
                         <input type="text" class="form-control" id="Last_name" name="apellidos" value="<?php echo $usu['apellidos'];?>">
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h3 class="panel-title pull-left">Your Email</h3>
                     <br><br>
-                    <form class="form-horizontal">
+                    <div class="form-horizontal">
                         <label for="Email">Email</label>
                         <input type="text" class="form-control" id="Email" name="email" value="<?php echo $usu['email'];?>">
+                    </div>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h3 class="panel-title pull-left">Your Phone Number</h3>
                     <br><br>
-                    <form class="form-horizontal">
+                    <div class="form-horizontal">
                         <label for="PhoneNumber">Phone Number</label>
                         <input type="text" class="form-control" id="PhoneNumber" name="telef" value="<?php echo $usu['telefono'];?>">
+                    </div>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h3 class="panel-title pull-left">Your City</h3>
                     <br><br>
-                    <form class="form-horizontal">
+                    <div class="form-horizontal">
                         <label for="City">City</label>
                         <input type="text" class="form-control" id="City" name="ciudad" value="<?php echo $usu['ciudad'];?>">
+                    </div>
                 </div>
             </div>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h3 class="panel-title pull-left">Describe yourself in 5 words</h3>
                     <br><br>
-                    <form class="form-horizontal">
+                    <div class="form-horizontal">
                         <input type="text" class="form-control" id="keywords" placeholder="Like #movies #kittens #travel #teacher #newyork" name="descripcion">
-                    </form>
+                    </div>
                 </div>
             </div>
             <div class="panel panel-default">
@@ -302,12 +306,12 @@ extract($usu);
                     <p>Visibility of your extended profile:</p>
                     ...
                     <br><br>
-                    <form class="form-horizontal">
+                    <div class="form-horizontal">
                         <label>Your bio</label>
                         <textarea class="form-control" rows="3"></textarea>
-                    </form>
+                    </div>
                     <br><br>
-                    <form class="form-horizontal">
+                    <div class="form-horizontal">
                         <label for="Your_location">Your location</label>
                         <input type="text" class="form-control" id="Your_location" placeholder="Fill me out" name="localizacion" value="<?php echo $usu['ciudad'];?>">
                         <br>
@@ -370,7 +374,7 @@ extract($usu);
                                 ?>
                             </select>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
             <hr>

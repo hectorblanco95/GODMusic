@@ -17,8 +17,10 @@ require_once "Functions/bbdd.php";?>
 
     <!-- Web Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
-
+    
     <!-- Vendor Styles -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="HTML/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="HTML/css/animate.css" rel="stylesheet" type="text/css" />
     <link href="HTML/vendor/themify/themify.css" rel="stylesheet" type="text/css" />
@@ -30,8 +32,8 @@ require_once "Functions/bbdd.php";?>
     <link href="HTML/css/global/global.css" rel="stylesheet" type="text/css" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="HTML/img/IconGodMusic.ico" type="image/x-icon">
-    <link rel="icon" href="HTML/img/IconGodMusic.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="HTML/img/gm_favicon.ico" type="image/x-icon">
+    <link rel="icon" href="HTML/img/gm_favicon.ico" type="image/x-icon">
 </head>
 <!-- End Head -->
 
@@ -60,16 +62,16 @@ require_once "Functions/bbdd.php";?>
                                     <input type="text" name="username" id="username" tabindex="-1" class="form-control" placeholder="Username" value="" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="0" class="form-control" placeholder="Password" required>
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
                                 </div>
                                 <div class="form-group text-center">
-                                    <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                                    <input type="checkbox" class="" name="remember" id="remember">
                                     <label for="remember"> Remember Me</label>
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                            <input type="submit" name="login-submit" id="login-submit" class="form-control btn btn-login" value="Log In">
                                         </div>
                                     </div>
                                 </div>
@@ -77,7 +79,7 @@ require_once "Functions/bbdd.php";?>
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="text-center">
-                                                <a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+                                                <a href="http://phpoll.com/recover" class="forgot-password">Forgot Password?</a>
                                             </div>
                                         </div>
                                     </div>
@@ -88,13 +90,13 @@ require_once "Functions/bbdd.php";?>
                                     <input type="text" name="username" id="username" tabindex="-1" class="form-control" placeholder="Username" value="" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" name="email" id="email" tabindex="0" class="form-control" placeholder="Email Address" value="" required>
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email Address" value="" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" tabindex="1" class="form-control" placeholder="Password" required>
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password" required>
+                                    <input type="password" name="confirm-password" id="confirm-password" class="form-control" placeholder="Confirm Password" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="radio-inline">
@@ -112,7 +114,7 @@ require_once "Functions/bbdd.php";?>
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
 
-                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                            <input type="submit" name="register-submit" id="register-submit" class="form-control btn btn-register" value="Register Now">
 
                                         </div>
                                     </div>
@@ -142,8 +144,8 @@ require_once "Functions/bbdd.php";?>
                         <!-- Logo -->
                         <div class="s-header-v2__logo">
                             <a href="index.php" class="s-header-v2__logo-link">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
-                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="HTML/img/logo.PNG" alt="GODMusic Logo" width="255px" high="208px">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="HTML/img/logoBlack.png" alt="GODMusic Logo" width="308px" high="214px" style="margin-left: -43px;margin-top: 5px;">
+                                <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="HTML/img/logoWhite.png" alt="GODMusic Logo" width="308px" high="214px" style="margin-left: -43px;margin-top: 5px;">
                             </a>
                         </div>
                         <!-- End Logo -->
@@ -193,7 +195,6 @@ require_once "Functions/bbdd.php";?>
                                     <a href="index.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                     <ul class="dropdown-menu s-header-v2__dropdown-menu">
                                         <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
-                                        <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Inscribirse conciertos</a></li>
                                         <li><a href="#js__scroll-to-section2" class="s-header-v2__dropdown-menu-link">Artistas recomendados</a></li>
                                         <li><a href="#js__scroll-to-section3" class="s-header-v2__dropdown-menu-link">Conciertos recomendados</a></li>
                                         <li><a href="#js__scroll-to-section4" class="s-header-v2__dropdown-menu-link">Contact Us</a></li>
@@ -202,7 +203,7 @@ require_once "Functions/bbdd.php";?>
                                 </li>
                                 <!-- End Home -->
 
-                                <li class="s-header-v2__nav-item"><a href="" class="s-header-v2__nav-link" data-toggle="modal" data-target="#inicio">Login</a></li>
+                                <li class="s-header-v2__nav-item"><a href="" class="s-header-v2__nav-link -is-active" data-toggle="modal" data-target="#inicio"><i class="fa fa-fw fa-sign-in"></i> Login</a></li>
 
                             </ul>
                         </div>
@@ -527,25 +528,25 @@ require_once "Functions/bbdd.php";?>
                 <div class="row">
                     <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
                         <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Home</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">About</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Work</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Contact</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Home</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">About</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Work</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
                         <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Twitter</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Facebook</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Instagram</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">YouTube</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Twitter</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Facebook</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Instagram</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">YouTube</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-2 g-margin-b-40--xs g-margin-b-0--md">
                         <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Subscribe to Our Newsletter</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Privacy Policy</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Terms &amp; Conditions</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Subscribe to Our Newsletter</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Privacy Policy</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Terms &amp; Conditions</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1 s-footer__logo g-padding-y-50--xs g-padding-y-0--md">
@@ -562,7 +563,7 @@ require_once "Functions/bbdd.php";?>
             <div class="row">
                 <div class="col-xs-6">
                     <a href="index.php">
-                        <img class="g-width-100--xs g-height-auto--xs" src="HTML/img/gm.png" alt="GODMusic Logo">
+                        <img class="g-width-100--xs g-height-auto--xs" src="HTML/img/gm.png" alt="GODMusic Logo" style="width: 25px;">
                     </a>
                 </div>
                 <div class="col-xs-6 g-text-right--xs">

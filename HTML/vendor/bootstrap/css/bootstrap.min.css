@@ -1993,9 +1993,10 @@ pre code {
     }
 }
 
-@media (min-width:992px) {
+@media (min-width:991px) {
     .container {
-        width: 970px
+        width: 970px;
+        padding-left: 71px
     }
 }
 

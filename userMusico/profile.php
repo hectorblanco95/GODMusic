@@ -22,8 +22,10 @@ extract($usu);
 
     <!-- Web Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i|Montserrat:400,700" rel="stylesheet">
-
+    
     <!-- Vendor Styles -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="/HTML/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="/HTML/css/animate.css" rel="stylesheet" type="text/css" />
     <link href="/HTML/vendor/themify/themify.css" rel="stylesheet" type="text/css" />
@@ -35,8 +37,8 @@ extract($usu);
     <link href="/HTML/css/global/global.css" rel="stylesheet" type="text/css" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="/HTML/img/IconGodMusic.ico" type="image/x-icon">
-    <link rel="icon" href="/HTML/img/IconGodMusic.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/HTML/img/gm_favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/HTML/img/gm_favicon.ico" type="image/x-icon">
 </head>
 <!-- End Head -->
 
@@ -106,7 +108,7 @@ extract($usu);
                             <ul class="s-header-v2__nav">
                                 <!-- Home -->
                                 <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
-                                    <a href="/index.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                    <a href="/index.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-right: 0;">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
                                     <ul class="dropdown-menu s-header-v2__dropdown-menu">
                                         <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
                                         <li><a href="#js__scroll-to-section1" class="s-header-v2__dropdown-menu-link">Conciertos en Bcn</a></li>
@@ -121,7 +123,7 @@ extract($usu);
                                 <!-- Profile -->
                                 <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
                                     <ul class="navbar-right">
-                                <li class="dropdown" style="list-style-type: none !important;"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <li class="dropdown" style="list-style-type: none !important;"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin: 0;margin-left: -11px;">
                                     <span class="user-avatar pull-left" style="margin-right:8px; margin-top:28px;">
                                         <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="<?php echo $_SESSION['username'];?>" alt="<?php echo $_SESSION['username'];?>" width="30px" height="30px">
                                     </span>
@@ -276,18 +278,28 @@ extract($usu);
                     <div role='tabpanel' class='tab-pane active' id='track'>
                         <ul>
                             <li><p class='calendar'> $d<em> $m</em></p></li>
-                            <li>Hora:</a><span>$hora</span></li>
-                            <li>Local:</a><span>$local</span></li>
-                            <li>Genero:</a><span>$nomestilo</span></li>
-                        </ul>
-                            <div class='votar'>
+                            <li>Hora:<span>$hora</span></li>
+                            <li>Local:<span>$local</span></li>
+                            <li>Genero:<span>$nomestilo</span></li>
+                        </ul>";
+                        if(validarpropuesta($idusu,$idconcierto)){
+                       echo"     <div class='votar'>
                                              <form action='propuesta.php' method='POST'>
-                                             <input type='submit' name='unirse al concierto'  id='id' value='transfer' width='25' height='25'/>
+                                             <input type='submit' name='transfer'  id='id' value='unirse al concierto' width='25' height='25'/>
                                              <input type='hidden' name='idconcert' value='$idconcierto'>
-                                             <input type='hidden' name='idusi' value='$idusua'>
+                                             <input type='hidden' name='idusi' value='$idusu'>
                                              </form>
-                                        </div>
-                    </div>
+                                        </div>";
+                        }else{
+                            echo"     <div class='votar'>
+                                             <form action='desinscripcion.php' method='POST'>
+                                             <input type='submit' name='transfer2'  id='id' value='desinscribirse del concierto' width='25' height='25'/>
+                                             <input type='hidden' name='idconcert' value='$idconcierto'>
+                                             <input type='hidden' name='idusi' value='$idusu'>
+                                             </form>
+                                        </div>"; 
+                        }
+                 echo"   </div>
                   </div>
             </div>
         </div>";
@@ -299,66 +311,7 @@ extract($usu);
             </div>
         </div>
     </div>
-    <div id="js__scroll-to-section2">
-                   <div class="g-overflow--hidden g-padding-x-40--xs g-padding-y-50--xs">
-                       
-                       <h2 class="g-font-size-40--xs g-font-size-50--sm g-font-size-60--md g-color--white spai">Conciertos recomendados</h2>
-                       
-                        <div class="container3">
-    <div>
-        <?php
-        $concierto = selectConciertos();
-        while ($fila = mysqli_fetch_array($concierto)) {
-        extract($fila);
-        $date = $dia;
-        list($y, $m, $d) = explode('-', $date);
-        if ($m=='01') $m='January';
-        else if ($m=='02') $m='February';
-        else if ($m=='03') $m='March';
-        else if ($m=='04') $m='April';
-        else if ($m=='05') $m='May';
-        else if ($m=='06') $m='June';
-        else if ($m=='07') $m='July';
-        else if ($m=='08') $m='August';
-        else if ($m=='09') $m='September';
-        else if ($m=='10') $m='October';
-        else if ($m=='11') $m='November';
-        else if ($m=='12') $m='December';
-        echo "
-        <div class='col-md-4 col-md-offset-4 watch-card' style='width:320px;'>
-            <div class='artist-title col-md-12'>
-                <a href=''>$nombre</a><br/>
-            </div>
-            <div class='artist-collage col-md-12'>
-                <div><img src='/HTML/img/2.jpg' alt='artist-image' width='300' height='150'></div>
-            </div>
-            <div class='listing-tab col-md-12'>
-                  <!-- Nav tabs -->
-                  <ul class='nav nav-tabs' id='myTabs' role='tablist'>
-                    <li role='presentation' class='active'><a href='#track' aria-controls='track' role='tab' data-toggle='tab'>Información</a></li>
-                  </ul>
-                
-                  <!-- Tab panes -->
-                  <div class='tab-content'>
-                    <div role='tabpanel' class='tab-pane active' id='track'>
-                        <ul>
-                            <li><p class='calendar'> $d<em> $m</em></p></li>
-                            <li>Hora:</a><span>$hora</span></li>
-                            <li>Local:</a><span>$nombre_artistico</span></li>
-                            <li>Genero:</a><span>$nomestilo</span></li>
-                        </ul>
-                    </div>
-                  </div>
-            </div>
-        </div>";
-        
-        
-        }?>
-        
-                </div>
-            </div>
-        </div>
-    </div>
+  
     <!--========== END PAGE CONTENT ==========-->
 
     <!--========== FOOTER ==========-->
@@ -369,25 +322,25 @@ extract($usu);
                 <div class="row">
                     <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
                         <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Home</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">About</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Work</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Contact</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Home</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">About</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Work</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Contact</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-2 g-margin-b-20--xs g-margin-b-0--md">
                         <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Twitter</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Facebook</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Instagram</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">YouTube</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Twitter</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Facebook</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Instagram</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">YouTube</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-2 g-margin-b-40--xs g-margin-b-0--md">
                         <ul class="list-unstyled g-ul-li-tb-5--xs g-margin-b-0--xs">
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Subscribe to Our Newsletter</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Privacy Policy</a></li>
-                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=godmusic">Terms &amp; Conditions</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Subscribe to Our Newsletter</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Privacy Policy</a></li>
+                            <li><a class="g-font-size-15--xs g-color--white-opacity" href="#">Terms &amp; Conditions</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4 col-md-offset-2 col-sm-5 col-sm-offset-1 s-footer__logo g-padding-y-50--xs g-padding-y-0--md">
