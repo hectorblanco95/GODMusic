@@ -1,8 +1,8 @@
 <?php
-
+session_start();
 require_once "../Functions/bbdd.php";
 if(isset($_POST['transfer2'])==true){
-   $idusu=$_POST['idusi'];
+   $idusu=$_SESSION['idusuario'];
  $idcon=$_POST['idconcert'];
     deletevotos($idcon,$idusu);
       header("Location: profile.php");

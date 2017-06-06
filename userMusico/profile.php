@@ -3,6 +3,7 @@ session_start();
 if (isset($_SESSION['username']) && $_SESSION['perfil']=='m') {
 require_once "../Functions/bbdd.php";
 $usu = sessionUsu($_SESSION['username']);
+$id=$_SESSION['idusuario'];
 extract($usu);
 ?>
 <!DOCTYPE html>
@@ -13,7 +14,7 @@ extract($usu);
     <!-- Basic -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> 
     <title>GOD Music</title>
     <link rel="canonical" href="http://godmusic.es/" data-ajax-meta="binded">
     <meta name="keywords" content="HTML5 Theme" />
@@ -282,20 +283,20 @@ extract($usu);
                             <li>Local:<span>$local</span></li>
                             <li>Genero:<span>$nomestilo</span></li>
                         </ul>";
-                        if(validarpropuesta($idusu,$idconcierto)){
+                        if(validarpropuesta($id,$idconcierto)==false){
                        echo"     <div class='votar'>
                                              <form action='propuesta.php' method='POST'>
-                                             <input type='submit' name='transfer'  id='id' value='unirse al concierto' width='25' height='25'/>
+                                             <button type='submit' name='transfer' class='btn btn-primary'><i class='fa fa-fw -square -circle fa-plus-square'></i> Unirse</button>
                                              <input type='hidden' name='idconcert' value='$idconcierto'>
-                                             <input type='hidden' name='idusi' value='$idusu'>
+                                             
                                              </form>
-                                        </div>";
+                                        </div>"; 
                         }else{
                             echo"     <div class='votar'>
                                              <form action='desinscripcion.php' method='POST'>
-                                             <input type='submit' name='transfer2'  id='id' value='desinscribirse del concierto' width='25' height='25'/>
+                                             <button type='submit' name='transfer2' class='btn btn-danger'><i class='fa fa-fw -square -circle fa-minus-square'></i> desinscribirse</button>
                                              <input type='hidden' name='idconcert' value='$idconcierto'>
-                                             <input type='hidden' name='idusi' value='$idusu'>
+                                            
                                              </form>
                                         </div>"; 
                         }

@@ -23,10 +23,10 @@ require_once "Functions/bbdd.php";
         
         if(loginUsu($username, $pass)){// funcion que comprueba si existe el usuario i la contra en la bbdd.
            $_SESSION['username']=$username;
-           $fila = sessionUsu($_SESSION['username']);
+           $fila = sessionLogin($_SESSION['username']);
            $_SESSION['idusuario'] = $fila['idusuario'];
            $_SESSION['perfil'] = $fila['perfil'];
-
+            echo $_SESSION['perfil'];
            if ($_SESSION['perfil']=='l'){
                header("Location: userLocal/profile.php");
            } else if ($_SESSION['perfil']=='m'){
@@ -43,7 +43,7 @@ require_once "Functions/bbdd.php";
         // Recogemos las variables del POST
         if(loginUsu($_POST['username'], $_POST['password'])){// funcion que comprueba si existe el usuario i la contra en la bbdd.
            $_SESSION['username']=$_POST['username'];
-           $fila = sessionUsu($_SESSION['username']);
+           $fila = sessionLogin($_SESSION['username']);
            $_SESSION['idusuario'] = $fila['idusuario'];
            $_SESSION['perfil'] = $fila['perfil'];
 

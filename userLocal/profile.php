@@ -146,7 +146,7 @@ extract($usu);
                                                     <div class="col-md-7">
                                                         <span><?php echo $_SESSION['username'];?></span>
                                                         <p class="text-muted small">
-                                                            <?php echo $_SESSION['email'];?></p>
+                                                            <?php print_r ($usu);?></p>
                                                         <div class="divider">
                                                         </div>
                                                         <a href="my_profile.php" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
@@ -241,7 +241,7 @@ extract($usu);
                         <div class="container3">
     <div>
         <?php
-        $concierto = selectConciertos();//Creados $_SESSION['idusuario']
+        $concierto = selectConciertosCreados($_SESSION['idusuario']);
         $i=0;
         while ($fila = mysqli_fetch_array($concierto)) {
         extract($fila);
@@ -477,7 +477,7 @@ extract($usu);
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="state">Estado</label>
                                 <div class="col-md-5">
-                                    <select id="tipo" name="tipo" class="form-control">
+                                    <select name="state" class="form-control">
                                     <option value="T">Cerrado</option>
                                     <option value="O">Abierto</option>
                                     <option value="C">wf</option>

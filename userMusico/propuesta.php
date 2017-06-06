@@ -1,12 +1,13 @@
 <?php
-
+session_start();
+require_once "../Functions/bbdd.php";
 if(isset($_POST['transfer'])==true){
- require_once "../Functions/bbdd.php";
- $idusu=$_POST['idusi'];
+
+ $idusu=$_SESSION['idusuario'];
  $idcon=$_POST['idconcert'];
  echo"$idusu,$idcon";
  insertinscripcion($idusu,$idcon);
-     header("Location: profile.php");
+       header("Location: profile.php");
  
 }
 function insertinscripcion($idusu,$idcon){

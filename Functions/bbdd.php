@@ -106,36 +106,39 @@ function insertarText($text, $id){
     desconectar($con);
 }
 function sessionUsu($username){
-    $con = conectar();
-    $query = "select nombre, apellidos, telefono, ciudad.nomciudad, sexo, nacimiento, nombre_artistico, genero, componentes, direccion
-                FROM usuario
-                INNER JOIN ciudad ON ciudad.idciudad = usuario.ciudad
-                WHERE nombre_usuario = '$username';";
-    $resultado = mysqli_query($con, $query);
-    $fila = mysqli_fetch_assoc($resultado);
-    desconectar($con);
+   
 
-    if ($fila['nombre'] != NULL && $fila['apellidos'] != NULL && $fila['telefono'] != NULL && $fila['ciudad'] != NULL && $fila['sexo'] != NULL && $fila['nacimiento'] != NULL && $fila['nombre_artistico'] != NULL && $fila['genero'] != NULL && $fila['componentes'] != NULL && $fila['direccion'] != NULL) {
         $con = conectar();
-        $query = "select idusuario, nombre, apellidos, email, telefono, ciudad.nomciudad, sexo, nacimiento, nombre_artistico, genero, componentes, direccion, perfil
+        $query = "select nombre, apellidos, email, telefono, ciudad.nomciudad, sexo, nacimiento, nombre_artistico, genero, componentes, direccion
                 FROM usuario
                 INNER JOIN ciudad ON ciudad.idciudad = usuario.ciudad
                 WHERE nombre_usuario = '$username';";
         $resultado = mysqli_query($con, $query);
-        $fila = mysqli_fetch_assoc($resultado);
+        $fila = mysqli_fetch_array($resultado, MYSQLI_NUM);
+        //extract($fila);
         desconectar($con);
+        
+        $usu=array();
+        
+        for($i=0;$i<count($fila);$i++){
+            if($fila[$i]!=NULL){
+                array_push($usu,$fila[$i]);
+            }
+        }
         // devolvemos el resultado
-        return $fila;
-    } else { 
-	    $con = conectar();
-	    $select = "SELECT idusuario, email, perfil FROM usuario WHERE nombre_usuario = '$username';";
-        // Ejecutamos la consulta y recogemos el resultado
-        $resultado = mysqli_query($con, $select);
-        $fila = mysqli_fetch_assoc($resultado);
-        desconectar($con);
-        // devolvemos el resultado
-        return $fila;
-    }
+        return $usu;
+        
+    
+}
+function sessionLogin($username){
+    $con = conectar();
+	$select = "SELECT idusuario, perfil FROM usuario WHERE nombre_usuario = '$username';";
+    // Ejecutamos la consulta y recogemos el resultado
+    $resultado = mysqli_query($con, $select);
+    $fila = mysqli_fetch_assoc($resultado);
+    desconectar($con);
+    // devolvemos el resultado
+    return $fila;
 }
 // Función que comprueba si un username ya existe en la bbdd
 // Devuelve true si existe, false si no existe
