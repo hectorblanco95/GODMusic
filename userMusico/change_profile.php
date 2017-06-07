@@ -12,14 +12,21 @@ require_once "../Functions/bbdd.php";
     $telef = $_POST['telef'];
     $ciudad = $_POST['ciudad'];
     $genero = $_POST['genero'];
-    $descripcion = $_POST['descripcion'];
     $localizacion = $_POST['localizacion'];
+    $nacimiento = $_POST['nacimiento'];
+    $nombreArtistico = $_POST['nombreArtistico'];
+    $aforo = $_POST['aforo'];
+    // Directorio donde queréis guardar la imagen
+    $imagen=$_POST['fichero_usuario'];
+    $dir_subida = "/HTML/imgUsers/$imagen";
+    // Ruta completa de la imagen (podéis guardar eso en la bbdd como url de la imagen
+    $fichero_subido = $dir_subida . basename($_FILES['fichero_usuario']['name']);
  
     if($newPass!=$newPass2){
         echo 'las contraseñas no coinciden';
     } else{
     // Llamamos a la función que guarda los datos en la bbdd
-    setDatosSession($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $_SESSION['username']);
+    setDatosSessionMusic($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $nacimiento, $nombreArtistico, $aforo, $fichero_subido, $_SESSION['username']);
     }
     
 } else{
@@ -147,7 +154,7 @@ extract($usu);
                                     <!-- Profile -->
                                     <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
                                         <ul class="navbar-right">
-                                <li class="dropdown" style="list-style-type: none !important;"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin: 0;margin-left: -11px;">
+                                <li class="dropdown" style="list-style-type: none !important;"><a href="#" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"  style="margin: 0;margin-left: -11px;">
                                     <span class="user-avatar pull-left" style="margin-right:8px; margin-top:28px;">
                                         <img src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" class="img-responsive img-circle" title="<?php echo $_SESSION['username'];?>" alt="<?php echo $_SESSION['username'];?>" width="30px" height="30px">
                                     </span>
@@ -228,9 +235,9 @@ extract($usu);
                     <br><br>
                     <div class="form-horizontal">
                         <label for="New_pass">New Password</label>
-                        <input type="text" class="form-control" id="New_pass" name="newPass">
+                        <input type="password" class="form-control" id="New_pass" name="newPass" placeholder="New Passowrd" requiered>
                         <label for="Repeat_pass">Repeat New Password</label>
-                        <input type="text" class="form-control" id="Repeat_pass" name="newPass2">
+                        <input type="password" class="form-control" id="Repeat_pass" name="newPass2" placeholder="Repeat New Password" requiered>
                     </div>
                 </div>
             </div>
@@ -240,9 +247,21 @@ extract($usu);
                     <br><br>
                     <div class="form-horizontal">
                         <label for="First_name">First name</label>
-                        <input type="text" class="form-control" id="First_name" name="nombre" value="<?php echo $usu['nombre'];?>">
+                        <input type="text" class="form-control" id="First_name" name="nombre" placeholder="First Name" value="<?php echo $usu['nombre'];?>" requiered>
                         <label for="Last_name">Last name</label>
-                        <input type="text" class="form-control" id="Last_name" name="apellidos" value="<?php echo $usu['apellidos'];?>">
+                        <input type="text" class="form-control" id="Last_name" name="apellidos" placeholder="Last Name" value="<?php echo $usu['apellidos'];?>" requiered>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 class="panel-title pull-left">Local</h3>
+                    <br><br>
+                    <div class="form-horizontal">
+                        <label for="Stage_name">Stage Name</label>
+                        <input type="text" class="form-control" id="Stage_name" name="nombreArtistico" placeholder="Stage Name" value="<?php echo $usu['nombre_artistico'];?>" requiered>
+                        <label for="Aforo">Aforo</label>
+                        <input type="number" class="form-control" id="Aforo" name="aforo" placeholder="Aforo" value="<?php echo $usu['aforo'];?>" requiered>
                     </div>
                 </div>
             </div>
@@ -252,7 +271,7 @@ extract($usu);
                     <br><br>
                     <div class="form-horizontal">
                         <label for="Email">Email</label>
-                        <input type="text" class="form-control" id="Email" name="email" value="<?php echo $usu['email'];?>">
+                        <input type="text" class="form-control" id="Email" name="email" value="<?php echo $usu['email'];?>" requiered>
                     </div>
                 </div>
             </div>
@@ -262,7 +281,7 @@ extract($usu);
                     <br><br>
                     <div class="form-horizontal">
                         <label for="PhoneNumber">Phone Number</label>
-                        <input type="text" class="form-control" id="PhoneNumber" name="telef" value="<?php echo $usu['telefono'];?>">
+                        <input type="text" class="form-control" id="PhoneNumber" name="telef" placholder="Phone Number" value="<?php echo $usu['telefono'];?>" requiered>
                     </div>
                 </div>
             </div>
@@ -272,8 +291,19 @@ extract($usu);
                     <br><br>
                     <div class="form-horizontal">
                         <label for="City">City</label>
-                        <input type="text" class="form-control" id="City" name="ciudad" value="<?php echo $usu['ciudad'];?>">
-                    </div>
+                        <select name="ciudad" class="form-control">
+                          <option value="1">Barcelona</option>
+                          <option value="2">Badalona</option>
+                          <option value="3">Cornella</option>
+                          <option value="4">Tarragona</option>
+                          <option value="5">LLeida</option>
+                          <option value="6">Tortosa</option>
+                          <option value="7">Girona</option>
+                          <option value="8">Castelldefels</option>
+                          <option value="9">Salou</option>
+                          <option value="10">Figueres</option>
+                        </select>
+                    </div>                    
                 </div>
             </div>
             <div class="panel panel-default">
@@ -281,7 +311,7 @@ extract($usu);
                     <h3 class="panel-title pull-left">Describe yourself in 5 words</h3>
                     <br><br>
                     <div class="form-horizontal">
-                        <input type="text" class="form-control" id="keywords" placeholder="Like #movies #kittens #travel #teacher #newyork" name="descripcion">
+                        <input type="text" class="form-control" id="keywords" placeholder="Like #movies #kittens #travel #teacher #newyork">
                     </div>
                 </div>
             </div>
@@ -294,7 +324,7 @@ extract($usu);
                             <img class="img-thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px" height="300px">
                         </div>
                         <div class="col-lg-12 col-md-12">
-                            <button class="btn btn-primary"><i class="fa fa-upload" aria-hidden="true"></i> Upload a new profile photo!</button>
+                            <input class="btn btn-primary" name="fichero_usuario" type="file" enctype="multipart/form-data" requiered><i class="fa fa-upload" aria-hidden="true"></i> Upload a new profile photo!</input>
                         </div>
                     </div>
                 </div>
@@ -313,67 +343,31 @@ extract($usu);
                     <br><br>
                     <div class="form-horizontal">
                         <label for="Your_location">Your location</label>
-                        <input type="text" class="form-control" id="Your_location" placeholder="Fill me out" name="localizacion" value="<?php echo $usu['ciudad'];?>">
+                        <input type="text" class="form-control" id="Your_location" placeholder="Your Location" name="localizacion" value="<?php echo $usu['direccion'];?>" requiered>
                         <br>
                         <label for="Your_gender">Your gender</label>
-                        <input type="text" class="form-control" id="Your_gender" placeholder="Fill me out" name="genero" value="<?php echo $usu['sexo'];?>">
-                        <br>
-                        <label>Your Birthday</label>
                         <?php
-                        $date = $usu['nacimiento'];
-                        list($y, $m, $d) = explode('-', $date);
-                        if ($y==NULL) $y='Year';
-                        if ($d==NULL) $d='Day';
-                        if ($m==NULL) $m='Month';
-                        else if ($m=='01') $m='January';
-                        else if ($m=='02') $m='February';
-                        else if ($m=='03') $m='March';
-                        else if ($m=='04') $m='April';
-                        else if ($m=='05') $m='May';
-                        else if ($m=='06') $m='June';
-                        else if ($m=='07') $m='July';
-                        else if ($m=='08') $m='August';
-                        else if ($m=='09') $m='September';
-                        else if ($m=='10') $m='October';
-                        else if ($m=='11') $m='November';
-                        else if ($m=='12') $m='December';
+                        if (empty($usu['sexo'])) {
                         ?>
-                        
-                        <div class='form-inline' id='birth-date'>
-                            <select id='profile_date_year' name='profile[date][year]' class='form-control'>
-                                <?php
-                                for ($i=1900;$i<=date('Y');$i++){
-                                    if ($i==$y){
-                                        echo "<option value='$y' selected>$y</option>";
-                                    } else{
-                                        echo "<option value='$i'>$i</option>";
-                                    }
-                                }
-                                ?>
-                            </select>
-                            <select id='profile_date_month' name='profile[date][month]' class='form-control'>
-                                <?php
-                                for ($i=1;$i<=12;$i++){
-                                    if ($i==$m){
-                                        echo "<option value='$i' selected>$m</option>";
-                                    } else{
-                                        echo "<option value='$i'>$i</option>";
-                                    }
-                                }
-                                ?>
-                            </select>
-                            <select id='profile_date_day' name='profile[date][day]' class='form-control'>
-                                <?php
-                                for ($i=1;$i<=31;$i++){
-                                    if ($i==$m){
-                                        echo "<option value='$d' selected>$d</option>";
-                                    } else{
-                                        echo "<option value='$i'>$i</option>";
-                                    }
-                                }
-                                ?>
-                            </select>
-                        </div>
+                            <label class="checkbox-inline"><input type="radio" class="form-control" id="Your_gender" placeholder="Your gender" name="genero" value="H" checked> Man</label>
+                            <label class="checkbox-inline"><input type="radio" class="form-control" id="Your_gender" placeholder="Your gender" name="genero" value="D"> Woman</label>
+                        <?php
+                        } else if ($usu['sexo']=='H'){
+                        ?>
+                            <label class="checkbox-inline"><input type="radio" class="form-control" id="Your_gender" placeholder="Your gender" name="genero" value="H" checked> Man</label>
+                            <label class="checkbox-inline"><input type="radio" class="form-control" id="Your_gender" placeholder="Your gender" name="genero" value="D"> Woman</label>
+                        <?php
+                        } else if ($usu['sexo']=='D'){
+                        ?>
+                            <label class="checkbox-inline"><input type="radio" class="form-control" id="Your_gender" placeholder="Your gender" name="genero" value="H"> Man</label>
+                            <label class="checkbox-inline"><input type="radio" class="form-control" id="Your_gender" placeholder="Your gender" name="genero" value="D" checked> Woman</label>
+                        <?php
+                        }
+                        ?>
+                        <br>
+                        <label for="Your_birthday">Your Birthday</label>
+                        <input type="date" class="form-control" id="Your_birthday" placeholder="Your birthday" name="nacimiento" value="<?php echo $usu['nacimiento'];?>" requiered>
+                        <br>
                     </div>
                 </div>
             </div>

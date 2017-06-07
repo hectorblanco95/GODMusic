@@ -2663,7 +2663,7 @@ fieldset[disabled] .s-btn {
 ------------------------------ */
 
 .s-swiper__pagination-v1--bc {
-  position: absolute;
+  position: initial;
   bottom: 1.875rem !important;
   text-align: center;
   z-index: 1;

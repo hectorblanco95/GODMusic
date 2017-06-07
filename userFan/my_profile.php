@@ -199,7 +199,7 @@ extract($usu);
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel gravida metus, non ultrices sapien. Morbi odio metus, dapibus non nibh id amet.</p>
                         <hr>
                         <h3><strong>Location</strong></h3>
-                        <p><?php echo $usu['ciudad'];?></p>
+                        <p><?php echo $usu['nomciudad'];?></p>
                         <hr>
                         <h3><strong>Gender</strong></h3>
                         <p><?php echo $usu['sexo'];?></p>

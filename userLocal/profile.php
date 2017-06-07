@@ -146,7 +146,7 @@ extract($usu);
                                                     <div class="col-md-7">
                                                         <span><?php echo $_SESSION['username'];?></span>
                                                         <p class="text-muted small">
-                                                            <?php print_r ($usu);?></p>
+                                                            <?php echo $usu['email'];?></p>
                                                         <div class="divider">
                                                         </div>
                                                         <a href="my_profile.php" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
@@ -241,8 +241,8 @@ extract($usu);
                         <div class="container3">
     <div>
         <?php
-        $concierto = selectConciertosCreados($_SESSION['idusuario']);
         $i=0;
+        $concierto = selectConciertosCreados($_SESSION['idusuario']);
         while ($fila = mysqli_fetch_array($concierto)) {
         extract($fila);
         $date = $dia;

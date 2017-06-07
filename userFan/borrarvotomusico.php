@@ -16,11 +16,11 @@ function deletevoto($idmusicos,$idfans){
 
       if($resultado == false) { 
     die(mysqli_error($con));
-else{
+}else{
     desconectar($con);
 }
 }
-}
+
 
 
 ?>

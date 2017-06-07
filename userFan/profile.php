@@ -144,7 +144,7 @@ extract($usu);
                                                     <div class="col-md-7">
                                                         <span><?php echo $_SESSION['username'];?></span>
                                                         <p class="text-muted small">
-                                                            <?php echo $_SESSION['email'];?></p>
+                                                            <?php echo $usu['email'];?></p>
                                                         <div class="divider">
                                                         </div>
                                                         <a href="my_profile.php" class="btn btn-default btn-xs"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a>
@@ -362,7 +362,7 @@ extract($usu);
                                       echo"  <li style='border-bottom: 0; margin-bottom: 24px;'>
                                              <span style='margin: -28px;margin-right: -3px;'>
                                              <form action='borrarvotoconcierto.php' method='POST'>
-                                             <button type='submit' name='quitar' class='btn btn-labeled btn-danger' style='padding-top: 0;padding-bottom: 0;margin-bottom: 10px;display: inline-flex;padding: 0;float: left;margin-top: 24px;'><span class='btn-label' style='position: relative;left: -1px;display: inline-block;padding: 6px 12px;background: rgba(0, 0, 0, 0.15);border-radius: 3px 0 0 3px;'><i class='glyphicon glyphicon-thumbs-down'></i></span>Dislike</button>
+                                             <button type='submit' name='quitar2' class='btn btn-labeled btn-danger' style='padding-top: 0;padding-bottom: 0;margin-bottom: 10px;display: inline-flex;padding: 0;float: left;margin-top: 24px;'><span class='btn-label' style='position: relative;left: -1px;display: inline-block;padding: 6px 12px;background: rgba(0, 0, 0, 0.15);border-radius: 3px 0 0 3px;'><i class='glyphicon glyphicon-thumbs-down'></i></span>Dislike</button>
                                              <input type='hidden' name='quitare' value='$id'>
                                              <input type='hidden' name='fans' value='$idconcierto'>
                                              </form>
@@ -374,9 +374,10 @@ extract($usu);
                                        echo" <li style='border-bottom: 0; margin-bottom: 24px;'>
                                              <span style='margin: -28px;margin-right: -3px;'>
                                              <form action='votarconcierto.php' method='POST'>
-                                             <button type='submit' name='votar' class='btn btn-labeled btn-success' style='padding-top: 0;padding-bottom: 0;margin-bottom: 10px;display: inline-flex;padding: 0;float: left;margin-top: 24px;'><span class='btn-label' style='position: relative;left: -1px;display: inline-block;padding: 6px 12px;background: rgba(0, 0, 0, 0.15);border-radius: 3px 0 0 3px;'><i class='glyphicon glyphicon-thumbs-up'></i></span>Like</button>
+                                             <button type='submit' name='votar2' class='btn bt   n-labeled btn-success' style='padding-top: 0;padding-bottom: 0;margin-bottom: 10px;display: inline-flex;padding: 0;float: left;margin-top: 24px;'><span class='btn-label' style='position: relative;left: -1px;display: inline-block;padding: 6px 12px;background: rgba(0, 0, 0, 0.15);border-radius: 3px 0 0 3px;'><i class='glyphicon glyphicon-thumbs-up'></i></span>Like</button>
                                              <input type='hidden' name='votare' value='$idconcierto'>
                                              <input type='hidden' name='fany' value='$id'>
+                                             </form>
                                              </li>
                                              </span>";
                                         }

@@ -37,6 +37,15 @@ function selectVotosFans($idConcert){
     // devolvemos el resultado
     return $resultado;
 }
+function selectVotosFansmusic($id){
+	$con = conectar();
+	$select = "select usuario.nombre_usuario from usuario inner join voto_musico on voto_musico.idfan=usuario.idusuario where perfil='f' and idmusico='$id';";
+    // Ejecutamos la consulta y recogemos el resultado
+    $resultado = mysqli_query($con, $select);
+    desconectar($con);
+    // devolvemos el resultado
+    return $resultado;
+}
 function selectGruopsApuntados($idConcert){
 	$con = conectar();
 	$select = "Select idgrupo, usuario.nombre_artistico, aceptado from propuesta inner join usuario on propuesta.idgrupo=usuario.idusuario where idconcierto='$idConcert';";
@@ -81,16 +90,54 @@ function search(){
 	desconectar($con);
 	return $resultado;
 }
-		
-// Función que modifica los datos de session en la bbdd.
-function setDatosSession($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $username) { 
+// Función que modifica los datos del user local en la bbdd.
+function setDatosSessionLocal($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $nacimiento, $nombreArtistico, $aforo, $fichero_subido, $username) { 
     $con = conectar();
-    $passCif = password_hash($pass, PASSWORD_DEFAULT);
-    $update = "update usuario set password='$passCif', nombre='$nombre', apellidos='$apellidos', email='$email', telefono='$telef', sexo='$genero', direccion='$localizacion' WHERE nombre_usuario = '$username';";
-    	// Ejecutamos la consulta
+    $passCif = password_hash($newPass, PASSWORD_DEFAULT);
+    $update = "update usuario set password='$passCif', nombre='$nombre', apellidos='$apellidos', email='$email', telefono='$telef', sexo='$genero', direccion='$localizacion', nacimiento='$nacimiento', nombre_artistico='$nombreArtistico', aforo='$aforo', imagen='$fichero_subido' WHERE nombre_usuario = '$username';";
+    // Ejecutamos la consulta
     if (mysqli_query($con, $update)){ // Si ha ido bien
-        echo "settt";
-        header("refresh:10;url=my_profile.php");
+        // Subimos el fichero al servidor
+        if (move_uploaded_file($_FILES['fichero_usuario']['tmp_name'], $fichero_subido)) {
+        echo "<p>El fichero es válido y se subió con éxito.</p>";
+        } else {
+            echo "<p>Ha habido un error al subir el fichero</p>";
+        }
+        header("refresh:3;url=my_profile.php");
+    }else echo mysqli_error($con); // Sino mostramos el error
+    desconectar($con);
+}		
+// Función que modifica los datos del user music en la bbdd.
+function setDatosSessionMusic($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $nacimiento, $nombreArtistico, $fichero_subido, $username) { 
+    $con = conectar();
+    $passCif = password_hash($newPass, PASSWORD_DEFAULT);
+    $update = "update usuario set password='$passCif', nombre='$nombre', apellidos='$apellidos', email='$email', telefono='$telef', sexo='$genero', direccion='$localizacion', nacimiento='$nacimiento', nombre_artistico='$nombreArtistico', imagen='$fichero_subido' WHERE nombre_usuario = '$username';";
+    // Ejecutamos la consulta
+    if (mysqli_query($con, $update)){ // Si ha ido bien
+        // Subimos el fichero al servidor
+        if (move_uploaded_file($_FILES['fichero_usuario']['tmp_name'], $fichero_subido)) {
+        echo "<p>El fichero es válido y se subió con éxito.</p>";
+        } else {
+            echo "<p>Ha habido un error al subir el fichero</p>";
+        }
+        header("refresh:3;url=my_profile.php");
+    }else echo mysqli_error($con); // Sino mostramos el error
+    desconectar($con);
+}
+// Función que modifica los datos del user fan en la bbdd.
+function setDatosSessionFan($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $nacimiento, $nombreArtistico, $fichero_subido, $username) { 
+    $con = conectar();
+    $passCif = password_hash($newPass, PASSWORD_DEFAULT);
+    $update = "update usuario set password='$passCif', nombre='$nombre', apellidos='$apellidos', email='$email', telefono='$telef', sexo='$genero', direccion='$localizacion', nacimiento='$nacimiento', nombre_artistico='$nombreArtistico', imagen='$fichero_subido' WHERE nombre_usuario = '$username';";
+    // Ejecutamos la consulta
+    if (mysqli_query($con, $update)){ // Si ha ido bien
+        // Subimos el fichero al servidor
+        if (move_uploaded_file($_FILES['fichero_usuario']['tmp_name'], $fichero_subido)) {
+        echo "<p>El fichero es válido y se subió con éxito.</p>";
+        } else {
+            echo "<p>Ha habido un error al subir el fichero</p>";
+        }
+        header("refresh:3;url=my_profile.php");
     }else echo mysqli_error($con); // Sino mostramos el error
     desconectar($con);
 }
@@ -106,29 +153,29 @@ function insertarText($text, $id){
     desconectar($con);
 }
 function sessionUsu($username){
-   
-
-        $con = conectar();
-        $query = "select nombre, apellidos, email, telefono, ciudad.nomciudad, sexo, nacimiento, nombre_artistico, genero, componentes, direccion
+   $con = conectar();
+   $select = "SELECT ciudad FROM usuario WHERE nombre_usuario = '$username';";
+   $resultado = mysqli_query($con, $select);
+   $fila = mysqli_fetch_assoc($resultado);
+   if ($fila['ciudad']!=NULL){
+    $query = "select nombre, apellidos, email, telefono, ciudad.nomciudad, sexo, nacimiento, nombre_artistico, genero, componentes, direccion, aforo, imagen
                 FROM usuario
                 INNER JOIN ciudad ON ciudad.idciudad = usuario.ciudad
                 WHERE nombre_usuario = '$username';";
-        $resultado = mysqli_query($con, $query);
-        $fila = mysqli_fetch_array($resultado, MYSQLI_NUM);
-        //extract($fila);
-        desconectar($con);
-        
-        $usu=array();
-        
-        for($i=0;$i<count($fila);$i++){
-            if($fila[$i]!=NULL){
-                array_push($usu,$fila[$i]);
-            }
-        }
-        // devolvemos el resultado
-        return $usu;
-        
-    
+    // Ejecutamos la consulta y recogemos el resultado
+    $resultado = mysqli_query($con, $query);
+    $fila = mysqli_fetch_assoc($resultado);
+   } else{
+       $query = "select nombre, apellidos, email, telefono, ciudad, sexo, nacimiento, nombre_artistico, genero, componentes, direccion, aforo, imagen
+                FROM usuario
+                WHERE nombre_usuario = '$username';";
+    // Ejecutamos la consulta y recogemos el resultado
+    $resultado = mysqli_query($con, $query);
+    $fila = mysqli_fetch_assoc($resultado);
+   }
+    desconectar($con);
+    // devolvemos el resultado
+    return $fila;
 }
 function sessionLogin($username){
     $con = conectar();

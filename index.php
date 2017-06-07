@@ -171,7 +171,7 @@ require_once "Functions/bbdd.php";?>
                                                 <li><a href="#all">Anything</a></li>
                                             </ul>
                                         </div>
-                                      
+                                      <form action="buscador.php" method="POST">
                                         <input type="hidden" name="search_param" value="all" id="search_param">
                                         <input type="text" class="form-control" name="x" placeholder="que quieres buscar?">
                                       
@@ -179,9 +179,26 @@ require_once "Functions/bbdd.php";?>
                                         <span class="input-group-btn">
                     <button class="btn btn-default" action="buscador.php" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                                         </span>
+                                        </form>
                                     </div>
                                 </li>
                                 <!-- End Search -->
+                                 <!-- Home -->
+                                <ul id="navBAR">
+                                <li class="dropdown s-header-v2__nav-item s-header-v2__dropdown-on-hover">
+                                    <a href="index.php" class="dropdown-toggle s-header-v2__nav-link -is-active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">HOMEPAGE <span class="g-font-size-10--xs g-margin-l-5--xs ti-angle-down"></span></a>
+                                    <ul class="dropdown-menu s-header-v2__dropdown-menu">
+                                        <li><a href="#js__scroll-to-section" class="s-header-v2__dropdown-menu-link">Proximos conciertos</a></li>
+                                        <li><a href="#js__scroll-to-section2" class="s-header-v2__dropdown-menu-link">Artistas recomendados</a></li>
+                                        <li><a href="#js__scroll-to-section3" class="s-header-v2__dropdown-menu-link">Conciertos recomendados</a></li>
+                                        <li><a href="#js__scroll-to-section4" class="s-header-v2__dropdown-menu-link">Contact Us</a></li>
+                                        <li><a href="#js__scroll-to-section5" class="s-header-v2__dropdown-menu-link">About</a></li>
+                                    </ul>
+                                </li>
+                                <!-- End Home -->
+
+                                <li class="s-header-v2__nav-item"><a href="" class="s-header-v2__nav-link -is-active" data-toggle="modal" data-target="#inicio"><i class="fa fa-fw fa-sign-in"></i> Login</a></li>
+                                </ul>
                             </ul>
                         </div>
                     </div>
@@ -418,9 +435,9 @@ require_once "Functions/bbdd.php";?>
                     <div role='tabpanel' class='tab-pane active' id='track'>
                         <ul>
                             <li><p class='calendar'> $d<em> $m</em></p></li>
-                            <li>Hora:</a><span>$hora</span></li>
-                            <li>Local:</a><span>$nombre_artistico</span></li>
-                            <li>Genero:</a><span>$nomestilo</span></li>
+                            <li>Hora:<span>$hora</span></li>
+                            <li>Local:<span>$nombre_artistico</span></li>
+                            <li>Genero:<span>$nomestilo</span></li>
                         </ul>
                     </div>
                   </div>

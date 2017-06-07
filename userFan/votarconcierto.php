@@ -2,7 +2,7 @@
 
 require_once "../Functions/bbdd.php";
 
-if(isset($_POST['votar'])==true){
+if(isset($_POST['votar2'])==true){
     $idconcierto=$_POST['votare'];
     $idfan=$_POST['fany'];
      votarcon($idconcierto,$idfan);
