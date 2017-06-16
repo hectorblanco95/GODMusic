@@ -10,23 +10,22 @@ require_once "../Functions/bbdd.php";
     $apellidos = $_POST['apellidos'];
     $email = $_POST['email'];
     $telef = $_POST['telef'];
-    $ciudad = $_POST['ciudad'];
-    $genero = $_POST['genero'];
-    $localizacion = $_POST['localizacion'];
+    $sexo = $_POST['genero'];
     $nacimiento = $_POST['nacimiento'];
     $nombreArtistico = $_POST['nombreArtistico'];
-    $aforo = $_POST['aforo'];
+    $genero = $_POST['style'];
+    $componentes = $_POST['members'];
     // Directorio donde queréis guardar la imagen
-    $imagen=$_POST['fichero_usuario'];
-    $dir_subida = "/HTML/imgUsers/$imagen";
+    /*$imagen=$_POST['fichero_usuario'];
+    $dir_subida = "/HTML/imgUsers/$imagen";*/
     // Ruta completa de la imagen (podéis guardar eso en la bbdd como url de la imagen
-    $fichero_subido = $dir_subida . basename($_FILES['fichero_usuario']['name']);
+    //$fichero_subido = $dir_subida . basename($_FILES['fichero_usuario']['name']);
  
     if($newPass!=$newPass2){
         echo 'las contraseñas no coinciden';
     } else{
     // Llamamos a la función que guarda los datos en la bbdd
-    setDatosSessionMusic($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $nacimiento, $nombreArtistico, $aforo, $fichero_subido, $_SESSION['username']);
+    setDatosSessionMusic($newPass, $nombre, $apellidos, $email, $telef, $sexo, $nacimiento, $nombreArtistico, $genero, $componentes, /*$fichero_subido,*/ $_SESSION['username']);
     }
     
 } else{
@@ -260,8 +259,10 @@ extract($usu);
                     <div class="form-horizontal">
                         <label for="Stage_name">Stage Name</label>
                         <input type="text" class="form-control" id="Stage_name" name="nombreArtistico" placeholder="Stage Name" value="<?php echo $usu['nombre_artistico'];?>" requiered>
-                        <label for="Aforo">Aforo</label>
-                        <input type="number" class="form-control" id="Aforo" name="aforo" placeholder="Aforo" value="<?php echo $usu['aforo'];?>" requiered>
+                        <label for="Members_name">Group Style</label>
+                        <input type="text" class="form-control" id="Style_name" name="style" placeholder="Group Style" value="<?php echo $usu['genero'];?>" requiered>
+                        <label for="Style_name">Group Members</label>
+                        <input type="text" class="form-control" id="Members_name" name="members" placeholder="Group Style" value="<?php echo $usu['componentes'];?>" requiered>
                     </div>
                 </div>
             </div>
@@ -283,27 +284,6 @@ extract($usu);
                         <label for="PhoneNumber">Phone Number</label>
                         <input type="text" class="form-control" id="PhoneNumber" name="telef" placholder="Phone Number" value="<?php echo $usu['telefono'];?>" requiered>
                     </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <h3 class="panel-title pull-left">Your City</h3>
-                    <br><br>
-                    <div class="form-horizontal">
-                        <label for="City">City</label>
-                        <select name="ciudad" class="form-control">
-                          <option value="1">Barcelona</option>
-                          <option value="2">Badalona</option>
-                          <option value="3">Cornella</option>
-                          <option value="4">Tarragona</option>
-                          <option value="5">LLeida</option>
-                          <option value="6">Tortosa</option>
-                          <option value="7">Girona</option>
-                          <option value="8">Castelldefels</option>
-                          <option value="9">Salou</option>
-                          <option value="10">Figueres</option>
-                        </select>
-                    </div>                    
                 </div>
             </div>
             <div class="panel panel-default">
@@ -342,9 +322,6 @@ extract($usu);
                     </div>
                     <br><br>
                     <div class="form-horizontal">
-                        <label for="Your_location">Your location</label>
-                        <input type="text" class="form-control" id="Your_location" placeholder="Your Location" name="localizacion" value="<?php echo $usu['direccion'];?>" requiered>
-                        <br>
                         <label for="Your_gender">Your gender</label>
                         <?php
                         if (empty($usu['sexo'])) {

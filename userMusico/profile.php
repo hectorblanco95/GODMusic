@@ -242,7 +242,6 @@ extract($usu);
                         <div class="container3">
     <div>
         <?php
-        $i=0;
         $concierto = listadodeconsiertos();
         while ($fila = mysqli_fetch_array($concierto)) {
         extract($fila);
@@ -272,13 +271,13 @@ extract($usu);
             <div class='listing-tab col-md-12'>
                   <!-- Nav tabs -->
                   <ul class='nav nav-tabs' id='myTabs' role='tablist'>
-                    <li role='presentation' class='active'><a href='#track$i' aria-controls='track' role='tab' data-toggle='tab'>Información</a></li>
-                    <li role='presentation'><a href='#trackk$i' aria-controls='track' role='tab' data-toggle='tab'>Votaciones</a></li>
+                    <li role='presentation' class='active'><a href='#track' aria-controls='track' role='tab' data-toggle='tab'>Información</a></li>
+                
                   </ul>
                 
                   <!-- Tab panes -->
                   <div class='tab-content'>
-                    <div role='tabpanel' class='tab-pane active' id='track$i'>
+                    <div role='tabpanel' class='tab-pane active' id='track'>
                         <ul>
                             <li><p class='calendar'> $d<em> $m</em></p></li>
                             <li>Hora:<span>$hora</span></li>
@@ -303,20 +302,9 @@ extract($usu);
                                         </div>"; 
                         }
                  echo"   </div>
-                        <div role='tabpanel' class='tab-pane fade' id='trackk$i'>";
-                        $fans = selectVotosFansmusic($id);
-                   echo "<ul style='line-height: 1.4;'>
-                            <li><button type='button' class='btn btn-labeled btn-success' style='padding-top: 0;padding-bottom: 0;margin-bottom: 10px;display: inline-flex;padding: 0;float: left;margin-top: 27px;'><span class='btn-label' style='position: relative;left: -1px;display: inline-block;padding: 6px 12px;background: rgba(0, 0, 0, 0.15);border-radius: 3px 0 0 3px;'><i class='glyphicon glyphicon-thumbs-up'></i></span>Likes</button></li>";
-                        while ($fila = mysqli_fetch_array($fans)) {
-                        extract($fila);
-                            echo "<li style='padding-left: 139px;'>Fan: <span>$nombre_usuario</span></li>";
-                        }
-                    echo "</ul>
-                    </div>
                   </div>
             </div>
         </div>";
-        $i++;
         }?>
         
                 </div>

@@ -1,8 +1,10 @@
 <?php
 require_once "Functions/bbdd.php";
-      $buscar = $_POST['x'];
+      
        
       if(isset($_POST['x'])==true) {
+            
+            $buscar = $_POST['x'];
             buscar($buscar);
       }
        

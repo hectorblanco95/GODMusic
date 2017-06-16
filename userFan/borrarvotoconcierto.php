@@ -4,7 +4,6 @@ require_once "../Functions/bbdd.php";
 if(isset($_POST['quitar2'])==true){
     $idcon=$_POST['quitare'];
     $idfans=$_POST['fans'];
-    echo"$idcon,$idfans";
     deletevotos($idcon,$idfans);
       header("Location: profile.php");
 }

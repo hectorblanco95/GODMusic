@@ -17,16 +17,16 @@ require_once "../Functions/bbdd.php";
     $nombreArtistico = $_POST['nombreArtistico'];
     $aforo = $_POST['aforo'];
     // Directorio donde queréis guardar la imagen
-    $imagen=$_POST['fichero_usuario'];
-    $dir_subida = "/HTML/imgUsers/$imagen";
+    /*$imagen=$_POST['fichero_usuario'];
+    $dir_subida = "/HTML/imgUsers/$imagen";*/
     // Ruta completa de la imagen (podéis guardar eso en la bbdd como url de la imagen
-    $fichero_subido = $dir_subida . basename($_FILES['fichero_usuario']['name']);
+    //$fichero_subido = $dir_subida . basename($_FILES['fichero_usuario']['name']);
  
     if($newPass!=$newPass2){
         echo 'las contraseñas no coinciden';
     } else{
     // Llamamos a la función que guarda los datos en la bbdd
-    setDatosSessionLocal($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $nacimiento, $nombreArtistico, $aforo, $fichero_subido, $_SESSION['username']);
+    setDatosSessionLocal($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $nacimiento, $nombreArtistico, $aforo, /*$fichero_subido,*/ $_SESSION['username']);
     }
     
 } else{

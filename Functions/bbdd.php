@@ -91,53 +91,53 @@ function search(){
 	return $resultado;
 }
 // Función que modifica los datos del user local en la bbdd.
-function setDatosSessionLocal($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $nacimiento, $nombreArtistico, $aforo, $fichero_subido, $username) { 
+function setDatosSessionLocal($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $nacimiento, $nombreArtistico, $aforo, /*$fichero_subido,*/ $username) { 
     $con = conectar();
     $passCif = password_hash($newPass, PASSWORD_DEFAULT);
-    $update = "update usuario set password='$passCif', nombre='$nombre', apellidos='$apellidos', email='$email', telefono='$telef', sexo='$genero', direccion='$localizacion', nacimiento='$nacimiento', nombre_artistico='$nombreArtistico', aforo='$aforo', imagen='$fichero_subido' WHERE nombre_usuario = '$username';";
+    $update = "update usuario set password='$passCif', nombre='$nombre', apellidos='$apellidos', email='$email', telefono='$telef', ciudad='$ciudad' sexo='$genero', direccion='$localizacion', nacimiento='$nacimiento', nombre_artistico='$nombreArtistico', aforo='$aforo' WHERE nombre_usuario = '$username';";
     // Ejecutamos la consulta
     if (mysqli_query($con, $update)){ // Si ha ido bien
         // Subimos el fichero al servidor
-        if (move_uploaded_file($_FILES['fichero_usuario']['tmp_name'], $fichero_subido)) {
+        /*if (move_uploaded_file($_FILES['fichero_usuario']['tmp_name'], $fichero_subido)) {
         echo "<p>El fichero es válido y se subió con éxito.</p>";
         } else {
             echo "<p>Ha habido un error al subir el fichero</p>";
-        }
-        header("refresh:3;url=my_profile.php");
+        }*/
+        header("Location: my_profile.php");
     }else echo mysqli_error($con); // Sino mostramos el error
     desconectar($con);
 }		
 // Función que modifica los datos del user music en la bbdd.
-function setDatosSessionMusic($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $nacimiento, $nombreArtistico, $fichero_subido, $username) { 
+function setDatosSessionMusic($newPass, $nombre, $apellidos, $email, $telef, $genero, $nacimiento, $nombreArtistico, $genero, $componentes, /*$fichero_subido,*/ $username) { 
     $con = conectar();
     $passCif = password_hash($newPass, PASSWORD_DEFAULT);
-    $update = "update usuario set password='$passCif', nombre='$nombre', apellidos='$apellidos', email='$email', telefono='$telef', sexo='$genero', direccion='$localizacion', nacimiento='$nacimiento', nombre_artistico='$nombreArtistico', imagen='$fichero_subido' WHERE nombre_usuario = '$username';";
+    $update = "update usuario set password='$passCif', nombre='$nombre', apellidos='$apellidos', email='$email', telefono='$telef', sexo='$genero', nacimiento='$nacimiento', nombre_artistico='$nombreArtistico', genero='$genero', componentes='$componentes' WHERE nombre_usuario = '$username';";
     // Ejecutamos la consulta
     if (mysqli_query($con, $update)){ // Si ha ido bien
         // Subimos el fichero al servidor
-        if (move_uploaded_file($_FILES['fichero_usuario']['tmp_name'], $fichero_subido)) {
+        /*if (move_uploaded_file($_FILES['fichero_usuario']['tmp_name'], $fichero_subido)) {
         echo "<p>El fichero es válido y se subió con éxito.</p>";
         } else {
             echo "<p>Ha habido un error al subir el fichero</p>";
-        }
-        header("refresh:3;url=my_profile.php");
+        }*/
+        header("Location: my_profile.php");
     }else echo mysqli_error($con); // Sino mostramos el error
     desconectar($con);
 }
 // Función que modifica los datos del user fan en la bbdd.
-function setDatosSessionFan($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $localizacion, $nacimiento, $nombreArtistico, $fichero_subido, $username) { 
+function setDatosSessionFan($newPass, $nombre, $apellidos, $email, $telef, $ciudad, $genero, $nacimiento, /*$fichero_subido,*/ $username) { 
     $con = conectar();
     $passCif = password_hash($newPass, PASSWORD_DEFAULT);
-    $update = "update usuario set password='$passCif', nombre='$nombre', apellidos='$apellidos', email='$email', telefono='$telef', sexo='$genero', direccion='$localizacion', nacimiento='$nacimiento', nombre_artistico='$nombreArtistico', imagen='$fichero_subido' WHERE nombre_usuario = '$username';";
+    $update = "update usuario set password='$passCif', nombre='$nombre', apellidos='$apellidos', email='$email', telefono='$telef', ciudad='$ciudad', sexo='$genero', nacimiento='$nacimiento' WHERE nombre_usuario = '$username';";
     // Ejecutamos la consulta
     if (mysqli_query($con, $update)){ // Si ha ido bien
         // Subimos el fichero al servidor
-        if (move_uploaded_file($_FILES['fichero_usuario']['tmp_name'], $fichero_subido)) {
+        /*if (move_uploaded_file($_FILES['fichero_usuario']['tmp_name'], $fichero_subido)) {
         echo "<p>El fichero es válido y se subió con éxito.</p>";
         } else {
             echo "<p>Ha habido un error al subir el fichero</p>";
-        }
-        header("refresh:3;url=my_profile.php");
+        }*/
+        header("Location: my_profile.php");
     }else echo mysqli_error($con); // Sino mostramos el error
     desconectar($con);
 }
@@ -355,7 +355,7 @@ AND idmusico ='$idusuario';";
     if($resultado == false) { 
     die(mysqli_error($con)); 
 }else{
- 
+   desconectar($con);
     return ($filas > 0);
 
 }
@@ -371,7 +371,7 @@ AND idconcierto ='$idconcierto';";
     if($resultado == false) { 
     die(mysqli_error($con)); 
 }else{
- 
+   desconectar($con);
     return ($filas > 0);
 
 }
@@ -389,7 +389,7 @@ AND idconcierto ='$idconcierto';";
     if($resultado == false) { 
     die(mysqli_error($con)); 
 }else{
- 
+   desconectar($con);
     return ($filas > 0);
 
 }

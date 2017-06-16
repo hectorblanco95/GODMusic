@@ -5,7 +5,6 @@ if(isset($_POST['transfer'])==true){
 
  $idusu=$_SESSION['idusuario'];
  $idcon=$_POST['idconcert'];
- echo"$idusu,$idcon";
  insertinscripcion($idusu,$idcon);
        header("Location: profile.php");
  

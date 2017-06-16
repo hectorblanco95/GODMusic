@@ -171,7 +171,7 @@ require_once "Functions/bbdd.php";?>
                                                 <li><a href="#all">Anything</a></li>
                                             </ul>
                                         </div>
-                                      <form action="buscador.php" method="POST">
+                                      
                                         <input type="hidden" name="search_param" value="all" id="search_param">
                                         <input type="text" class="form-control" name="x" placeholder="que quieres buscar?">
                                       
@@ -179,7 +179,7 @@ require_once "Functions/bbdd.php";?>
                                         <span class="input-group-btn">
                     <button class="btn btn-default" action="buscador.php" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                                         </span>
-                                        </form>
+                                      
                                     </div>
                                 </li>
                                 <!-- End Search -->

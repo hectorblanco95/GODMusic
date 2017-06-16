@@ -28,11 +28,11 @@ require_once "Functions/bbdd.php";
            $_SESSION['perfil'] = $fila['perfil'];
             echo $_SESSION['perfil'];
            if ($_SESSION['perfil']=='l'){
-               header("Location: userLocal/profile.php");
+               header("Location: userLocal/change_profile.php");
            } else if ($_SESSION['perfil']=='m'){
-               header("Location: userMusico/profile.php");
+               header("Location: userMusico/change_profile.php");
            } else if ($_SESSION['perfil']=='f'){
-               header("Location: userFan/profile.php");
+               header("Location: userFan/change_profile.php");
            }
         } else 
             header("Location: index.php");
